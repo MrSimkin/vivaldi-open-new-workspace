@@ -37,3 +37,6 @@ El propietario trabaja en chat temporal y puede perderlo al cerrar Vivaldi. ANTE
 Ejecutar `npm run check`, `npm test`, `npm run build` si el entorno lo permite. Anotar resultados reales y el entorno; no declarar pruebas de Windows/Vivaldi ejecutadas si solo se hicieron pruebas estáticas. Revisar los archivos generados y permisos del manifiesto.
 
 Antes de cerrar, actualizar `docs/STATUS.md` (fecha, cambios, build, tests, limitaciones, próxima acción), `docs/BACKLOG.md` y `CHANGELOG.md` cuando corresponda; documentar nuevas decisiones en `docs/DECISIONS.md` y requisitos aprobados en `docs/REQUIREMENTS.md`. Distinguir estado local, commit, push, CI y release. Dejar instrucciones suficientes para que otro agente continúe sin leer chats previos.
+
+## Entrega nominal (D-039)
+En adelante toda instalación solicitada se entrega mediante ZIP de nombre específico, instalador PowerShell mantenido en el repo, instrucciones y verificación, sin Node/npm para el propietario. Aplicar docs/DELIVERY_WINDOWS.md. Verify no escribe; Install explícito, navegador cerrado voluntariamente y respaldo. No editar HTML ni DTC con el instalador, no reiniciar automáticamente ni exigir reinstalación por cambios documentales.
