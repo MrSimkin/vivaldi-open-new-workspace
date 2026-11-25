@@ -1,6 +1,6 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.0 | etapa: inicialización (pre-MVP).
+Fecha: 2026-11-25 | versión: 0.1.0 | etapa: requisitos aprobados; investigación de viabilidad pendiente (pre-MVP).
 
 ## Implementado
 
@@ -31,11 +31,19 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Se verificó la lista de 26 archivos del commit y se compararon los hashes Git de los 14 archivos técnicos (código, configuración, CI, scripts y tests) con los originales locales: 14/14 idénticos.
 - La documentación de bootstrap, estado, pendientes y decisiones fue actualizada para reflejar el repositorio existente. ONW-001 y ONW-002 cerradas. Sin release ni licencia asignada.
 
+## Confirmación de requisitos (2026-11-25)
+
+- ONW-003 cerrada: requisitos funcionales aprobados por el propietario, RF-01 a RF-12.
+- Uso personal; menú con tres opciones: crear nuevo rápido o con nombre/icono, abrir base, abrir existente o enfocar su ventana si ya está abierto.
+- Conservar ventana original; iconos nativos y emojis si es posible; español/inglés configurable.
+- No se modificó código, manifiesto, build ni permisos en este checkpoint. Los resultados de pruebas y build anteriores corresponden al scaffold sin cambios; no se volvieron a ejecutar.
+- No se ha verificado todavía la capacidad de integración nativa. No se realizó investigación nueva en este checkpoint.
+
 ## Bloqueos y siguiente acción
 
-1. Confirmar el flujo funcional exacto con el propietario (ONW-003, R/H en REQUIREMENTS).
-2. Cargar scaffold en Vivaldi/Windows (ONW-004) y validar capacidad real de Workspaces según FEASIBILITY (ONW-005, si H-001 se confirma).
-3. Consultar el resultado de GitHub Actions cuando esté disponible.
+1. ONW-005: investigar rutas de integración para listar Workspaces, identificar ventanas, abrir base, crear/personalizar, abrir existente y enfocar; contrastar con documentación y ejemplos y diseñar prueba mínima reproducible.
+2. ONW-004: cargar scaffold en Vivaldi/Windows; registrar versión y resultados. Validar la ruta elegida en perfil de prueba antes de implementar el MVP.
+3. ONW-006: seleccionar arquitectura con evidencia; consultar CI cuando esté disponible. No reabrir requisitos ya aprobados.
 
 No se han tocado otros repositorios. No se han declarado permisos de navegador. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
 

@@ -20,6 +20,21 @@
 
 Usar perfil de prueba, nunca el perfil habitual para experimentos con APIs internas. Registrar fecha, versión de Windows, versión exacta de Vivaldi, build/commit, pasos, resultado y evidencia (sin datos personales).
 
-## Futuras pruebas de MVP (condicionadas al alcance aprobado)
+## Pruebas de aceptación del MVP (alcance aprobado; todas pendientes)
 
-Creación nativa real, activación, nombre/icono, varias ventanas, perfil separado, operación repetida, errores, persistencia y ausencia de efectos laterales. No marcar estos escenarios aprobados hasta definir su comportamiento.
+| ID | Caso | Resultado esperado |
+|---|---|---|
+| A-01 | Pulsar botón desde cualquier Workspace | Siempre aparecen las tres opciones. |
+| A-02 | Creación rápida | Nuevo Workspace nativo en otra ventana, sin pestañas heredadas, con valores nativos predeterminados. |
+| A-03 | Creación personalizada con nombre e icono nativo | Se aplica nombre e icono si soportado; comprobar en UI nativa. |
+| A-04 | Creación con emoji | Se aplica el emoji si soportado; si no, limitación explícita y alternativa nativa, sin éxito falso. |
+| A-05 | Abrir base desde un Workspace nombrado | Nueva ventana base, sin crear Workspace adicional; origen intacto. |
+| A-06 | Listar existentes | Lista coincide con Workspaces reales del perfil; no se duplica ni se inventa ninguno. |
+| A-07 | Abrir existente no abierto | Nueva ventana con mismo Workspace y pestañas existentes; sin duplicado. |
+| A-08 | Elegir existente ya abierto en otra ventana | Se enfoca esa ventana; no se abre otra ni se trasladan pestañas. |
+| A-09 | Repetir las operaciones y verificar origen | Ventana original permanece abierta; no hay pérdida de pestañas ni datos. |
+| A-10 | Cambiar español/inglés y reabrir popup | Textos cambian y preferencia se conserva (persistencia propuesta). |
+| A-11 | Fallo de API, lista desactualizada o clic repetido | Error explícito; sin éxito simulado ni duplicado accidental. |
+| A-12 | Seleccionar Workspace activo en la propia ventana | Comportamiento provisional: mantener/enfocar esa ventana; confirmar si se requiere otra semántica. |
+
+Validar en Windows/Vivaldi real. No usar pruebas unitarias como sustituto de estas verificaciones.

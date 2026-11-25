@@ -11,4 +11,9 @@
 | D-007 | 2026-11-25 | Node.js 22 para herramientas, CI Windows, salida `dist/extension`. | Agente: elección de desarrollo reversible. |
 | D-008 | 2026-11-25 | Repo creado por propietario con visibilidad pública, rama main y README inicial. Conservar visibilidad y commit; importar scaffold a solicitud del propietario. | GitHub: observado; agente conserva configuración existente. Licencia y distribución siguen pendientes. |
 
+| D-009 | 2026-11-25 | Uso exclusivamente personal; tres acciones principales siempre visibles: nuevo, base, existente. Creación rápida o con nombre e icono. | Propietario, confirmado; sustituye la hipótesis de D-005. |
+| D-010 | 2026-11-25 | Si el existente ya está abierto, enfocar su ventana; mantener abierta la ventana original en todas las operaciones. | Propietario, confirmado. |
+| D-011 | 2026-11-25 | Iconos nativos y emojis si es posible; interfaz configurable español/inglés. | Propietario, confirmado; capacidad real de iconos pendiente. |
+| D-012 | 2026-11-25 | Investigar viabilidad antes de implementar; propuesta de idioma inicial según navegador y selección persistente local. | Agente: orden de trabajo y propuesta reversible, no decisión del propietario. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

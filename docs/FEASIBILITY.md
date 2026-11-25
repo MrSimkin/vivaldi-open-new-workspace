@@ -13,12 +13,12 @@ Estas referencias respaldan el enfoque base y la existencia de Workspaces, no de
 
 ## Investigación reproducible pendiente
 
-1. Confirmar el comportamiento funcional con el propietario.
+1. Hecho: el propietario confirmó RF-01 a RF-12 (REQUIREMENTS). Investigar cada capacidad por separado; ninguna está validada aún.
 2. Registrar versión exacta de Vivaldi Stable y Windows, perfil de prueba y tipo de extensión. Confirmar primero la instalación del scaffold.
 3. Buscar API documentada, documentación de Vivaldi y ejemplos mantenidos; separar APIs estándar, privadas y código de la UI interna.
 4. Si procede, revisar de forma autorizada ejemplos del repositorio relacionado `MrGMunoz/duplicate-tabs-closer_plus_vivaldi_workspaces`; no modificarlo ni asumir que leer metadatos permite crear Workspaces. No se inspeccionó en esta inicialización.
 5. Probar disponibilidad desde el contexto real de la extensión descomprimida con mínimo privilegio. Registrar método, permisos, resultado y errores. No invocar operaciones mutantes sin caso de prueba aprobado.
-6. Una vez aprobado el comportamiento, usar un perfil desechable para intentar la creación real y verificar el resultado en la UI, persistencia, aislamiento de pestañas y múltiples ventanas según alcance.
+6. Usar un perfil desechable para comprobar las capacidades aprobadas: listado de Workspaces, asociación con ventanas, apertura base, creación rápida y personalizada, iconos nativos y emojis, apertura de existente y enfoque de ventana ya abierta. Verificar resultado en UI, persistencia, conservación de pestañas y ventana original. Registrar cada capacidad como soportada, no soportada o no verificada; distinguir apertura de ventana estándar de asignación nativa.
 7. Documentar resultados reproducibles en este archivo y actualizar STATUS/DECISIONS/BACKLOG.
 
 ## Criterio de parada

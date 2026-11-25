@@ -2,7 +2,7 @@
 
 Extensión de escritorio para **Vivaldi en Windows**. Repositorio: `MrSimkin/vivaldi-open-new-workspace`.
 
-**Estado: 0.1.0, base técnica (pre-MVP).** El nombre y el objetivo de plataforma están confirmados. El flujo funcional aún no está definido por el propietario; se propone investigar la creación de un Workspace nativo. La interfaz inicial solo informa este estado y no altera pestañas ni Workspaces.
+**Estado: 0.1.0, base técnica (pre-MVP).** El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La interfaz actual solo informa el estado y no altera pestañas ni Workspaces. La siguiente fase es verificar la integración nativa.
 
 ## Inicio rápido
 
@@ -29,7 +29,7 @@ No hay dependencias npm externas. `npm run build` copia el contenido de `extensi
 
 - [AGENTS.md](AGENTS.md): instrucciones obligatorias para agentes.
 - [Instrucciones de trabajo](docs/WORKFLOW.md): flujo, controles y protocolo de cierre.
-- [Requisitos](docs/REQUIREMENTS.md): alcance confirmado y decisiones funcionales pendientes.
+- [Requisitos](docs/REQUIREMENTS.md): alcance confirmado y detalles de diseño pendientes.
 - [Diseño](docs/DESIGN.md): arquitectura, UX, privacidad y alternativas.
 - [Viabilidad de Workspaces](docs/FEASIBILITY.md): investigación y criterio de parada.
 - [Estado](docs/STATUS.md): checkpoint de desarrollo, build y pruebas.

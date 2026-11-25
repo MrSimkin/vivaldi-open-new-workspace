@@ -3,26 +3,48 @@
 ## Confirmados por el propietario (2026-11-25)
 
 - R-001: extensión llamada **Open New Workspace**.
-- R-002: navegador Vivaldi de escritorio en PC Windows.
-- R-003: Chromium-compatible no es requisito independiente; Vivaldi tiene prioridad.
-- R-004: repositorio con estructura, instrucciones de trabajo, agentes, diseño, estado de desarrollo/build y pendientes autosuficientes.
+- R-002: Vivaldi Desktop en PC Windows.
+- R-003: compatibilidad con otros navegadores Chromium no obligatoria.
+- R-004: repositorio autosuficiente con instrucciones, diseño, estado, build y pendientes.
 
-## Hipótesis de producto, no aprobadas
+## Requisitos funcionales aprobados
 
-- H-001: crear un Workspace nativo de Vivaldi desde la extensión. El nombre sugiere esta intención; no la confirma.
-- H-002: un acceso desde la barra de extensiones, mediante popup o acción directa. La base incluye un popup informativo temporal, no una decisión de UX final.
-- H-003: no modificar Workspaces ni pestañas existentes como principio conservador hasta conocer el comportamiento deseado.
+| ID | Requisito |
+|---|---|
+| RF-01 | Botón en la barra de extensiones. Al pulsarlo, mostrar siempre las tres opciones: New Workspace, Base Workspace, Existing Workspace. |
+| RF-02 | Crear un Workspace nativo de Vivaldi, no una simulación ni un grupo de pestañas. |
+| RF-03 | Abrir el Workspace nuevo en una ventana independiente. |
+| RF-04 | Creación rápida sin configuración; Workspace vacío, salvo pestaña inicial requerida por Vivaldi. |
+| RF-05 | Permitir nombre opcional al crear; si se omite, usar el comportamiento predeterminado de Vivaldi. |
+| RF-06 | Permitir icono opcional al crear; ofrecer iconos nativos y emojis si es técnicamente posible. |
+| RF-07 | Abrir una nueva ventana con el espacio base de Vivaldi, sin crear un Workspace ni asignarle uno nombrado. |
+| RF-08 | Mostrar los Workspaces nativos existentes del perfil, con sus nombres y, si están disponibles, iconos. |
+| RF-09 | Abrir el Workspace existente seleccionado en otra ventana, conservando sus pestañas y sin duplicarlo, cuando no esté ya abierto. |
+| RF-10 | Si el Workspace existente ya está abierto en otra ventana, enfocar esa ventana en lugar de crear otra o trasladar sus pestañas. |
+| RF-11 | Mantener abierta la ventana original en todas las operaciones. |
+| RF-12 | Interfaz configurable entre español e inglés. |
 
-## Preguntas pendientes de definición
+## Requisitos no funcionales
 
-- ¿Qué debe hacer exactamente la extensión al activarla: crear un Workspace vacío, abrir uno existente, crear y mover pestañas, o algún otro flujo?
-- ¿Debe activarse el nuevo Workspace? ¿En qué ventana? ¿Debe llevar nombre, icono o URL inicial?
-- ¿Qué entradas se requieren: botón, menú contextual, atajo, enlace, regla automática u otras?
-- ¿Qué pasa con duplicados, múltiples ventanas, perfiles y errores? ¿Hay automatización o personalización?
-- ¿Se distribuirá de forma privada, mediante tienda o de otro modo? ¿Idioma final, licencia y versión mínima de Vivaldi?
+- RNF-01: uso exclusivamente personal; no se exige publicación comercial ni en Chrome Web Store.
+- RNF-02: prioridad Vivaldi Windows; sin obligación de compatibilidad transversal.
+- RNF-03: interfaz compacta, directa, sin funciones ajenas al objetivo.
+- RNF-04: preservar los datos y pestañas existentes; errores explícitos, sin éxito simulado.
+- RNF-05: mínimo privilegio y mantenimiento razonable. Se admite evaluar soluciones específicas de Vivaldi para uso personal, sin autorizar por ello cambios invasivos, desactivar seguridad o instalar componentes externos automáticamente.
 
-No implementar estas decisiones como requisitos hasta que estén confirmadas. No exigir compatibilidad Chrome/Edge, Mac/Linux, móviles, sincronización ni publicación en tienda.
+## Alcance excluido
 
-## Criterios provisionales para el futuro MVP
+Administrador completo de Workspaces, edición o eliminación de espacios existentes, gestor propio de pestañas, sincronización adicional, compatibilidad multiplataforma, publicación en tienda. No sustituir Workspaces nativos por tab groups.
 
-Si H-001 se aprueba: una acción explícita crea exactamente un Workspace nativo según el comportamiento confirmado; el resultado se verifica en la interfaz de Vivaldi. Un fallo se informa sin cambios no solicitados. La operación no requiere permisos adicionales sin justificación. Validación manual en Windows/Vivaldi obligatoria.
+## Detalles de diseño pendientes (no bloquean investigación)
+
+- Caso de seleccionar el Workspace activo en la propia ventana: propuesta provisional, mantener/enfocar esa misma ventana sin duplicar; confirmar si importa al flujo.
+- Idioma predeterminado (propuesta: idioma del navegador, con selector persistente ES/EN); mecanismo de persistencia y apariencia.
+- Catálogo real de iconos/emojis, comportamiento de nombres duplicados, versión mínima de Vivaldi y mensajes de error: investigar comportamiento nativo antes de elegir.
+- Tipo de pestaña inicial y semántica exacta del espacio base: respetar el comportamiento nativo y verificarlo.
+- Si Vivaldi restringe un Workspace a una ventana, preservar esa restricción. No inventar una lista de espacios o duplicar sesiones.
+- Licencia, método de distribución personal y decisiones técnicas de integración pendientes.
+
+## Aceptación del MVP
+
+Las tres operaciones deben actuar sobre el sistema nativo de Vivaldi, mantener abierta la ventana original y preservar datos. Crear rápido y personalizado, abrir base, listar y abrir existentes, enfocar ventana existente y cambiar idioma se verifican con los casos de TESTING. Iconos nativos y emojis quedan sujetos a capacidad real: si alguno no es viable, documentar evidencia y ofrecer solo lo soportado. Validación manual en Windows/Vivaldi obligatoria.

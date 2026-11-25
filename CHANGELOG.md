@@ -1,5 +1,11 @@
 # Changelog
 
+## Sin publicar | requisitos confirmados (2026-11-25)
+
+- Registrado alcance de uso personal y tres acciones: nuevo, base, existente.
+- Confirmadas creación rápida y personalizada, enfoque de ventana existente, conservación de ventana original, iconos nativos/emojis sujetos a viabilidad y configuración ES/EN.
+- Actualizados requisitos, instrucciones, diseño, viabilidad, pruebas y backlog. Sin cambios al código ni incremento de versión; investigación técnica pendiente.
+
 ## 0.1.0 (2026-11-25) | scaffold inicial, sin release
 
 - Estructura MV3 para Vivaldi Desktop Windows; popup de estado sin funcionalidad de Workspaces.
