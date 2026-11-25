@@ -51,6 +51,12 @@ Priorizar apertura base y existentes; diferir investigación de creación cuando
 
 No se encontró una firma invocable demostrada para crear un Workspace activo. La siguiente evidencia debe proceder de la versión instalada, no de nuevas búsquedas repetitivas. Se preparó research/Find-WorkspaceActions.ps1 (escaneo local de JS, solo lectura) y research/inspect-workspace-ui.js (inventario y esquema, solo lectura) con instrucciones en research/README.md. Ambos sin prueba real Windows/Vivaldi; no se ejecutan automáticamente ni se empaquetan. Primero preferir inspección estática, luego diagnóstico UI si es necesario. El informe estático solo contiene muestras de archivos instalados, no perfiles; revisar antes de compartir.
 
+## Avance 0.1.2: selección por interfaz nativa (2026-11-25)
+
+Se recuperó [Javascripts/workspaceButtons.js](https://github.com/jms830/VivaldiMods/blob/master/Javascripts/workspaceButtons.js), blob dcb48acfbb6165445348a2167e904379b787f726. El mod comunitario usa el botón .button-toolbar.workspace-popup > button y filas .workspace-item-wrapper, eventos de puntero y selección por nombre. Esto aporta una ruta concreta, no evidencia de compatibilidad ONW en Vivaldi 8.3. Implementación independiente, sin copiar código de terceros: coincidencia exacta y única, revalidación previa y posterior; no búsqueda por subcadena ni acción genérica. [windowPrivate.getCurrentId](https://lonmcgregor.github.io/VivaldiModdersAPI/OfficialApi/windowPrivate.html) proporciona identidad de contexto UI; su uso callback tiene precedente comunitario, no probado aquí. La documentación oficial de Workspaces confirma que seleccionar un espacio ya abierto enfoca la otra ventana.
+
+Candidato desarrollado: catálogo y estado mediante precedente DTC; enfoque con windows.update; apertura de inactivo mediante nueva ventana y selección en su contexto. Si el catálogo/estado/menú no se puede verificar, no se intenta la mutación. Si falla tras abrir ventana, queda abierta y se informa. La instalación del puente en todas las ventanas, forma actual de metadatos, selectores exactos, comportamiento de eventos y postcondición siguen sin validar. No se altera DTC ni se usa escritura de preferencias. Cerrar ONW-005 solo tras runtime o bloqueo documentado.
+
 ## Matriz de capacidades
 
 | Capacidad | Evidencia | Estado ONW |

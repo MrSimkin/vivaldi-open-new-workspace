@@ -26,4 +26,7 @@
 | D-018 | 2026-11-25 | Entorno Vivaldi 8.3.4191.47, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974; DTC mantiene plena compatibilidad según propietario. | Captura y reporte del propietario; no prueba ONW. |
 | D-019 | 2026-11-25 | Preview 0.1.1 con apertura normal y selección asistida, sin simular selección automática ni base confirmada. | Agente: entrega intermedia reversible, no aceptación de alcance reducido para MVP. |
 
+| D-020 | 2026-11-25 | Implementar candidato de selección por menú nativo a partir de evidencia comunitaria, puente independiente con ID/protocolo propio y worker para continuidad al enfocar ventana. | Agente: arquitectura experimental, requiere prueba real; no autoriza instalar mod. |
+| D-021 | 2026-11-25 | Añadir únicamente permiso storage para estado de operación; no almacenar URLs, títulos ni historial. No cerrar ventanas adicionales ante fallo o carrera. | Agente: seguridad y preservación de datos. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

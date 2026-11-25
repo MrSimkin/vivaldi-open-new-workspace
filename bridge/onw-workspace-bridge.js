@@ -63,7 +63,8 @@
     // never URL/title; cap the scan and remain unknown if evidence is absent.
     if(!evidence && ids.size && states.some(w=>w.kind==="candidate-base")){
       const all=(await c.tabs.query({windowType:"normal"})).filter(t=>windows.some(w=>w.id===t.windowId)).slice(0,150);
-      for(let i=0;i<all.length&&!evidence;i+=12){
+      const deadline=Date.now()+2500;
+      for(let i=0;i<all.length&&!evidence&&Date.now()<deadline;i+=12){
         const group=await Promise.all(all.slice(i,i+12).map(async t=>{
           try {const x=await read(v?.tabsPrivate,"get",t.id);return ids.has(parse(x?.vivExtData??t.vivExtData)?.workspaceId);}catch(_){return false;}
         }));
@@ -110,10 +111,12 @@
       fresh.workspaces.filter(w=>w.name.trim()===target.name.trim()).length!==1||
       !fresh.workspaces.some(w=>w.id===id&&w.name===target.name))throw Error("STATE_CHANGED");
     activate(row);
-    for(let i=0;i<15;i++){
-      await wait(150);
-      const after=await snapshot();
-      if(after.windows.some(w=>w.id===own&&w.kind==="named"&&w.workspaceId===id))return {selected:true};
+    const deadline=Date.now()+5000;
+    while(Date.now()<deadline){
+      await wait(200);
+      const active=await c.tabs.query({active:true,windowId:own});
+      if(active.length!==1)continue;
+      try {const extra=await read(v?.tabsPrivate,"get",active[0].id);if(parse(extra?.vivExtData??active[0].vivExtData)?.workspaceId===id)return {selected:true};}catch(_){}
     }
     throw Error("SELECTION_UNVERIFIED");
   }

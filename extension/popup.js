@@ -17,7 +17,7 @@ function render(){
    let plan;try{plan=locateWorkspace(data,w.id);}catch(_){}
    const b=document.createElement("button"),name=document.createElement("span"),detail=document.createElement("small");
    name.textContent=(w.emoji?w.emoji+" ":"")+w.name;detail.textContent=plan?t(plan.kind):t("unknown");
-   b.append(name,detail);b.disabled=busy||loading||!plan||plan.kind==="open"&&data.canSelect!==true;
+   b.append(name,detail);b.disabled=busy||loading||!plan||plan.kind==="open"&&(data.canSelect!==true||data.workspaces.filter(x=>x.name.trim()===w.name.trim()).length!==1);
    b.addEventListener("click",()=>act("OPEN",w.id));$("items").append(b);
  }
  $("status").textContent=busy?t("working"):result?.state==="done"?(result.kind==="normal-window"?t("normal"):t("done"))+(result.extraWindow?" "+t("extra"):""):result?.state==="error"?t("failed")+" ("+result.code+") "+(result.extraWindow?t("extra")+" ":"")+t("pending"):result?.state==="running"?t("pending"):"";

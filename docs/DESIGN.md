@@ -12,7 +12,11 @@ extension/workspace-adapter.js -> frontera técnica; no implementa creación
 
 Manifest V3, ES modules, sin dependencias ni servicio de fondo por ahora. Se añadirá un service worker solo si el flujo aprobado lo necesita. `extension/` es la fuente única de los archivos de la extensión; `dist/extension/` es salida generada y no se versiona.
 
-## Preview 0.1.1
+## 0.1.2: integración experimental
+
+Popup ES/EN + service worker MV3 + adaptador + puente ONW por ventana. El worker evita perder el flujo al cerrarse el popup al cambiar el foco, serializa operaciones y guarda último resultado en storage.session. Único permiso nuevo: storage. No se piden permisos tabs ni hosts en la extensión. El puente solo expone ID/nombre/emoji y estado activo; no envía URL/títulos/historial. ID estable propio; PING/SNAPSHOT/SELECT, correlación por petición y ventana. La decisión de foco usa ID nativo exacto y estado actualizado. La apertura de inactivo requiere que todos los estados sean conocidos, nombre único y menú disponible; crea ventana normal, espera su puente, revalida y selecciona usando elementos nativos estrictos. Verifica pertenencia y origen. Si hay fallo o carrera, puede quedar una ventana adicional y se informa; nunca se cierra automáticamente. Selectores y API privada requieren validación en la versión objetivo. Ver bridge/README.md.
+
+## Preview 0.1.1 (histórico)
 
 Menú bilingüe con preferencias en localStorage de la extensión, tres opciones, New deshabilitado, Base llama chrome.windows.create({type:"normal",focused:true}) y Existing explica selección nativa con apertura opcional de ventana normal. No se listan Workspaces ni se comprueba el estado activo. No hay puente, API privada, permisos declarados ni cambios al perfil. El texto informa explícitamente que la asignación base y selección automática están pendientes. La confirmación de ventana se limita al ID devuelto por la API; no confirma Workspace.
 

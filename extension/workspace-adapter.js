@@ -92,7 +92,7 @@ export function requestBridge(windowId, action, payload = {}, runtime = globalTh
       settled = true; clearTimeout(timer);
       err ? reject(Error(err)) : resolve(value);
     };
-    const timer = setTimeout(() => finish("BRIDGE_TIMEOUT"), action === "SELECT" ? 12000 : 5000);
+    const timer = setTimeout(() => finish("BRIDGE_TIMEOUT"), action === "SELECT" ? 20000 : action === "PING" ? 1100 : 8500);
     try {
       runtime.sendMessage(VIVALDI_UI,{protocol:PROTOCOL,requestId,windowId,action,...payload},response => {
         if (runtime.lastError) return finish("BRIDGE_UNAVAILABLE");

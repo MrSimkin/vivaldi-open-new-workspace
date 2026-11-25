@@ -1,10 +1,10 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.1 preview | etapa: implementación parcial y viabilidad nativa (pre-MVP).
+Fecha: 2026-11-25 | versión: 0.1.2 experimental | etapa: integración candidata, QA pendiente (pre-MVP).
 
 ## Implementado
 
-- Extensión MV3 con menú de tres opciones, selector ES/EN persistente local, apertura de ventana normal y guía asistida de selección. New Workspace deshabilitado. Sin integración nativa automática.
+- Extensión MV3 con menú ES/EN, apertura normal y cliente de puente independiente. Implementación experimental de listado, identificación de activo, foco y selección de existente en nueva ventana. New Workspace deshabilitado. Requiere validación real y puente en todas las ventanas.
 - Scripts de comprobación y build sin dependencias externas; pruebas unitarias y estáticas.
 - Documentación de requisitos, diseño, decisiones, viabilidad, backlog y trabajo de agentes.
 - Workflow de CI para Windows en GitHub Actions.
@@ -13,9 +13,9 @@ Fecha: 2026-11-25 | versión: 0.1.1 preview | etapa: implementación parcial y v
 
 | Control | Resultado |
 |---|---|
-| npm run check | Aprobado: manifiesto, referencias, sintaxis |
-| npm test | Aprobado: 7/7 pruebas (preview 0.1.1) |
-| npm run build | Aprobado: `dist/extension/` generado; ZIP preview comprobado |
+| npm run check | 0.1.1 aprobado histórico; 0.1.2 pendiente CI/local |
+| npm test | 0.1.1: 7/7 histórico; 0.1.2: suite ampliada, ejecución pendiente |
+| npm run build | 0.1.1 aprobado histórico; 0.1.2 pendiente |
 | Carga descomprimida en Vivaldi/Windows | No ejecutada |
 | Creación real de Workspace | No implementada ni validada |
 | CI GitHub Actions | Configurada; al consultar el commit de importación no se reportaron estados de CI. Ejecución en Windows no confirmada. |
@@ -59,13 +59,21 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - El propietario autoriza diferir creación/nombre/icono para acelerar entrega. Primera versión funcional debe priorizar base y existentes, enfoque e idioma. La preview 0.1.1 solo abre ventana normal, muestra guía manual, cambia idioma y deja creación deshabilitada. No cumple aún RF-07 a RF-10 completos.
 - Ejecutados check, test (7/7), build e integridad ZIP en Linux/Node 22.16.0; sin prueba Vivaldi, CI remoto no confirmado. Se verificó que los 5 archivos de extensión del ZIP coinciden con fuentes locales. No se cambia DTC ni se modifica Vivaldi, no se publica release.
 
+## 0.1.2: integración experimental (2026-11-25)
+
+- Investigado mod comunitario workspaceButtons.js; identificada ruta de selección por menú nativo. Añadidos bridge/onw-workspace-bridge.js, worker, cliente, tests de lógica y puente con dobles, y guía de validación.
+- Listado real candidato; foco por ID verificado; apertura de inactivo en destino mediante selección nativa estricta y postcondición. No se escribe prefs ni mueve/cierra pestañas directamente. Puede quedar ventana adicional ante fallo/carrera, avisada al usuario.
+- Se añadió permiso storage (estado de operación en sesión) y clave pública de desarrollo propia; no hay clave privada guardada ni permiso de hosts. No modificar DTC.
+- Conector permitió preparar commits, pero el entorno local no resuelve GitHub y no pudo descargar las fuentes exactas del nuevo commit para ejecutar Node. No se atribuyen resultados previos a esta versión. CI Windows y ejecución real Vivaldi pendientes; no se entregó ZIP 0.1.2 ni se publicó release. Tests escritos, no ejecutados en este checkpoint.
+- La integración depende de instalar/cargar el puente en el UI de todas las ventanas. No hay autorización de modificación del navegador habitual; no realizarla ni reiniciar. Mantener 0.1.1 como preview sin puente hasta validar.
+
 ## Bloqueos y siguiente acción
 
-1. ONW-004: si el propietario dispone de tiempo, una prueba mínima de la preview (instalar descomprimida y verificar que la nueva ventana sea base). No reiniciar Vivaldi.
-2. ONW-005/006: concentrar investigación de selección nativa de existentes (listado/ventana activa/selección/enfoque) usando precedentes DTC. Si requiere diagnóstico local, acotarlo a una sola captura de evidencia; no bloquear por creación. No modificar el puente DTC ni la instalación habitual sin permiso.
-3. ONW-007: completar automatización de existentes y base; diferir creación/personalización a ONW-011. No declarar preview como MVP completo.
+1. Verificar CI de 0.1.2 y corregir fallos; no avanzar a instalación habitual si no pasa.
+2. ONW-004/005/006/007/008: con autorización y disponibilidad, prueba única en instalación separada (catálogo, foco activo, apertura inactivo, origen intacto), según bridge/README.md. Si no funciona, recoger código de error y esquema/selector mínimo, corregir sin repetir investigación.
+3. Base nativa pendiente de confirmación. Creación/personalización diferida ONW-011. No declarar MVP completo.
 
-No se han tocado otros repositorios. No se han declarado permisos de navegador. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
+No se han tocado otros repositorios. La versión 0.1.2 declara solo storage; sin permisos de hosts. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
 
 ## Plantilla de actualización de checkpoint
 

@@ -20,7 +20,11 @@
 
 Usar perfil de prueba, nunca el perfil habitual para experimentos con APIs internas. Registrar fecha, versión de Windows, versión exacta de Vivaldi, build/commit, pasos, resultado y evidencia (sin datos personales).
 
-## Preview 0.1.1: verificación mínima
+## 0.1.2 experimental: pruebas por ejecutar
+
+Suite de Node cubre validación de catálogo, IDs estrictos, foco sin creación, apertura en destino, estados desconocidos, nombres duplicados, carrera, error sin reintentos, idioma y manifiesto; pruebas del puente con VM simulada cubren wrapper, remitente, destino, catálogo, estado y rechazo de selección activa. Aún sin ejecución de la suite 0.1.2, CI o runtime. Los dobles no prueban eventos DOM ni API privada de Vivaldi. Antes de instalación habitual, seguir bridge/README.md. Comprobar que selección automática no cambia pestañas del origen, no duplica espacios y enfoca ventana activa. Ante error conservar ventana adicional y reportar código, no reintentar ciegamente. No requerir QA extensa al propietario.
+
+## Preview 0.1.1: verificación mínima (histórico)
 
 Pruebas automáticas: 7/7 (manifest, ausencia de permisos, menú, apertura normal y errores sin reintento, idioma). Check/build aprobados en Linux Node 22.16.0. Pendiente una prueba real mínima: cargar descomprimida, abrir popup, cambiar idioma, abrir una ventana normal desde Workspace personalizado, verificar si nueva ventana muestra base y la original sigue abierta. Existing solo guía manual; no marcar A-06 a A-08 como aprobadas. No solicitar QA extensa al propietario ahora. Creación y personalización diferibles.
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 experimental (2026-11-25) | sin release
+
+- Implementación candidata de listado, detección de ventana activa, foco y apertura de Workspace existente.
+- Puente independiente ONW y service worker; selección nativa por menú con coincidencia estricta y verificación posterior. Creación diferida.
+- Añadida suite de pruebas; ejecución 0.1.2, CI e integración Vivaldi pendientes. No se instaló puente ni se modificó DTC.
+
 ## 0.1.1 preview (2026-11-25) | sin release
 
 - Menú de tres opciones, selector ES/EN persistente, apertura normal y guía de selección manual. New Workspace en construcción.
