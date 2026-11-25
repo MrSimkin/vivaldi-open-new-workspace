@@ -4,7 +4,8 @@
 
 - Implementación candidata de listado, detección de ventana activa, foco y apertura de Workspace existente.
 - Puente independiente ONW y service worker; selección nativa por menú con coincidencia estricta y verificación posterior. Creación diferida.
-- Añadida suite de pruebas; check/test/build aprobados en GitHub Actions Windows (run 45632780858), integración Vivaldi pendiente. No se instaló puente ni se modificó DTC.
+- Añadida suite de pruebas; check/test/build aprobados en GitHub Actions Windows (run 45632780858), integración Vivaldi pendiente.
+- Añadida guía de instalación manual personal y reversión (sin release ni instalador automático); prueba real pendiente. No se instaló puente ni se modificó DTC.
 
 ## 0.1.1 preview (2026-11-25) | sin release
 

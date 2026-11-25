@@ -12,6 +12,10 @@ SNAPSHOT lee catálogo real e identifica Workspace activo a partir de pestaña a
 
 SELECT verifica que el espacio está inactivo, destino es base, nombres no ambiguos y menú nativo único. Intenta una sola selección usando el botón y fila nativos; comprueba postcondición con metadatos. Si falla, no reintentar mutación, no cerrar ninguna ventana ni mover pestañas como compensación. Selectores y eventos inspirados en la evidencia del proyecto comunitario, implementación propia. No se afirma que sea invocable en 8.3 hasta prueba real.
 
+## Instalación manual disponible
+
+Consultar [guía de instalación Windows](../docs/INSTALL_WINDOWS.md) para descarga, copia, edición explícita del archivo UI, prueba aislada y reversión. No es un instalador automático ni autoriza cambios en la instalación habitual.
+
 ## Validación futura mínima
 
 1. En instalación de prueba, cargar extension/ descomprimida y confirmar ID. Sin puente, Existing informa falta de integración; Base abre ventana normal.

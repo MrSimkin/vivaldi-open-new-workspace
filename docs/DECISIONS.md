@@ -29,4 +29,6 @@
 | D-020 | 2026-11-25 | Implementar candidato de selección por menú nativo a partir de evidencia comunitaria, puente independiente con ID/protocolo propio y worker para continuidad al enfocar ventana. | Agente: arquitectura experimental, requiere prueba real; no autoriza instalar mod. |
 | D-021 | 2026-11-25 | Añadir únicamente permiso storage para estado de operación; no almacenar URLs, títulos ni historial. No cerrar ventanas adicionales ante fallo o carrera. | Agente: seguridad y preservación de datos. |
 
+| D-022 | 2026-11-25 | Entregar 0.1.2 como instalación manual desde ZIP fuente fijo, sin Node para usuario y con puente separado, copia de seguridad y reversión. | Agente: elección de entrega solicitada; no automatizar modificación ni afirmar validación real. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

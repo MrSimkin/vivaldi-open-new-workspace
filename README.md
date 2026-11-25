@@ -16,7 +16,11 @@ npm run build
 
 No hay dependencias npm externas. `npm run build` copia el contenido de `extension/` a `dist/extension/`; no transpila ni descarga código.
 
-### Instalación local (prueba manual pendiente)
+### Instalación personal (0.1.2 experimental)
+
+[Guía paso a paso para Windows, descarga y reversión](docs/INSTALL_WINDOWS.md). La carpeta `extension/` se carga directamente, sin Node.js. Para Workspaces existentes se requiere también el puente local independiente y su prueba en Vivaldi.
+
+### Instalación para desarrollo (prueba manual pendiente)
 
 1. Ejecutar los comandos anteriores.
 2. Abrir `vivaldi://extensions` en Vivaldi; si no redirige correctamente, abrir el gestor de extensiones desde el menú Herramientas.

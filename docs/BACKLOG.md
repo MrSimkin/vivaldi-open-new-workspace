@@ -13,7 +13,7 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-007 | P0 | Experimental | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; pendientes runtime, instalación de puente y confirmación de base. No equivale a aceptación. |
 | ONW-008 | P0 | Pendiente | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |
 | ONW-009 | P2 | Pendiente | Pulir icono propio de la extensión, presentación, accesibilidad y preferencias; idioma incluido en preview; iconos de creación quedan asociados a ONW-011. |
-| ONW-010 | P2 | Pendiente | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
+| ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
 | ONW-011 | P2 | Diferible | Creación rápida y personalizada de Workspace nativo (RF-02 a RF-06), nombre/iconos/emoji si posible. No bloquea primera entrega. |
 

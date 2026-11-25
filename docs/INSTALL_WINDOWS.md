@@ -1,0 +1,45 @@
+# Instalación personal Windows | 0.1.2 experimental
+
+Versión objetivo: Vivaldi 8.3.4191.47 x64 / Chromium 156.0.8078.110. Check/test/build aprobados en Windows mediante GitHub Actions, run 45632780858. No se ha ejecutado Vivaldi real con ONW. No es un release estable ni se garantiza compatibilidad de APIs privadas. New Workspace queda en construcción.
+
+## Descargar
+
+[ZIP de fuentes 0.1.2, revisión fija](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/e08b4da26206a64ca9f986a2e5eb723e515ad459.zip). También se puede descargar Code > Download ZIP desde GitHub, verificando versión. Extraer a carpeta permanente (p. ej. C:\Tools\Open-New-Workspace). Conservar las carpetas extension y bridge. No se necesita Node.js, npm, CRX, tienda ni compilación: extension/ ya es cargable.
+
+## Primera prueba: Vivaldi independiente
+
+Se recomienda una instalación Standalone con archivos de aplicación y perfil separados; un perfil adicional en la misma instalación NO aísla window.html. [Guía oficial](https://help.vivaldi.com/es/escritorio/instalacion-actualizacion/version-independiente-de-vivaldi/). Utilizar la misma versión que el navegador habitual si está disponible. No importar sesiones, sincronizar ni cerrar el navegador habitual. No desactivar seguridad ni actualizaciones. Si no hay tiempo para probar, posponer el puente hasta tener disponibilidad; no presentar el resultado como validado.
+
+## 1. Cargar extensión
+
+En el Vivaldi de prueba abrir vivaldi://extensions, activar Modo desarrollador, pulsar Cargar descomprimida y seleccionar la carpeta extension del ZIP (la que contiene manifest.json). Si existía preview 0.1.1 en ese perfil, desactivarla para evitar dos iconos, no eliminar datos de otras extensiones. Confirmar versión 0.1.2 e ID poebajclpmcacjgkdbkjfjbngmagakbe. Fijar el icono si es necesario. Sin puente, Workspace existente indicará error de comunicación; Base abre ventana normal, no confirma todavía su pertenencia al espacio base.
+
+## 2. Instalar puente (manual, explícito y reversible)
+
+Antes de editar, identificar la instalación de prueba por vivaldi://about (Mostrar más, ruta del ejecutable). Cerrar únicamente esa instancia de prueba cuando no tenga trabajo que preservar. No cerrar ni reiniciar Vivaldi habitual. Localizar el subdirectorio Application\<versión>\resources\vivaldi que contiene window.html. Confirmar que es la versión activa de la instalación separada, no el perfil User Data, ni la instalación habitual.
+
+- Hacer copia de window.html con un nombre nuevo window.html.onw-backup; no sobrescribir copia previa. Si existe un backup ONW anterior, conservarlo y usar nombre con fecha. No reutilizar ni alterar backup DTC.
+- Crear subcarpeta onw-mods dentro de resources\vivaldi y copiar bridge/onw-workspace-bridge.js allí. Si ya existe, conservar copia o detenerse y revisar versión.
+- Abrir window.html con editor de texto. Preservar codificación y todo el contenido existente, incluidos scripts DTC si los hubiera. Comprobar que existe un único cierre de body; si no existe o el archivo es inesperado, detenerse sin cambios. Insertar una sola vez, justo antes del cierre de body, esta línea:
+
+```html
+<script src="onw-mods/onw-workspace-bridge.js"></script>
+```
+
+Guardar con el nombre original, no .txt. No sustituir window.html por uno de otro equipo. Si permisos de escritura impiden edición, no cambiar permisos, no desactivar seguridad; detenerse. El mod ejecuta JS en la UI privilegiada del navegador, por ello se limita a la versión revisada y se prueba aislado.
+
+Abrir Vivaldi de prueba desde su ejecutable. El bridge debe cargarse en cada ventana nueva. En una sesión ya abierta, recargar la extensión sola no carga el bridge en window.html; esperar al siguiente arranque natural cuando corresponda. No instalar tareas programadas, mecanismos de persistencia automática ni lanzar/cerrar el navegador por script.
+
+## 3. Prueba mínima
+
+Crear manualmente dos Workspaces ficticios, uno activo en una ventana distinta y otro inactivo. En ONW, seleccionar Workspace existente: debe mostrar nombres reales. Seleccionar el activo: debe enfocar su ventana sin crear otra. Seleccionar el inactivo: debe abrir una ventana y activar ese Workspace; confirmar pestañas del espacio y ventana original intactas. Probar Base: nueva ventana sin Workspace personalizado. Verificar que New permanece deshabilitado y que idioma ES/EN cambia. Ante cualquier error, no repetir ciegamente, no cerrar ventanas con datos: registrar código de error (sin nombres, URLs ni capturas personales) y cuál de las operaciones falló.
+
+Si las operaciones pasan, repetir la misma instalación manual en el navegador habitual solo cuando el propietario lo decida y con backup propio. No modificar DTC ni su script. No se necesita realizar QA extensa ahora; no declarar integración funcional sin estas pruebas. 
+
+## Desinstalación / reversión
+
+Desactivar o quitar ONW desde vivaldi://extensions. Con la instancia modificada cerrada cuando corresponda, retirar únicamente la línea script de onw-mods/onw-workspace-bridge.js de su window.html, guardar y eliminar únicamente el archivo ONW copiado. Conservar backups y otros mods. No restaurar un backup antiguo completo si se han hecho otros cambios desde la copia. Solo restaurar backup completo si se ha verificado que corresponde exactamente a esa versión y que la única diferencia es la línea ONW. No tocar DTC ni su reparación. El cambio de UI se aplica al siguiente arranque; no forzar cierre del navegador.
+
+## Actualizaciones de Vivaldi
+
+Una actualización puede sustituir recursos; si desaparece el puente, Existing fallará explícitamente. No reutilizar archivos window.html antiguos; volver a verificar el nuevo código, versión y compatibilidad antes de repetir instalación. Según el propietario DTC ha mantenido su compatibilidad; ONW sigue sin prueba real. No hay reparador automático ni garantía de persistencia. La instalación permanente y una distribución automatizada se evaluarán después de la prueba inicial.

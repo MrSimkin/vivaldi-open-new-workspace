@@ -67,10 +67,16 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Conector permitió preparar commits, pero el entorno local no resuelve GitHub y no pudo descargar las fuentes exactas del nuevo commit para ejecutar Node. No se atribuyen resultados previos a esta versión. La CI de Windows se verificó posteriormente: check/test/build exitosos en el commit a0f43b31b61269b8f36789e3ccdf0226ad8b3879 (run 45632780858). Ejecución real Vivaldi pendiente; no se entregó ZIP instalable 0.1.2 ni se publicó release.
 - La integración depende de instalar/cargar el puente en el UI de todas las ventanas. No hay autorización de modificación del navegador habitual; no realizarla ni reiniciar. Mantener 0.1.1 como preview sin puente hasta validar.
 
+## Entrega de instalación personal experimental (2026-11-25)
+
+- El propietario solicita instalador o instrucciones. Se eligió entrega manual sin dependencias ni scripts de modificación automática: ZIP de fuentes fijado a e08b4da y carga de extension/ directamente; copia del puente independiente y cambio acotado de window.html con backup. Ver docs/INSTALL_WINDOWS.md.
+- El código 0.1.2 y resultados de CI no cambian; se comprobó existencia de los archivos en GitHub. No se generó ni verificó un ZIP binario local nuevo; se ofrece el archivo fuente de GitHub, no un CRX ni release.
+- No se ha instalado en el PC del propietario, ni se ejecutó Vivaldi, ni se modificó DTC. Prueba en instalación Standalone antes de uso habitual; no reiniciar sesión habitual. Desinstalación y recuperación documentadas. No se repitieron tests por cambio documental.
+
 ## Bloqueos y siguiente acción
 
 1. CI de 0.1.2 aprobada; siguiente puerta de aceptación es prueba real del puente en Vivaldi. No avanzar a instalación habitual sin validar.
-2. ONW-004/005/006/007/008: con autorización y disponibilidad, prueba única en instalación separada (catálogo, foco activo, apertura inactivo, origen intacto), según bridge/README.md. Si no funciona, recoger código de error y esquema/selector mínimo, corregir sin repetir investigación.
+2. ONW-004/005/006/007/008: con autorización y disponibilidad, instalar y ejecutar prueba única en instalación separada (catálogo, foco activo, apertura inactivo, origen intacto), según docs/INSTALL_WINDOWS.md. Si no funciona, recoger código de error y esquema/selector mínimo, corregir sin repetir investigación.
 3. Base nativa pendiente de confirmación. Creación/personalización diferida ONW-011. No declarar MVP completo.
 
 No se han tocado otros repositorios. La versión 0.1.2 declara solo storage; sin permisos de hosts. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
