@@ -23,6 +23,7 @@
 | RF-10 | Si el Workspace existente ya está abierto en otra ventana, enfocar esa ventana en lugar de crear otra o trasladar sus pestañas. |
 | RF-11 | Mantener abierta la ventana original en todas las operaciones. |
 | RF-12 | Interfaz configurable entre español e inglés. |
+| RF-13 | Configuración de tres temas (gris oscuro, gris claro, claro azulado) persistentes; mantener icono NW y evitar excesiva luminosidad. |
 
 ## Requisitos no funcionales
 

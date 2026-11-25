@@ -18,7 +18,7 @@ Popup ES/EN + service worker MV3 + adaptador + puente ONW por ventana. El worker
 
 ## 0.1.3 candidato UX
 
-Popup claro de 420px en escala de grises (preferencia del propietario), listado existente visible desde el inicio y consulta automática sin clic extra. Mantiene botón de actualizar, etiquetas de acción, idioma, creación deshabilitada y mensaje de resultado antes de la lista. Icono NW PNG gris local en cuatro tamaños. Sin cambios a bridge, protocolo, worker ni lógica de dominio; la incidencia DTC y los fallos de foco/selección siguen abiertos.
+Popup de 420px con Configuración y tres temas locales persistentes: gris oscuro inicial, gris claro y claro azulado atenuados, listado existente visible desde el inicio y consulta automática sin clic extra. Mantiene botón de actualizar, etiquetas de acción, idioma, creación deshabilitada y mensaje de resultado antes de la lista. Icono NW PNG gris local en cuatro tamaños, conservado. CSS con variables y color-scheme coherente; preferences.js valida valores y tolera falta de almacenamiento. No sigue tema de Vivaldi automáticamente; selección manual. Sin cambios a bridge, protocolo, worker ni lógica de dominio; la incidencia DTC y los fallos de foco/selección siguen abiertos.
 
 ## Preview 0.1.1 (histórico)
 

@@ -99,10 +99,17 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - El propietario observa apertura del panel lateral nativo «Lista de vistas de lectura» al abrir una nueva ventana mediante ONW. No consta si sucede con Base, Existing o ambos, ni si una ventana nativa también restaura el panel. No atribuir todavía a ONW ni a DTC. ONW no invoca explícitamente lista de lectura.
 - Comparación de bridge con mod comunitario workspaceButtons.js: ONW despacha eventos pointerdown/up sobre elemento DOM o click; referencia invoca directamente el handler React onPointerDown con pointerup posterior. Diferencia plausible en interacción, no causa demostrada. No ampliar selectores ni ocultar panel como compensación. Obtener evidencia mínima de apertura nativa vs base vs existente cuando sea seguro; priorizar recuperar DTC y no repetir mutaciones fallidas. Sin cambios de bridge, worker, permisos ni lógica en este ajuste.
 
+## Aislamiento reportado y temas seleccionables (2026-11-25)
+
+- DTC falla en Active window y Active Vivaldi Workspace tanto con ONW como sin ONW ni su puente, según las cuatro pruebas reportadas. No hay diagnóstico disponible. ONW no es condición necesaria del fallo; no se descarta causa persistente ni se afirma coexistencia. Investigación DTC separada y sin cambios a su repositorio; recuperar línea base antes de aceptar coexistencia.
+- Panel lateral Lista de vistas de lectura: Ctrl+N NO, ONW Base NO, ONW Existing SÍ. Se acota a ruta de selección existente; no cambiar creación normal ni cerrar panel automáticamente. No hay código de error. No repetir pruebas mutantes de 0.1.2; siguiente evidencia mínima será inspección de solo lectura del DOM de selector nativo y estado activo en instalación aislada.
+- Usuario solicita temas elegibles y menor luminosidad, dado su tema de navegador gris oscuro. 0.1.3 candidata incluye Configuración con gris oscuro inicial, gris claro y claro azulado atenuados, persistencia local separada del idioma y accesibilidad de foco/contraste; icono NW gris conservado en cuatro tamaños. No nuevos permisos. No se alteró bridge, worker ni lógica de apertura. Tests de validación y persistencia añadidos.
+- CI revisión gris 921cdc9 aprobada (run 45641339207); nueva revisión de temas pendiente CI. No se ejecutó Vivaldi ni se instaló. No release. No utilizar selección existente en navegador habitual hasta corregir y verificar.
+
 ## Bloqueos y siguiente acción
 
-1. P0: recuperar DTC y aislar causa; no reinstalar puente ONW en habitual hasta diagnóstico.
-2. Obtener código de fallo de foco y selección sin repetir operaciones inseguras; corregir con evidencia y validar en instalación separada.
+1. P0: corregir selección existente y enfoque mediante evidencia UI real de solo lectura en prueba separada; DTC tiene fallo independiente reproducible sin ONW, recuperar su línea base antes de aceptar coexistencia. No reinstalar puente en habitual hasta validar.
+2. No repetir aislamiento ya ejecutado ni selección insegura. Obtener evidencia mínima de DOM/estado y corregir con pruebas de regresión.
 3. Base, listado e idioma aprobados por reporte 0.1.2; preservar comportamiento. UX 0.1.3 pendiente de validación. Creación diferida ONW-011; no declarar MVP completo.
 
 No se han tocado otros repositorios. La versión 0.1.2 declara solo storage; sin permisos de hosts. No se ha asignado una licencia. Se conserva la visibilidad pública observada.

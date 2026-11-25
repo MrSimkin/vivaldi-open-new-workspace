@@ -1,15 +1,19 @@
 import {getLanguage,validateSnapshot,locateWorkspace} from "./workspace-adapter.js";
+import {loadTheme,saveTheme} from "./preferences.js";
 const $=id=>document.getElementById(id);
 const words={
- es:{newLabel:"Nuevo Workspace",newDetail:"En construcción",baseLabel:"Workspace base",baseDetail:"Abrir una nueva ventana",existingLabel:"Workspace existente",existingDetail:"Selecciona para abrir o enfocar",refresh:"Actualizar lista",loading:"Consultando Vivaldi…",empty:"No hay Workspaces personalizados.",bridge:"Puente ONW no disponible o respuesta inválida. Consulta la guía.",focus:"Enfocar ventana",open:"Abrir en nueva ventana",unknown:"Estado no confirmado",working:"Operación en curso…",done:"Operación confirmada.",normal:"Ventana normal abierta; verifica el espacio base.",extra:"Se abrió una ventana adicional; no se cerrará automáticamente.",failed:"No se confirmó la operación.",pending:"No reintentes hasta comprobar las ventanas."},
- en:{newLabel:"New Workspace",newDetail:"Under construction",baseLabel:"Base Workspace",baseDetail:"Open a new window",existingLabel:"Existing Workspace",existingDetail:"Select to open or focus",refresh:"Refresh list",loading:"Reading Vivaldi…",empty:"No custom Workspaces.",bridge:"ONW bridge unavailable or invalid response. See guide.",focus:"Focus window",open:"Open in new window",unknown:"State unconfirmed",working:"Operation in progress…",done:"Operation confirmed.",normal:"Normal window opened; verify base workspace.",extra:"An additional window opened; it will not be closed automatically.",failed:"Operation not confirmed.",pending:"Check windows before retrying."}
+ es:{settingsLabel:"Configuración",themeLabel:"Tema",themes:["Gris oscuro","Gris claro","Claro azulado"],newLabel:"Nuevo Workspace",newDetail:"En construcción",baseLabel:"Workspace base",baseDetail:"Abrir una nueva ventana",existingLabel:"Workspace existente",existingDetail:"Selecciona para abrir o enfocar",refresh:"Actualizar lista",loading:"Consultando Vivaldi…",empty:"No hay Workspaces personalizados.",bridge:"Puente ONW no disponible o respuesta inválida. Consulta la guía.",focus:"Enfocar ventana",open:"Abrir en nueva ventana",unknown:"Estado no confirmado",working:"Operación en curso…",done:"Operación confirmada.",normal:"Ventana normal abierta; verifica el espacio base.",extra:"Se abrió una ventana adicional; no se cerrará automáticamente.",failed:"No se confirmó la operación.",pending:"No reintentes hasta comprobar las ventanas."},
+ en:{settingsLabel:"Settings",themeLabel:"Theme",themes:["Dark gray","Light gray","Light blue"],newLabel:"New Workspace",newDetail:"Under construction",baseLabel:"Base Workspace",baseDetail:"Open a new window",existingLabel:"Existing Workspace",existingDetail:"Select to open or focus",refresh:"Refresh list",loading:"Reading Vivaldi…",empty:"No custom Workspaces.",bridge:"ONW bridge unavailable or invalid response. See guide.",focus:"Focus window",open:"Open in new window",unknown:"State unconfirmed",working:"Operation in progress…",done:"Operation confirmed.",normal:"Normal window opened; verify base workspace.",extra:"An additional window opened; it will not be closed automatically.",failed:"Operation not confirmed.",pending:"Check windows before retrying."}
 };
 let saved;try{saved=localStorage.getItem("onw-language");}catch(_){}
+let theme;try{theme=loadTheme(localStorage);}catch(_){theme=loadTheme(null);}
 let lang=getLanguage(saved,navigator.language),source=null,data=null,error="",loading=false,busy=false,result=null;
 const t=k=>words[lang][k]||k;
 function render(){
  document.documentElement.lang=lang;$("language").value=lang;
- for(const id of ["newLabel","newDetail","baseLabel","baseDetail","existingLabel","existingDetail","refresh"])$(id).textContent=t(id);
+ document.documentElement.dataset.theme=theme;$("theme").value=theme;
+ for(const [i,option] of [...$("theme").options].entries())option.textContent=words[lang].themes[i];
+ for(const id of ["settingsLabel","themeLabel","newLabel","newDetail","baseLabel","baseDetail","existingLabel","existingDetail","refresh"])$(id).textContent=t(id);
  $("base").disabled=busy||!source;$("refresh").disabled=busy||loading||!source;
  $("listStatus").textContent=loading?t("loading"):error?t("bridge")+" ("+error+")":data?.workspaces.length===0?t("empty"):"";
  $("items").replaceChildren();
@@ -33,6 +37,7 @@ async function act(action,id){
  catch(e){result={state:"error",code:e.message||"NO_RESPONSE"};}finally{busy=false;render();}
 }
 $("language").addEventListener("change",e=>{lang=getLanguage(e.target.value);try{localStorage.setItem("onw-language",lang);}catch(_){}render();});
+$("theme").addEventListener("change",e=>{try{theme=saveTheme(localStorage,e.target.value);}catch(_){theme=saveTheme(null,e.target.value);}render();});
 $("base").addEventListener("click",()=>act("BASE"));
 $("refresh").addEventListener("click",list);
 render();

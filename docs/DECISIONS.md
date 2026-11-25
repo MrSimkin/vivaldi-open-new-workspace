@@ -39,4 +39,7 @@
 
 | D-027 | 2026-11-25 | Sustituir paleta azul por escala de grises clara, incluido icono NW; conservar ancho y lista automática. | Propietario: preferencia gris; agente: tonos concretos. |
 
+| D-028 | 2026-11-25 | Tres temas elegibles y persistentes, conservando icono NW; gris oscuro inicial y dos claros atenuados. | Propietario: selección de temas y sensibilidad a luminosidad; agente: valores concretos y valor inicial reversible. |
+| D-029 | 2026-11-25 | Separar diagnóstico DTC (falla con y sin ONW) y corrección Existing (panel lateral solo en esta ruta); no repetir aislamiento ni corregir ocultando panel. | Reporte propietario; agente: inferencia acotada, causalidad no probada. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

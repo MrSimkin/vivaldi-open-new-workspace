@@ -2,7 +2,8 @@
 
 ## 0.1.3 candidata UX (2026-11-25) | sin release
 
-- Popup más ancho (420px), fondo gris claro, listado automático visible, refresco manual e icono NW gris.
+- Popup más ancho (420px), listado automático visible, refresco manual, icono NW gris y Configuración con tres temas persistentes (gris oscuro inicial, gris claro y claro azulado atenuados).
+- Aislamiento: DTC falla con y sin ONW en ambos ámbitos; panel lateral solo aparece en Existing, no Ctrl+N ni Base. Incidencias separadas, sin causa exacta confirmada.
 - Se registran resultados reales de 0.1.2: catálogo, base e idioma OK; interfaz parcial; foco y apertura fallan. Incidencia DTC sin detección, coexistencia no aprobada.
 - Registrada apertura inesperada del panel lateral Lista de vistas de lectura; causa pendiente y comparación de eventos DOM/React documentada.
 - Sin cambios a bridge, permisos, worker ni lógica de selección; no instalar en habitual hasta recuperar DTC. Tests estáticos añadidos, CI nueva pendiente de verificación.

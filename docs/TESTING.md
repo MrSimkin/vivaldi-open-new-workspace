@@ -79,3 +79,21 @@ DTC: usar Do nothing, dos pestañas de prueba con URL idéntica no excluida en m
 ### Incidencia adicional: panel lateral Lista de vistas de lectura
 
 Reporte de propietario: al abrir una nueva ventana con ONW aparece dicho panel. No se ha aislado la operación específica. Comparar, cuando sea seguro, Ctrl+N nativo y Workspace base con panel previamente cerrado; aprovechar observación existente de Workspace existente y código persistido, sin repetir mutaciones fallidas solo para QA. Registrar qué operación abre el panel, estado previo y si selector nativo también aparece. No modificar ni cerrar panel automáticamente. Priorizar recuperación DTC. La diferencia entre evento DOM de ONW y handler React de referencia es hipótesis, no resultado confirmado.
+
+## Aislamiento adicional reportado (2026-11-25)
+
+| Caso | Resultado |
+|---|---|
+| DTC Active window con ONW | Falla |
+| DTC Active Vivaldi Workspace con ONW | Falla |
+| DTC Active window sin ONW ni puente | Falla |
+| DTC Active Vivaldi Workspace sin ONW ni puente | Falla |
+| Panel de lectura con Ctrl+N | No abre |
+| Panel de lectura con ONW Base | No abre |
+| Panel de lectura con ONW Existing | Abre |
+
+Sin código ONW ni diagnóstico DTC. No repetir pruebas de aislamiento; no afirmar causalidad o coexistencia. Siguiente: lectura DOM de menú nativo/estado activo en instalación de prueba; no modificar panel como compensación.
+
+### A-13 Temas
+
+Configuración -> elegir gris oscuro, gris claro o claro azulado, comprobar cambio inmediato, cerrar/reabrir popup y verificar persistencia; cambiar idioma sin perder tema. Icono NW visible en barra con tema oscuro. Pruebas unitarias de preferencia válida/inválida, almacenamiento no disponible y persistencia; estáticas de opciones y CSS. Runtime pendiente.
