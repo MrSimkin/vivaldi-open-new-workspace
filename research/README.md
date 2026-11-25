@@ -1,6 +1,6 @@
 # Investigación local de Vivaldi (P1/P3)
 
-Estos archivos son herramientas de diagnóstico, no parte de la extensión ni de su build. No se instalan ni se ejecutan automáticamente. No se ha ejecutado ninguna en el Vivaldi real. No modificar el perfil habitual, el puente DTC, preferencias, seguridad ni archivos instalados. No reiniciar el navegador.
+Estos archivos son herramientas de diagnóstico, no parte de la extensión ni de su build. No se instalan ni se ejecutan automáticamente. ONW-MENU-v1 fue ejecutado por el propietario; otras herramientas no se presumen ejecutadas. No modificar el perfil habitual, el puente DTC, preferencias, seguridad ni archivos instalados. No reiniciar el navegador.
 
 ## Paso 1: versión actual
 
@@ -31,3 +31,7 @@ El repositorio público no debe contener informes con datos de usuario ni códig
 Con ONW desactivado y sin su puente, preferentemente en instalación de prueba, abrir DevTools de window.html como en Paso 3. Revisar inspect-native-workspace-menu.js. Ejecutar su contenido en esa consola; cuando aparezca el aviso, abrir manualmente el selector nativo de Workspaces y dejarlo visible ocho segundos, sin seleccionar un espacio. Volver a DevTools y copiar únicamente JSON ONW-MENU. Si DevTools impide mantener menú visible, informar bloqueo; no desactivar protecciones. El informe solo incluye estructura, handlers conocidos, coincidencias por ordinal, conteos y estado activo; no nombres/IDs/URL/títulos. No modifica DOM, no instala listeners, no ejecuta eventos ni toca DTC. Si rowsAfter vacío, no inferir ausencia del menú sin verificar que estaba abierto.
 
 No reiniciar Vivaldi para ONW-MENU. Si un diagnóstico posterior realmente requiere cierre/reinicio, cumplir primero la puerta de continuidad de AGENTS.md y docs/WORKFLOW.md.
+
+## ONW-MENU-v2: segunda y última ronda de inspección dinámica dirigida
+
+V1 identificó catálogo/ventanas/botón pero no filas. En el mismo contexto window.html, ejecutar inspect-native-workspace-menu-v2.js y abrir manualmente el selector en la MISMA ventana inspeccionada al aviso. Mantener abierto 15 s sin seleccionar. Copiar solo JSON ONW-MENU-V2. El muestreo observa controles visibles nuevos y clases estructurales, coincidencias de nombres expresadas como ordinales, handlers y pulsaciones humanas sobre el botón, sin almacenar datos de navegación. También verifica referencia script y registro de listener de ambos puentes; no envía mensajes ni ejecuta DTC. El listener pasivo temporal se elimina en finally. No editar archivos ni reiniciar. Si no se detecta pulsación, revisar contexto; si se detecta pero no hay menú DOM, pasar a inspección estática/contexto alternativo, no repetir indefinidamente.
