@@ -1,6 +1,6 @@
 # Entrega Windows nominal (D-039) | 2026-11-25
 
-D-033 y D-034 permanecen obligatorias. Candidata 0.1.5 de producto: ab3a01a9d758ca0efd28d4db927f77bbba824566. No hay cambios en extension ni bridge por la entrega; no reinstalar por el mero agregado del instalador.
+D-033 y D-034 permanecen obligatorias. Baseline funcional 0.1.5 de producto: ab3a01a9d758ca0efd28d4db927f77bbba824566. No hay cambios en extension ni bridge por la entrega; no reinstalar por el mero agregado del instalador.
 
 Nombre de paquete actual: ONW_0.1.5_windows.zip. Contiene extension/, bridge/ e Install-ONW.ps1 en raíz. Generar paquetes futuros desde checkout revisado con scripts/New-ONWPackage.ps1 (PowerShell, destino dist por defecto). No sobreescribe ZIP existente. Mantener ZIP y extracción dentro de E:\Vivaldi_OpenNewWorkspace\versions\<version>\, conservar históricos. Si se requiere nueva entrega de la misma versión, usar subcarpeta/revisión inequívoca; no sobreescribir. El nombre no implica release.
 
@@ -18,4 +18,4 @@ Ante error, no repetir automáticamente. Si ocurrió tras comenzar cambios, no a
 
 ## Evidencia
 
-Linux Node 22.16.0 check/test 45/45/build aprobados; tres tests estáticos nuevos. ZIP generado localmente mediante Python, no mediante PowerShell; hash SHA256 2e0b868ad29de23661b49da514c4a961a89344f96a5b340bf4d9431658a7225b. No PowerShell/Windows runtime disponible, nueva CI no confirmada. No afirmar que el instalador funciona en el equipo hasta validar. La QA real de producto 0.1.5 sigue pendiente. No modificar DTC.
+Linux Node 22.16.0 check/test 45/45/build aprobados; tres tests estáticos nuevos. ZIP generado localmente mediante Python, no mediante PowerShell; hash SHA256 2e0b868ad29de23661b49da514c4a961a89344f96a5b340bf4d9431658a7225b. No PowerShell/Windows runtime disponible, nueva CI no confirmada. No afirmar que el instalador funciona en el equipo hasta validar. La QA real de producto 0.1.5 fue aprobada (19/19 por reporte del propietario); el instalador D-039 no fue usado ni validado en esa QA. No modificar DTC.
