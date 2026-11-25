@@ -4,8 +4,8 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 
 | ID | Prioridad | Estado | Tarea y aceptación |
 |---|---|---|---|
-| ONW-001 | P0 | Hecho local | Scaffold y documentación autosuficiente, check/test/build verificables. |
-| ONW-002 | P0 | Importación en curso | Repo creado por el propietario; importar scaffold y verificar rama main, archivos y permisos; actualizar STATUS. |
+| ONW-001 | P0 | Hecho | Scaffold y documentación autosuficiente, check/test/build verificables. |
+| ONW-002 | P0 | Hecho | Repo creado por propietario, importación verificada en main: 26 archivos, permiso de escritura, commit `480da6f4c1640d58ebd31d1774af43a98aa61af7`. Ver STATUS. |
 | ONW-003 | P0 | Pendiente | Confirmar qué significa Open New Workspace, entradas, nombre, ventana, activación y errores; actualizar requisitos. |
 | ONW-004 | P0 | Pendiente | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
 | ONW-005 | P0 | Pendiente | Investigar capacidad de crear un Workspace nativo si se confirma H-001; prueba reproducible o bloqueo documentado. |
