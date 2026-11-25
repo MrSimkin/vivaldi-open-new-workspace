@@ -10,9 +10,9 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-004 | P0 | Hecho por reporte | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
 | ONW-005 | P0 | En curso (runtime pendiente) | Revisión documental DTC y fuentes externas realizada; matriz y plan P0-P4 en FEASIBILITY. Referencias P3 revisadas; herramientas de diagnóstico en research/. Versión recibida; priorizar selección y apertura nativa de existentes y base. Ruta por menú nativo identificada y programada; verificar en Vivaldi 8.3. Creación diferible a ONW-011. |
 | ONW-006 | P0 | Candidata implementada | MV3 + worker + puente independiente, pendiente validar arquitectura en única instalación habitual, con D-033. |
-| ONW-007 | P0 | Candidato 0.1.4; runtime pendiente | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; listado y base OK por reporte; foco y apertura fallan; obtener códigos y corregir; panel lateral solo aparece en Existing (Ctrl+N y Base no); v2 confirma filas/eventos y 2/8 coincidencias; candidato 0.1.4 con identidad bijectiva, foco verificado y protocolo 3; CI 45645828628 aprobada; runtime pendiente. No equivale a aceptación. |
+| ONW-007 | P0 | Bloqueada parcialmente | QA-ONW-014: foco activo y catálogo OK; apertura inactiva falla, identidad parcial, panel lectura aparece. Evidencia estática pendiente; no repetir V1/V2. |
 | ONW-008 | P0 | Pendiente | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |
-| ONW-009 | P1 | Candidato 0.1.3 UX | 420px, lista automática sin clic adicional, icono NW gris; Configuración con tres temas persistentes (gris oscuro inicial, gris claro, claro azulado), CI de temas aprobada (45642456686), pendiente prueba real. |
+| ONW-009 | P1 | En curso 0.1.5 | QA 0.1.4 ancho parcial; cuatro temas, ES inicial, compactar error y altura; verificar ancho efectivo 420px. |
 | ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
 | ONW-012 | P0 | Recuperación reportada; coexistencia pendiente | DTC falla con y sin ONW/puente en ambos ámbitos según aislamiento reportado; causa no demostrada. V2 confirma ambos listeners registrados; DTC funciona normalmente sin cambios/reinicio según propietario; causa transitoria desconocida. Verificar coexistencia después de operaciones ONW; no modificar DTC. |
@@ -26,3 +26,5 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-016 | P0 | Regla operativa activa | D-034: preparación de cada futura versión y respaldos dentro de raíz de trabajo ONW, rutas activas estables, excepción única 0.1.4. |
 
 Actualizar estados sin eliminar tareas históricas. Añadir evidencia, commit o referencia de prueba al cerrar tareas relevantes.
+
+0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.

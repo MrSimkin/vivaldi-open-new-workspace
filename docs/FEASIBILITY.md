@@ -98,3 +98,9 @@ Candidato 0.1.4: protocolo 3 obligatorio en extensión/puente (incompatible con 
 ## Restricción vigente D-033
 
 Propietario confirma única instalación habitual. Los experimentos que aún procedan se adaptan a ella con datos de prueba, backups, cambios ONW estrictos y continuidad antes de reinicio; no exigir Standalone ni perfiles adicionales. V1/V2 ya ejecutados; próximo experimento es aceptación candidata 0.1.4, no repetir P0-P3 por rutina.
+
+## Evidencia posterior QA-ONW-014
+
+QA-ONW-014 (25-11-2026, reporte propietario): instalación/reinicio completados sin incidencia reportada; versión/ID no comprobables. 13 OK: DTC inicial, catálogo automático, foco activo sin ventana adicional, pestañas destino, origen/pestañas, Base, icono NW, gris oscuro, gris claro, claro azulado, idioma ES/EN, persistencia tema, DTC final. 2 parciales: identidad sin duplicar, ancho/tres opciones. 2 fallos: abrir inactivo exactamente una ventana y ausencia panel Lista de vistas de lectura. Idioma persistente OK dentro del caso ES/EN. Error literal: Operation not confirmed. (NATIVE_ROW_IDENTITY_UNVERIFIED) An additional window opened; it will not be closed automatically. Check windows before retrying. No inferir causa, estado exacto de ventana extra ni coexistencia global. Captura: popup estrecho, textos partidos, error alto, EN. No repetir la operación fallida, V1/V2 ni aislamiento DTC.
+
+0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.

@@ -22,8 +22,8 @@
 | RF-09 | Abrir el Workspace existente seleccionado en otra ventana, conservando sus pestañas y sin duplicarlo, cuando no esté ya abierto. |
 | RF-10 | Si el Workspace existente ya está abierto en otra ventana, enfocar esa ventana en lugar de crear otra o trasladar sus pestañas. |
 | RF-11 | Mantener abierta la ventana original en todas las operaciones. |
-| RF-12 | Interfaz configurable entre español e inglés. |
-| RF-13 | Configuración de tres temas (gris oscuro, gris claro, claro azulado) persistentes; mantener icono NW y evitar excesiva luminosidad. |
+| RF-12 | Interfaz configurable entre español e inglés; ES predeterminado si no hay preferencia válida guardada. |
+| RF-13 | Configuración de cuatro temas (gris oscuro predeterminado, gris claro, claro azulado, azul oscuro atenuado) persistentes; mantener icono NW y evitar excesiva luminosidad. |
 
 ## Requisitos no funcionales
 
@@ -44,7 +44,7 @@ Administrador completo de Workspaces, edición o eliminación de espacios existe
 ## Detalles de diseño pendientes (no bloquean investigación)
 
 - Caso de seleccionar el Workspace activo en la propia ventana: propuesta provisional, mantener/enfocar esa misma ventana sin duplicar; confirmar si importa al flujo.
-- Idioma predeterminado (propuesta: idioma del navegador, con selector persistente ES/EN); mecanismo de persistencia y apariencia.
+- Idioma predeterminado confirmado: ES; preservar selección explícita ES/EN.
 - Catálogo real de iconos/emojis, comportamiento de nombres duplicados, versión mínima de Vivaldi y mensajes de error: investigar comportamiento nativo antes de elegir.
 - Tipo de pestaña inicial y semántica exacta del espacio base: respetar el comportamiento nativo y verificarlo.
 - Si Vivaldi restringe un Workspace a una ventana, preservar esa restricción. No inventar una lista de espacios o duplicar sesiones.
@@ -57,3 +57,8 @@ El propietario permite dejar RF-02 a RF-06 para una versión posterior si su com
 ## Aceptación del MVP
 
 Las tres operaciones deben actuar sobre el sistema nativo de Vivaldi, mantener abierta la ventana original y preservar datos. Crear rápido y personalizado, abrir base, listar y abrir existentes, enfocar ventana existente y cambiar idioma se verifican con los casos de TESTING. Iconos nativos y emojis quedan sujetos a capacidad real: si alguno no es viable, documentar evidencia y ofrecer solo lo soportado. Validación manual en Windows/Vivaldi obligatoria.
+
+## Actualización 0.1.5
+
+- RF-14: ancho efectivo objetivo 420 px, reducir altura y compactar mensajes con código desplegable, conservando advertencia de ventana adicional y funciones aprobadas.
+- RF-15: Existing no debe abrir panel Lista de vistas de lectura inesperadamente; corregir causa, no ocultar panel automáticamente.

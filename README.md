@@ -2,7 +2,7 @@
 
 Extensión de escritorio para **Vivaldi en Windows**. Repositorio: `MrSimkin/vivaldi-open-new-workspace`.
 
-**Estado: 0.1.4 candidata funcional, pre-MVP; prueba controlada en única instalación habitual según D-033.** V2 real confirma estructura del menú, eventos y ambos puentes registrados; DTC recuperado por reporte. Candidato corrige selección y foco con protocolo 3, conserva UX 0.1.3 y CI aprobada; QA real pendiente. El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La versión experimental implementa catálogo nativo, decisión de enfoque/apertura y selección candidata mediante un puente ONW independiente. Requiere el puente cargado en Vivaldi; sin él, Existing falla explícitamente. Validación real parcial de 0.1.2; base aprobada por reporte; New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
+**Estado: 0.1.5 en desarrollo, no instalar; 0.1.4 probada parcialmente (QA-ONW-014), pre-MVP.** V2 real confirma estructura del menú, eventos y ambos puentes registrados; DTC recuperado por reporte. Candidato corrige selección y foco con protocolo 3, conserva UX 0.1.3 y CI aprobada; QA real parcial registrada en TESTING; apertura inactiva y panel lateral siguen bloqueados. El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La versión experimental implementa catálogo nativo, decisión de enfoque/apertura y selección candidata mediante un puente ONW independiente. Requiere el puente cargado en Vivaldi; sin él, Existing falla explícitamente. Validación real parcial de 0.1.2; base aprobada por reporte; New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
 
 ## Inicio rápido
 
@@ -47,3 +47,9 @@ El propietario no dispone de Standalone: usar la única instalación habitual co
 - [Publicación inicial](docs/BOOTSTRAP.md): historial de inicialización y clonación.
 
 No hay licencia pública seleccionada. No distribuir ni publicar en tiendas hasta que el propietario lo autorice. El repositorio es público; no confundir visibilidad del código con autorización para redistribuirlo.
+
+## Estado vigente 0.1.5
+
+Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
+
+0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.

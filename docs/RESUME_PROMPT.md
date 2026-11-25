@@ -1,5 +1,16 @@
 # PROMPT DE CONTINUIDAD — OPEN NEW WORKSPACE (ONW)
 
+## CHECKPOINT VIGENTE (prevalece sobre instrucciones históricas posteriores)
+
+QA-ONW-014 (25-11-2026, reporte propietario): instalación/reinicio completados sin incidencia reportada; versión/ID no comprobables. 13 OK: DTC inicial, catálogo automático, foco activo sin ventana adicional, pestañas destino, origen/pestañas, Base, icono NW, gris oscuro, gris claro, claro azulado, idioma ES/EN, persistencia tema, DTC final. 2 parciales: identidad sin duplicar, ancho/tres opciones. 2 fallos: abrir inactivo exactamente una ventana y ausencia panel Lista de vistas de lectura. Idioma persistente OK dentro del caso ES/EN. Error literal: Operation not confirmed. (NATIVE_ROW_IDENTITY_UNVERIFIED) An additional window opened; it will not be closed automatically. Check windows before retrying. No inferir causa, estado exacto de ventana extra ni coexistencia global. Captura: popup estrecho, textos partidos, error alto, EN. No repetir la operación fallida, V1/V2 ni aislamiento DTC.
+
+Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
+
+0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.
+
+Vivaldi permanece abierto con 0.1.4 reportada. No ejecutar las instrucciones históricas de instalación ni formularios QA 0.1.4. HEAD inicial 3af8a299f521b24c55100c3c3a4f1c379f0f52de; leer main actual y delta. Parches UX y clasificación de errores recibidos en ONW_0.1.5_desarrollo_v2.zip; aún no integrados al guardar este registro. No depender de memoria de chats.
+
+
 Checkpoint: 2026-11-25, D-033 y D-034 vigentes. Copiar íntegro en un nuevo chat temporal con GitHub conectado, junto con resultados nuevos si existen. No depender de memoria o del chat anterior. La rama main y docs/STATUS.md son fuente de verdad; si avanzaron, leer delta y actualizar este prompt antes de cualquier cierre/reinicio.
 
 ## Misión y reglas

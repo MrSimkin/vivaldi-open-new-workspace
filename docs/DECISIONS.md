@@ -51,4 +51,7 @@
 
 | D-034 | 2026-11-25 | Cada entrega futura se prepara y conserva en subcarpetas de E:\Vivaldi_OpenNewWorkspace\, con rutas activas estables; excepción única 0.1.4 en E:\ONW_0.1.4_STAGE\. | Propietario: orden y excepción explícitos; agente: convención versions y backups. |
 
+| D-035 | 2026-11-25 | ES inicial sin borrar preferencia válida; cuarto tema azul oscuro atenuado; objetivo ancho efectivo 420px, menor altura y errores compactos con advertencia visible. | Propietario: requisitos nuevos; agente: implementación y tonos sujetos a QA. |
+| D-036 | 2026-11-25 | QA-ONW-014 registrada; preservar foco/listado/Base y tratar identidad/panel como bloqueos; no repetir ruta fallida ni diagnóstico dinámico. | Reporte propietario y agente: criterio de seguridad, evidencia estática requerida. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

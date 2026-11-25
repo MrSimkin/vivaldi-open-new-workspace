@@ -1,6 +1,6 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.3 candidata UX | etapa: bloqueada por incidencia de coexistencia y selección (pre-MVP).
+Fecha: 2026-11-25 | versión instalada reportada: 0.1.4 | desarrollo: 0.1.5 pre-MVP, no instalar.
 
 ## Implementado
 
@@ -154,3 +154,11 @@ No se han tocado otros repositorios. La versión 0.1.2 declara solo storage; sin
 - Estado remoto / CI / release:
 - Bloqueos y decisiones pendientes:
 - Próxima acción concreta:
+
+## Checkpoint vigente: QA-ONW-014 y desarrollo 0.1.5
+
+QA-ONW-014 (25-11-2026, reporte propietario): instalación/reinicio completados sin incidencia reportada; versión/ID no comprobables. 13 OK: DTC inicial, catálogo automático, foco activo sin ventana adicional, pestañas destino, origen/pestañas, Base, icono NW, gris oscuro, gris claro, claro azulado, idioma ES/EN, persistencia tema, DTC final. 2 parciales: identidad sin duplicar, ancho/tres opciones. 2 fallos: abrir inactivo exactamente una ventana y ausencia panel Lista de vistas de lectura. Idioma persistente OK dentro del caso ES/EN. Error literal: Operation not confirmed. (NATIVE_ROW_IDENTITY_UNVERIFIED) An additional window opened; it will not be closed automatically. Check windows before retrying. No inferir causa, estado exacto de ventana extra ni coexistencia global. Captura: popup estrecho, textos partidos, error alto, EN. No repetir la operación fallida, V1/V2 ni aislamiento DTC.
+
+Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
+
+HEAD inicial verificado 3af8a299f521b24c55100c3c3a4f1c379f0f52de; delta respecto a eb4c60f2f911b88292fb1f61791006076988c404: cinco commits, solo Markdown. Git local no resuelve github.com; conector autenticado sí lee. Parches UX y clasificación de errores recibidos; resultados anteriores únicamente fixtures, no suite integrada. 0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.
