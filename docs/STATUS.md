@@ -80,6 +80,11 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Guía y matriz C-01 a C-05 ampliadas; propuesta de utilidad asistida manual sin ejecución automática. No se ha generado instalador, ni ejecutado Vivaldi/Windows ni tocado DTC, PC, perfiles, permisos o código de producto. No se repiten pruebas de código por cambio exclusivamente documental.
 - Próxima acción: descargar fuente, cargar extensión en Standalone, identificar recursos y seguir guía; validar ONW y después coexistencia real autorizada. No confundir primera prueba aislada sin DTC con coexistencia.
 
+## Instalación reportada por el propietario (2026-11-25)
+
+- El propietario confirma extracción del ZIP, copia del bridge, respaldo de window.html, inserción de referencia ONW, carga descomprimida y reinicio de Vivaldi. No se ha inspeccionado localmente la instalación ni se conoce si es Standalone o habitual; no se afirma que el bridge responda ni que DTC coexista correctamente.
+- Siguiente acción: prueba manual agrupada de DTC inicial, interfaz, catálogo, foco de activo, apertura de inactivo, base, idioma y DTC final. Usar pestañas de prueba; detener ante pérdida de datos o fallo DTC, registrar errores sin reintentos ciegos. Aceptación y pruebas C siguen pendientes. ONW-013 queda como propuesta no bloqueante para esta instalación ya realizada.
+
 ## Bloqueos y siguiente acción
 
 1. CI de 0.1.2 aprobada; siguiente puerta de aceptación es prueba real del puente en Vivaldi. No avanzar a instalación habitual sin validar.
