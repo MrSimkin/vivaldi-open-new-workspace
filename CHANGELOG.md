@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 preview (2026-11-25) | sin release
+
+- Menú de tres opciones, selector ES/EN persistente, apertura normal y guía de selección manual. New Workspace en construcción.
+- Prioridad de entrega ajustada por propietario; creación puede aplazarse, no se elimina.
+- Entorno objetivo registrado y continuidad de DTC confirmada por propietario.
+- Check/test (7/7)/build local aprobados; ejecución real y base/selección nativa pendientes.
+
 ## Sin publicar | diagnóstico P3 (2026-11-25)
 
 - Investigación de windowPrivate, sessionsPrivate, comandos y referencias de modding; firma de creación activa aún desconocida.

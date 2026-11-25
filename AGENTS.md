@@ -7,7 +7,7 @@ Estas instrucciones aplican a todo el árbol. El propietario previsto es `MrSimk
 1. Verificar repositorio, rama y estado de Git. No trabajar sobre otro repositorio de nombre parecido.
 2. Leer este archivo, `README.md`, `docs/STATUS.md`, `docs/REQUIREMENTS.md`, `docs/DESIGN.md`, `docs/BACKLOG.md` y `docs/DECISIONS.md`. Consultar `docs/FEASIBILITY.md`, `docs/TESTING.md` y `docs/WORKFLOW.md` según la tarea.
 3. Distinguir hechos confirmados, propuestas y pruebas pendientes. Resolver la tarea solicitada, no todo el backlog automáticamente.
-4. El alcance funcional y las preferencias ya fueron aprobados; leer RF-01 a RF-12 en REQUIREMENTS. Validar su viabilidad con Vivaldi real; no reabrir requisitos confirmados salvo bloqueo o nueva instrucción.
+4. El alcance funcional y las preferencias ya fueron aprobados; leer RF-01 a RF-12 en REQUIREMENTS. Validar su viabilidad con Vivaldi real; no reabrir requisitos confirmados salvo bloqueo o nueva instrucción. El propietario autorizó diferir la creación y personalización a una versión posterior; priorizar base, listado, selección/enfoque de existentes e idioma. No confundir preview asistida con entrega funcional. Minimizar QA solicitada al propietario por falta de tiempo.
 
 ## Reglas técnicas
 

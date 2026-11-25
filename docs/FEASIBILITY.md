@@ -25,6 +25,12 @@ El handoff reporta validación sustancial de aislamiento y revisión/cierre manu
 
 Licencia de referencia GPL-3.0 (LICENSE). No se copió código, clave ni identidad de DTC; si se propone reutilizar código literal, resolver licencia y atribuciones antes de integrarlo al repositorio público ONW.
 
+## Entorno objetivo confirmado y actualización del propietario (2026-11-25)
+
+Captura de vivaldi://about: Vivaldi 8.3.4191.47 (64 bits, oficial), Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974. No registrar rutas personales. El propietario informa que Duplicate Tabs Closer ha mantenido plena compatibilidad y no ha fallado con nuevas versiones. Este testimonio actual complementa los incidentes históricos documentados, no demuestra por sí solo que ONW tenga acceso a acciones de escritura ni sustituye prueba de integración ONW.
+
+Priorizar apertura base y existentes; diferir investigación de creación cuando demore la primera entrega. La preview usa únicamente chrome.windows.create; se debe verificar la pertenencia base. Para existentes, acotar P3 a selección/activación nativa, inspección de catálogo y asociación a ventanas. El puente de lectura de DTC es precedente favorable; no modificarlo.
+
 ## Evidencia externa
 
 - [Workspaces, ayuda oficial](https://help.vivaldi.com/desktop/tabs/workspaces/): crear vacío, nombre/icono, Quick Commands y selección; un Workspace activo por ventana a la vez, al elegir uno ya activo en otra se enfoca esa ventana. "This Window" corresponde a la opción base en la UI; validar semántica al abrir otra ventana.

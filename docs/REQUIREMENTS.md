@@ -45,6 +45,10 @@ Administrador completo de Workspaces, edición o eliminación de espacios existe
 - Si Vivaldi restringe un Workspace a una ventana, preservar esa restricción. No inventar una lista de espacios o duplicar sesiones.
 - Licencia, método de distribución personal y decisiones técnicas de integración pendientes.
 
+## Entrega escalonada autorizada (2026-11-25)
+
+El propietario permite dejar RF-02 a RF-06 para una versión posterior si su complejidad o QA demora el uso inicial. Primera versión funcional prioriza RF-01, RF-07 a RF-12. New Workspace permanece visible, deshabilitado o marcado en construcción. No se cancelan requisitos de creación. La preview 0.1.1 es un paso intermedio: apertura normal y selección asistida no equivalen a cumplir RF-07 a RF-10. Reducir intervención/QA del propietario, sin eliminar la validación mínima de operaciones reales ni tocar su sesión habitual.
+
 ## Aceptación del MVP
 
 Las tres operaciones deben actuar sobre el sistema nativo de Vivaldi, mantener abierta la ventana original y preservar datos. Crear rápido y personalizado, abrir base, listar y abrir existentes, enfocar ventana existente y cambiar idioma se verifican con los casos de TESTING. Iconos nativos y emojis quedan sujetos a capacidad real: si alguno no es viable, documentar evidencia y ofrecer solo lo soportado. Validación manual en Windows/Vivaldi obligatoria.

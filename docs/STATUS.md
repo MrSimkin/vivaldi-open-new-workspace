@@ -1,10 +1,10 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.0 | etapa: investigación de viabilidad iniciada (pre-MVP).
+Fecha: 2026-11-25 | versión: 0.1.1 preview | etapa: implementación parcial y viabilidad nativa (pre-MVP).
 
 ## Implementado
 
-- Estructura de extensión MV3, popup informativo y adaptador sin integración activa.
+- Extensión MV3 con menú de tres opciones, selector ES/EN persistente local, apertura de ventana normal y guía asistida de selección. New Workspace deshabilitado. Sin integración nativa automática.
 - Scripts de comprobación y build sin dependencias externas; pruebas unitarias y estáticas.
 - Documentación de requisitos, diseño, decisiones, viabilidad, backlog y trabajo de agentes.
 - Workflow de CI para Windows en GitHub Actions.
@@ -14,8 +14,8 @@ Fecha: 2026-11-25 | versión: 0.1.0 | etapa: investigación de viabilidad inicia
 | Control | Resultado |
 |---|---|
 | npm run check | Aprobado: manifiesto, referencias, sintaxis |
-| npm test | Aprobado: 5/5 pruebas |
-| npm run build | Aprobado: `dist/extension/` generado |
+| npm test | Aprobado: 7/7 pruebas (preview 0.1.1) |
+| npm run build | Aprobado: `dist/extension/` generado; ZIP preview comprobado |
 | Carga descomprimida en Vivaldi/Windows | No ejecutada |
 | Creación real de Workspace | No implementada ni validada |
 | CI GitHub Actions | Configurada; al consultar el commit de importación no se reportaron estados de CI. Ejecución en Windows no confirmada. |
@@ -52,11 +52,18 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Añadido research/ con escáner PowerShell de JS instalado, sonda de lectura del esquema/API en UI y guía. Son herramientas de investigación no empaquetadas; no se han ejecutado en Windows/Vivaldi ni se afirma validación de sintaxis PowerShell. No se modificaron código de extensión, versión, permisos ni DTC; no se reejecutó build/tests.
 - Criterio de parada documental alcanzado por ahora: siguiente evidencia requiere versión local y resultados de inspección. No reiniciar ni alterar el perfil habitual.
 
+## Preview 0.1.1 y repriorización (2026-11-25)
+
+- Entorno confirmado por captura del propietario: Vivaldi 8.3.4191.47 x64, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974. Se omiten datos personales.
+- El propietario confirma que DTC sigue siendo compatible y no le ha fallado con nuevas versiones; distinguir reporte actual de incidentes históricos. No se verificó su instalación desde ONW.
+- El propietario autoriza diferir creación/nombre/icono para acelerar entrega. Primera versión funcional debe priorizar base y existentes, enfoque e idioma. La preview 0.1.1 solo abre ventana normal, muestra guía manual, cambia idioma y deja creación deshabilitada. No cumple aún RF-07 a RF-10 completos.
+- Ejecutados check, test (7/7), build e integridad ZIP en Linux/Node 22.16.0; sin prueba Vivaldi, CI remoto no confirmado. Se verificó que los 5 archivos de extensión del ZIP coinciden con fuentes locales. No se cambia DTC ni se modifica Vivaldi, no se publica release.
+
 ## Bloqueos y siguiente acción
 
-1. ONW-005: obtener versión exacta y salida del escáner estático (research/README.md, pasos 1-2). Si no basta, solicitar sonda P1 de solo lectura. No interrumpir sesión habitual.
-2. ONW-004/005: analizar candidatos, confirmar firma y contexto; preparar prueba mínima en perfil separado y verificar P2-P4. El puente DTC no puede ejecutar estas operaciones.
-3. ONW-006: elegir arquitectura con evidencia o registrar bloqueo; no reabrir requisitos aprobados.
+1. ONW-004: si el propietario dispone de tiempo, una prueba mínima de la preview (instalar descomprimida y verificar que la nueva ventana sea base). No reiniciar Vivaldi.
+2. ONW-005/006: concentrar investigación de selección nativa de existentes (listado/ventana activa/selección/enfoque) usando precedentes DTC. Si requiere diagnóstico local, acotarlo a una sola captura de evidencia; no bloquear por creación. No modificar el puente DTC ni la instalación habitual sin permiso.
+3. ONW-007: completar automatización de existentes y base; diferir creación/personalización a ONW-011. No declarar preview como MVP completo.
 
 No se han tocado otros repositorios. No se han declarado permisos de navegador. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
 

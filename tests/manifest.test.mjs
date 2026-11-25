@@ -15,9 +15,9 @@ test("scaffold declares no permissions or background worker", () => {
   }
 });
 
-test("popup does not expose a nonfunctional action button", () => {
+test("preview exposes three options and disables new Workspace", () => {
   const html = read("../extension/popup.html");
-  assert.match(html, /id="status"/);
-  assert.match(html, /id="detail"/);
-  assert.doesNotMatch(html, /<button\b/i);
+  for (const id of ["new", "base", "existing", "language", "status"]) assert.ok(html.includes(`id="${id}"`));
+  assert.match(html, /id="new" disabled/);
+  assert.match(html, /id="assist" hidden/);
 });

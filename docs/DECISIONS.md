@@ -22,4 +22,8 @@
 
 | D-016 | 2026-11-25 | No tratar sessionsPrivate ni windowKey como APIs de Workspaces activos. Priorizar inspección estática local sin tocar sesión y después diagnóstico UI de lectura si hace falta. | Agente: investigación acotada; no autoriza cambios al navegador. |
 
+| D-017 | 2026-11-25 | Primera versión prioriza base, existentes, enfoque e idioma; creación y personalización pueden quedar en construcción para evitar demora/QA. | Propietario, autorizado. |
+| D-018 | 2026-11-25 | Entorno Vivaldi 8.3.4191.47, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974; DTC mantiene plena compatibilidad según propietario. | Captura y reporte del propietario; no prueba ONW. |
+| D-019 | 2026-11-25 | Preview 0.1.1 con apertura normal y selección asistida, sin simular selección automática ni base confirmada. | Agente: entrega intermedia reversible, no aceptación de alcance reducido para MVP. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

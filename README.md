@@ -2,7 +2,7 @@
 
 Extensión de escritorio para **Vivaldi en Windows**. Repositorio: `MrSimkin/vivaldi-open-new-workspace`.
 
-**Estado: 0.1.0, base técnica (pre-MVP).** El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La interfaz actual solo informa el estado y no altera pestañas ni Workspaces. La siguiente fase es verificar la integración nativa.
+**Estado: 0.1.1 preview, entrega parcial (pre-MVP).** El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La preview implementa menú ES/EN, apertura de ventana normal y guía de selección manual. No verifica base nativa, no lista ni selecciona automáticamente existentes y no crea Workspaces. New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
 
 ## Inicio rápido
 
@@ -22,7 +22,7 @@ No hay dependencias npm externas. `npm run build` copia el contenido de `extensi
 2. Abrir `vivaldi://extensions` en Vivaldi; si no redirige correctamente, abrir el gestor de extensiones desde el menú Herramientas.
 3. Activar el modo desarrollador y usar **Cargar descomprimida / Load unpacked**.
 4. Seleccionar `dist/extension` (o `extension` durante desarrollo).
-5. Abrir el icono de Open New Workspace. Debe aparecer el panel informativo, sin modificar el navegador.
+5. Abrir el icono de Open New Workspace. Debe aparecer el menú de tres opciones con idioma ES/EN. Base abre ventana normal (semántica base por verificar); Existing muestra guía y permite abrir ventana para selección manual. New deshabilitado. La instalación y ejecución real no han sido validadas en Vivaldi.
 6. Después de cambiar el código, reconstruir si se usa `dist/extension` y recargar la extensión.
 
 ## Documentación y continuidad

@@ -20,6 +20,10 @@
 
 Usar perfil de prueba, nunca el perfil habitual para experimentos con APIs internas. Registrar fecha, versión de Windows, versión exacta de Vivaldi, build/commit, pasos, resultado y evidencia (sin datos personales).
 
+## Preview 0.1.1: verificación mínima
+
+Pruebas automáticas: 7/7 (manifest, ausencia de permisos, menú, apertura normal y errores sin reintento, idioma). Check/build aprobados en Linux Node 22.16.0. Pendiente una prueba real mínima: cargar descomprimida, abrir popup, cambiar idioma, abrir una ventana normal desde Workspace personalizado, verificar si nueva ventana muestra base y la original sigue abierta. Existing solo guía manual; no marcar A-06 a A-08 como aprobadas. No solicitar QA extensa al propietario ahora. Creación y personalización diferibles.
+
 ## Pruebas de aceptación del MVP (alcance aprobado; todas pendientes)
 
 | ID | Caso | Resultado esperado |
