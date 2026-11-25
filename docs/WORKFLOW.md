@@ -39,3 +39,6 @@ D-034: todas las futuras entregas de ONW deben mantener ZIP, extracción y respa
 3. Entregar el prompt completo en el chat, copiable o descargable, no solo un enlace. Permitir guardarlo fuera de Vivaldi antes del cierre. No asumir memoria o acceso al chat temporal tras reinicio.
 4. No cerrar/reiniciar por cuenta propia. Al retomar, leer prompt y HEAD, revisar delta y seguir desde evidencia pendiente; no repetir pruebas.
 5. Todo formulario de preguntas/QA incluye campo de comentarios adicionales y acepta respuestas parciales.
+
+## D-039 — Entregas nominales
+Para cada instalación futura entregar ZIP ONW_<version>_windows.zip construido desde fuente revisada, script Install-ONW.ps1 en su raíz, hash y guía breve; generar con scripts/New-ONWPackage.ps1. No sobrescribir paquete de la misma versión: si cambia el payload usar revisión identificable y preservar ambos. Ver docs/DELIVERY_WINDOWS.md. Verify no requiere cerrar; Install exige cierre voluntario previo y conserva D-033/D-034. No pedir instalación para cambios solo documentales/entrega.
