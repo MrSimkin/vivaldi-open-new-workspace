@@ -13,12 +13,12 @@ Fecha: 2026-11-25 | versión: 0.1.2 experimental | etapa: integración candidata
 
 | Control | Resultado |
 |---|---|
-| npm run check | 0.1.1 aprobado histórico; 0.1.2 pendiente CI/local |
-| npm test | 0.1.1: 7/7 histórico; 0.1.2: suite ampliada, ejecución pendiente |
-| npm run build | 0.1.1 aprobado histórico; 0.1.2 pendiente |
+| npm run check | 0.1.2 aprobado en GitHub Actions (Windows) |
+| npm test | 0.1.2: suite aprobada en GitHub Actions (Windows) |
+| npm run build | 0.1.2 aprobado en GitHub Actions (Windows) |
 | Carga descomprimida en Vivaldi/Windows | No ejecutada |
 | Creación real de Workspace | No implementada ni validada |
-| CI GitHub Actions | Configurada; al consultar el commit de importación no se reportaron estados de CI. Ejecución en Windows no confirmada. |
+| CI GitHub Actions | 0.1.2: job de Windows exitoso, check/test/build; [run 45632780858](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45632780858). |
 | Repo remoto/commit/push | Importación verificada en `main`: 26 archivos, commit `480da6f4c1640d58ebd31d1774af43a98aa61af7`; se conserva el commit inicial. |
 | Publicación/distribución | No realizada |
 
@@ -64,12 +64,12 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Investigado mod comunitario workspaceButtons.js; identificada ruta de selección por menú nativo. Añadidos bridge/onw-workspace-bridge.js, worker, cliente, tests de lógica y puente con dobles, y guía de validación.
 - Listado real candidato; foco por ID verificado; apertura de inactivo en destino mediante selección nativa estricta y postcondición. No se escribe prefs ni mueve/cierra pestañas directamente. Puede quedar ventana adicional ante fallo/carrera, avisada al usuario.
 - Se añadió permiso storage (estado de operación en sesión) y clave pública de desarrollo propia; no hay clave privada guardada ni permiso de hosts. No modificar DTC.
-- Conector permitió preparar commits, pero el entorno local no resuelve GitHub y no pudo descargar las fuentes exactas del nuevo commit para ejecutar Node. No se atribuyen resultados previos a esta versión. CI Windows y ejecución real Vivaldi pendientes; no se entregó ZIP 0.1.2 ni se publicó release. Tests escritos, no ejecutados en este checkpoint.
+- Conector permitió preparar commits, pero el entorno local no resuelve GitHub y no pudo descargar las fuentes exactas del nuevo commit para ejecutar Node. No se atribuyen resultados previos a esta versión. La CI de Windows se verificó posteriormente: check/test/build exitosos en el commit a0f43b31b61269b8f36789e3ccdf0226ad8b3879 (run 45632780858). Ejecución real Vivaldi pendiente; no se entregó ZIP instalable 0.1.2 ni se publicó release.
 - La integración depende de instalar/cargar el puente en el UI de todas las ventanas. No hay autorización de modificación del navegador habitual; no realizarla ni reiniciar. Mantener 0.1.1 como preview sin puente hasta validar.
 
 ## Bloqueos y siguiente acción
 
-1. Verificar CI de 0.1.2 y corregir fallos; no avanzar a instalación habitual si no pasa.
+1. CI de 0.1.2 aprobada; siguiente puerta de aceptación es prueba real del puente en Vivaldi. No avanzar a instalación habitual sin validar.
 2. ONW-004/005/006/007/008: con autorización y disponibilidad, prueba única en instalación separada (catálogo, foco activo, apertura inactivo, origen intacto), según bridge/README.md. Si no funciona, recoger código de error y esquema/selector mínimo, corregir sin repetir investigación.
 3. Base nativa pendiente de confirmación. Creación/personalización diferida ONW-011. No declarar MVP completo.
 
