@@ -2,6 +2,8 @@
 
 ## 0.1.5 en desarrollo (no release, no instalar)
 
+- Identidad de fila corregida según estructura nativa estática; códigos de fallo diferenciados. Panel lateral y QA runtime pendientes.
+
 - Registrada QA real 0.1.4: 13 OK, 2 parciales, 2 fallos y 1 no comprobable.
 - Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
 - UX integrada: ES predeterminado, cuarto tema, ancho intrínseco, filas compactas y código de error desplegable; nuevas pruebas de contrato y de render con dobles. Sin incremento de versión ni release.
@@ -67,3 +69,9 @@
 - Documentación de trabajo, agentes, arquitectura, viabilidad, alcance, pendientes y checkpoint.
 - Sin permisos de navegador, dependencias externas, publicación en tienda ni licencia pública seleccionada.
 - Importación del scaffold al repositorio creado por el propietario, con conservación del commit inicial y de la visibilidad pública observada.
+
+## Evidencia estática ONW-ROW-STATIC-1 (2026-11-25)
+
+Informe real del propietario, Vivaldi 8.3.4191.47: 20 JS inspeccionados, cero omitidos, siete muestras de bundle.js. No se almacena ni publica el bundle ni el JSON. La fila nativa usa div.title con dos p directos: nombre literal y p.tab-count; icono/avatar separado y title puede añadir texto de hibernación. El padre pasa ID nativo, nombre y onSelect a componente de fila; el botón DOM observado no aporta ID nativo demostrado. No confundir data-handler de drag con ID. El onClick de fila llama a selección con ID; se conserva un solo click y verificaciones. Toolbar registra togglePopup para onClick/onPointerDown, pero falta implementación de togglePopup/toolbar genérico y de selección; no se demuestra causa del panel. No invocar detachWorkspace ni APIs privadas nuevas por la mera aparición de un símbolo.
+
+Corrección candidata: leer exclusivamente p de nombre dentro de div.title directo, exigir exactamente un nombre y un contador, comparar nombre literal exacto, exigir biyección completa y revalidación de la misma fila. No usar tooltip, concatenación, emoji añadido, sufijos numéricos u ordinal. Se integran códigos diagnósticos NO_MATCH/AMBIGUOUS/DUPLICATE/TARGET_MISSING/REVALIDATION/ROW_CHANGED. No cambia creación/foco de ventana, eventos, protocolo 3, permisos, manifest, worker ni DTC. QA runtime pendiente y causa concreta del fallo anterior no demostrada. El panel continúa abierto como problema, se requiere traza estática específica de callbacks; no repetir V1/V2 ni QA 0.1.4. No instalar main ni reiniciar.

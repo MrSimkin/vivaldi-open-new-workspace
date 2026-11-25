@@ -46,23 +46,18 @@
     return found.length===1?found[0]:null;
   }
   function entries() {return [...document.querySelectorAll(rowSelector)].filter(visible);}
-  // Catalog-derived labels only. Never choose by substring or row index.
-  // Require a bijection across all visible rows before any row activation.
+  // Vivaldi 8.3.4191.47: native row renders the exact name in div.title > p,
+  // followed by a separate p.tab-count. Do not interpret icon, tooltip, count,
+  // other descendants, or row order as identity. Fail closed on structural drift.
   function rowCandidates(row,workspaces) {
-    const values=[row.getAttribute("title"),row.getAttribute("aria-label"),row.textContent,
-      ...[...row.querySelectorAll("span,[title],[aria-label]")].slice(0,80).flatMap(el=>[el.getAttribute("title"),el.getAttribute("aria-label"),el.textContent])]
-      .filter(x=>typeof x==="string"&&x.length<=600).map(x=>x.trim());
-    const labels = w => {
-      const name=w.name.trim(), emoji=w.emoji?.trim();
-      return [...new Set([name,...(emoji?[emoji+" "+name,emoji+name]:[])])];
-    };
-    const matches = (value,label) => {
-      if(value===label)return true;
-      if(!value.startsWith(label))return false;
-      // Bounded numeric badge hypothesis; reject overlapping names.
-      return /^(?:\s*\d{1,6}|\s*\(\d{1,6}\)|\s*\[\d{1,6}\])$/.test(value.slice(label.length));
-    };
-    return workspaces.filter(w=>labels(w).some(label=>values.some(value=>matches(value,label))));
+    const titles=row.querySelectorAll(":scope > div.title");
+    if(titles.length!==1)return [];
+    const names=titles[0].querySelectorAll(":scope > p:not(.tab-count)");
+    const counts=titles[0].querySelectorAll(":scope > p.tab-count");
+    if(names.length!==1||counts.length!==1)return [];
+    const name=names[0].textContent;
+    if(typeof name!=="string"||!name.trim()||name.length>512)return [];
+    return workspaces.filter(w=>w.name===name);
   }
   function resolveMenu(workspaces) {
     const roots=popup(), rows=entries();
@@ -70,7 +65,9 @@
     const mapping=new Map();
     for(const row of rows){
       const candidates=rowCandidates(row,workspaces);
-      if(candidates.length!==1||mapping.has(candidates[0].id))return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED"};
+      if(candidates.length===0)return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED_NO_MATCH"};
+      if(candidates.length!==1)return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED_AMBIGUOUS"};
+      if(mapping.has(candidates[0].id))return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED_DUPLICATE"};
       mapping.set(candidates[0].id,row);
     }
     return {mapping};
@@ -150,7 +147,7 @@
     }
     if(!resolved.mapping)throw Error(resolved.code);
     const row=resolved.mapping.get(id);
-    if(!row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED");
+    if(!row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED_TARGET_MISSING");
     const fresh=await snapshot();
     await requireFocusedDestination(own);
     if(Date.now()>actionDeadline)throw Error("SELECTION_DEADLINE");
@@ -159,7 +156,8 @@
       fresh.workspaces.filter(w=>w.name.trim()===target.name.trim()).length!==1||
       !fresh.workspaces.some(w=>w.id===id&&w.name===target.name))throw Error("STATE_CHANGED");
     const again=resolveMenu(fresh.workspaces);
-    if(!again.mapping||again.mapping.get(id)!==row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED");
+    if(!again.mapping)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED_REVALIDATION");
+    if(again.mapping.get(id)!==row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED_ROW_CHANGED");
     selectRow(row);
     const deadline=Date.now()+5000;
     while(Date.now()<deadline){

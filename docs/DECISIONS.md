@@ -54,4 +54,12 @@
 | D-035 | 2026-11-25 | ES inicial sin borrar preferencia válida; cuarto tema azul oscuro atenuado; objetivo ancho efectivo 420px, menor altura y errores compactos con advertencia visible. | Propietario: requisitos nuevos; agente: implementación y tonos sujetos a QA. |
 | D-036 | 2026-11-25 | QA-ONW-014 registrada; preservar foco/listado/Base y tratar identidad/panel como bloqueos; no repetir ruta fallida ni diagnóstico dinámico. | Reporte propietario y agente: criterio de seguridad, evidencia estática requerida. |
 
+| D-037 | 2026-11-25 | Identidad por nombre literal del párrafo nativo, estructura y biyección completas, revalidación; retirar heurística de sufijos y distinguir códigos de fallo. | Agente: evidencia estática de la versión instalada ONW-ROW-STATIC-1; candidato pendiente QA. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
+
+## Evidencia estática ONW-ROW-STATIC-1 (2026-11-25)
+
+Informe real del propietario, Vivaldi 8.3.4191.47: 20 JS inspeccionados, cero omitidos, siete muestras de bundle.js. No se almacena ni publica el bundle ni el JSON. La fila nativa usa div.title con dos p directos: nombre literal y p.tab-count; icono/avatar separado y title puede añadir texto de hibernación. El padre pasa ID nativo, nombre y onSelect a componente de fila; el botón DOM observado no aporta ID nativo demostrado. No confundir data-handler de drag con ID. El onClick de fila llama a selección con ID; se conserva un solo click y verificaciones. Toolbar registra togglePopup para onClick/onPointerDown, pero falta implementación de togglePopup/toolbar genérico y de selección; no se demuestra causa del panel. No invocar detachWorkspace ni APIs privadas nuevas por la mera aparición de un símbolo.
+
+Corrección candidata: leer exclusivamente p de nombre dentro de div.title directo, exigir exactamente un nombre y un contador, comparar nombre literal exacto, exigir biyección completa y revalidación de la misma fila. No usar tooltip, concatenación, emoji añadido, sufijos numéricos u ordinal. Se integran códigos diagnósticos NO_MATCH/AMBIGUOUS/DUPLICATE/TARGET_MISSING/REVALIDATION/ROW_CHANGED. No cambia creación/foco de ventana, eventos, protocolo 3, permisos, manifest, worker ni DTC. QA runtime pendiente y causa concreta del fallo anterior no demostrada. El panel continúa abierto como problema, se requiere traza estática específica de callbacks; no repetir V1/V2 ni QA 0.1.4. No instalar main ni reiniciar.
