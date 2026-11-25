@@ -7,6 +7,8 @@
 - Añadida suite de pruebas; check/test/build aprobados en GitHub Actions Windows (run 45632780858), integración Vivaldi pendiente.
 - Añadida guía de instalación manual personal y reversión (sin release ni instalador automático); prueba real pendiente. No se instaló puente ni se modificó DTC.
 
+- Ampliada documentación de coexistencia con DTC, control de escrituras concurrentes, reversión selectiva y pruebas C-01 a C-05; sin cambios de código ni pruebas reales. Utilidad asistida propuesta, no implementada.
+
 ## 0.1.1 preview (2026-11-25) | sin release
 
 - Menú de tres opciones, selector ES/EN persistente, apertura normal y guía de selección manual. New Workspace en construcción.
