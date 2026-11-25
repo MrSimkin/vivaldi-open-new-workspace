@@ -1,6 +1,14 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión instalada reportada: 0.1.4 | desarrollo: 0.1.5 pre-MVP, no instalar.
+## Checkpoint vigente — QA-ONW-015 aprobada (2026-11-25)
+
+Propietario reportó 19/19 OK, sin comentarios, tras instalación/reinicio y versión 0.1.5 habilitada. Matriz completa en TESTING.md. Base y Existing (activo/inactivo) aceptados en su entorno, identidad y pestañas conservadas, panel de lectura no reproducido, UX/temas/idiomas aprobados, DTC inicial y final OK. Cerrar bloqueos funcionales de 0.1.4 para este candidato. No se demuestra causa raíz del panel, ni hashes/ID locales, ni 420 px medidos, ni ES inicial en perfil sin preferencia; error compacto condicional OK sin detalle de ocurrencia. No inferir más de lo reportado.
+
+Estado: 0.1.5 es baseline funcional validada para el alcance Base/Existing/UX, código ab3a01a9d758ca0efd28d4db927f77bbba824566. No equivale a MVP completo: creación New Workspace sigue diferida/deshabilitada, según REQUIREMENTS. Sin release, incremento de versión ni cambios de código. D-033/D-034/D-039 vigentes; DTC no modificado. CI histórica Windows 42/42; pruebas estáticas de entrega Linux 45/45; PowerShell Windows de D-039 y CI nueva no confirmados. No reinstalar o reiniciar para este cierre. Próxima acción: conservar baseline y decidir siguiente alcance con propietario (New Workspace o mantenimiento); no reabrir diagnósticos cerrados sin nueva evidencia, ni iniciar cambios de creación sin revisar requisitos y viabilidad.
+
+## Historial de desarrollo (no operativo)
+
+Los bloques siguientes son evidencia cronológica; sus instrucciones de instalación, pruebas pendientes, versiones y próximos pasos fueron superadas por el checkpoint anterior. No ejecutarlas como tareas actuales.
 
 ## Implementado
 
@@ -206,9 +214,3 @@ Próxima acción única: confirmar si ya cerró y reabrió Vivaldi tras copiar p
 ## QA-ONW-015 — activación pendiente (2026-11-25)
 
 El propietario confirma que copió los archivos y reinició Vivaldi, pero aún no recargó la extensión ONW. Sin incidencias adicionales reportadas. No se confirma todavía versión/ID ni carga efectiva del puente; no se requieren nueva descarga, instalación ni reinicio por este estado. Próximo paso: recargar únicamente ONW desde vivaldi://extensions y confirmar versión 0.1.5 habilitada; luego ejecutar una sola QA agrupada del candidato, DTC inicial no destructivo y final, con parada ante fallo DTC inicial, sin repetir operación ONW fallida ni diagnósticos anteriores. D-033/D-034/D-039 vigentes; DTC no modificado. Resultados QA aún no recibidos.
-
-## Checkpoint vigente — QA-ONW-015 aprobada (2026-11-25)
-
-Propietario reportó 19/19 OK, sin comentarios, tras instalación/reinicio y versión 0.1.5 habilitada. Matriz completa en TESTING.md. Base y Existing (activo/inactivo) aceptados en su entorno, identidad y pestañas conservadas, panel de lectura no reproducido, UX/temas/idiomas aprobados, DTC inicial y final OK. Cerrar bloqueos funcionales de 0.1.4 para este candidato. No se demuestra causa raíz del panel, ni hashes/ID locales, ni 420 px medidos, ni ES inicial en perfil sin preferencia; error compacto condicional OK sin detalle de ocurrencia. No inferir más de lo reportado.
-
-Estado: 0.1.5 es baseline funcional validada para el alcance Base/Existing/UX, código ab3a01a9d758ca0efd28d4db927f77bbba824566. No equivale a MVP completo: creación New Workspace sigue diferida/deshabilitada, según REQUIREMENTS. Sin release, incremento de versión ni cambios de código. D-033/D-034/D-039 vigentes; DTC no modificado. CI histórica Windows 42/42; pruebas estáticas de entrega Linux 45/45; PowerShell Windows de D-039 y CI nueva no confirmados. No reinstalar o reiniciar para este cierre. Próxima acción: conservar baseline y decidir siguiente alcance con propietario (New Workspace o mantenimiento); no reabrir diagnósticos cerrados sin nueva evidencia, ni iniciar cambios de creación sin revisar requisitos y viabilidad.
