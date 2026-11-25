@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Open New Workspace",
+  "version": "0.1.0",
+  "description": "Open New Workspace for Vivaldi Desktop (development scaffold).",
+  "action": {
+    "default_title": "Open New Workspace",
+    "default_popup": "popup.html"
+  }
+}
