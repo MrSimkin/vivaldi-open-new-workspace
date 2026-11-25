@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {locateWorkspace,validateSnapshot,openExisting,openNormalWindow,getLanguage} from "../extension/workspace-adapter.js";
+import {locateWorkspace,validateSnapshot,openExisting,openNormalWindow,getLanguage,focusWindow} from "../extension/workspace-adapter.js";
 const cat=[{id:1,name:"One"},{id:2,name:"Two"}];
 const named=(id,workspaceId)=>({id,kind:"named",workspaceId});
 const base=id=>({id,kind:"base"});
@@ -15,3 +15,18 @@ test("unknown states or duplicate names never create",async()=>{for(const s of [
 test("selection failure reports extra window without retry or closure",async()=>{let calls=0,n=0;await assert.rejects(openExisting(1,5,{snapshot:async()=>n++===0?snap([base(5)]):snap([base(5),base(6)]),create:async()=>6,ready:async()=>{},select:async()=>{calls++;throw Error("NATIVE_ITEM_UNAVAILABLE");}}),e=>e.message==="NATIVE_ITEM_UNAVAILABLE"&&e.extraWindow===6);assert.equal(calls,1);});
 test("race when workspace opens elsewhere focuses it, reports extra window",async()=>{let n=0;const states=[snap([base(5)]),snap([base(5),base(6),named(7,1)]),snap([base(5),base(6),named(7,1)])];const r=await openExisting(1,5,{snapshot:async()=>states[n++],create:async()=>6,ready:async()=>{},focus:async id=>assert.equal(id,7),select:async()=>assert.fail("selected")});assert.equal(r.extraWindow,6);});
 test("normal window and language",async()=>{assert.equal(await openNormalWindow({create:async o=>{assert.deepEqual(o,{type:"normal",focused:true});return{id:7};}}),7);assert.equal(getLanguage(null,"es-CL"),"es");assert.equal(getLanguage("en","es-CL"),"en");});
+
+test("focus waits for verified window instead of trusting update response",async()=>{
+ const calls=[];let reads=0;const w={id:6,type:"normal",incognito:false,state:"normal"};
+ await focusWindow(6,{get:async()=>({...w,focused:++reads>=3}),update:async(id,opts)=>{calls.push([id,opts]);return {...w,focused:false};}},async()=>{});
+ assert.deepEqual(calls,[[6,{focused:true}]]);assert.equal(reads,3);
+});
+test("focus failure does not retry mutation or create",async()=>{
+ const calls=[];const w={id:6,type:"normal",incognito:false,state:"normal",focused:false};
+ await assert.rejects(focusWindow(6,{get:async()=>w,update:async(id,opts)=>{calls.push([id,opts]);return w;}},async()=>{}),/FOCUS_UNVERIFIED/);
+ assert.deepEqual(calls,[[6,{focused:true}]]);
+});
+test("focus rechecks metadata from target bridge, not origin",async()=>{
+ const calls=[];await openExisting(1,5,{snapshot:async id=>{calls.push(id);return snap([base(5),named(6,1)]);},focus:async()=>{}});
+ assert.deepEqual(calls,[5,6]);
+});

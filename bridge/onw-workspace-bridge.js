@@ -2,7 +2,7 @@
 // Independent implementation, no DTC code/key/protocol; no preference writes or tab moves.
 (() => {
   "use strict";
-  const CLIENT = "poebajclpmcacjgkdbkjfjbngmagakbe", PROTOCOL = 2;
+  const CLIENT = "poebajclpmcacjgkdbkjfjbngmagakbe", PROTOCOL = 3;
   if (location.protocol !== "chrome-extension:" || location.hostname !== "mpognobbkildjkofajifpdfhcoklimli" || !location.pathname.endsWith("/window.html")) return;
   const v = globalThis.vivaldi, c = globalThis.chrome;
   const validId = x => (Number.isSafeInteger(x) && x >= 0) || (typeof x === "string" && x.length > 0 && x.length <= 128);
@@ -35,12 +35,69 @@
       return {id:x.id,name:x.name,emoji};
     });
   }
-  const visible = el => el && el.getClientRects().length>0 && getComputedStyle(el).visibility!=="hidden";
+  const visible = el => el?.isConnected && el.getClientRects().length>0 && getComputedStyle(el).visibility==="visible";
+  const enabled = el => !el.disabled && !el.matches("[aria-disabled=true],:disabled");
+  const buttonSelector = ".button-toolbar.workspace-popup.workspace-anchor.tabbar-workspace-button > button";
+  const rowSelector = ".WorkspacePopup > .WorkspacePopup-Items > .WorkspacePopup-DragArea > button.workspace-item-wrapper";
+  const reactProps = el => el[Object.keys(el).find(k=>k.startsWith("__reactProps$"))] || {};
+  const popup = () => [...document.querySelectorAll(".WorkspacePopup")].filter(visible);
   function menuButton() {
-    const found=[...document.querySelectorAll(".button-toolbar.workspace-popup > button")].filter(e=>visible(e)&&!e.disabled);
+    const found=[...document.querySelectorAll(buttonSelector)].filter(e=>visible(e)&&enabled(e)&&typeof reactProps(e).onPointerDown==="function");
     return found.length===1?found[0]:null;
   }
-  function entries() {return [...document.querySelectorAll(".workspace-item-wrapper")].filter(visible);}
+  function entries() {return [...document.querySelectorAll(rowSelector)].filter(visible);}
+  // Catalog-derived labels only. Never choose by substring or row index.
+  // Require a bijection across all visible rows before any row activation.
+  function rowCandidates(row,workspaces) {
+    const values=[row.getAttribute("title"),row.getAttribute("aria-label"),row.textContent,
+      ...[...row.querySelectorAll("span,[title],[aria-label]")].slice(0,80).flatMap(el=>[el.getAttribute("title"),el.getAttribute("aria-label"),el.textContent])]
+      .filter(x=>typeof x==="string"&&x.length<=600).map(x=>x.trim());
+    const labels = w => {
+      const name=w.name.trim(), emoji=w.emoji?.trim();
+      return [...new Set([name,...(emoji?[emoji+" "+name,emoji+name]:[])])];
+    };
+    const matches = (value,label) => {
+      if(value===label)return true;
+      if(!value.startsWith(label))return false;
+      // Bounded numeric badge hypothesis; reject overlapping names.
+      return /^(?:\s*\d{1,6}|\s*\(\d{1,6}\)|\s*\[\d{1,6}\])$/.test(value.slice(label.length));
+    };
+    return workspaces.filter(w=>labels(w).some(label=>values.some(value=>matches(value,label))));
+  }
+  function resolveMenu(workspaces) {
+    const roots=popup(), rows=entries();
+    if(roots.length!==1||rows.length!==workspaces.length||!rows.every(row=>roots[0].contains(row)))return {code:"NATIVE_MENU_STRUCTURE"};
+    const mapping=new Map();
+    for(const row of rows){
+      const candidates=rowCandidates(row,workspaces);
+      if(candidates.length!==1||mapping.has(candidates[0].id))return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED"};
+      mapping.set(candidates[0].id,row);
+    }
+    return {mapping};
+  }
+  function center(el) {
+    if(!visible(el)||!enabled(el))throw Error("NATIVE_CONTROL_UNAVAILABLE");
+    const rect=el.getBoundingClientRect(),x=rect.left+rect.width/2,y=rect.top+rect.height/2;
+    const hit=document.elementFromPoint(x,y);
+    if(!rect.width||!rect.height||!hit||!(hit===el||el.contains(hit)))throw Error("NATIVE_CONTROL_OBSCURED");
+    return {clientX:x,clientY:y,bubbles:true,cancelable:true,view:globalThis.window,button:0};
+  }
+  function openMenu(button) {
+    if(button!==menuButton()||popup().length)throw Error("NATIVE_MENU_UNAVAILABLE");
+    const point=center(button);
+    const opts={...point,pointerId:1,isPrimary:true,pointerType:"mouse"};
+    button.dispatchEvent(new PointerEvent("pointerdown",{...opts,buttons:1}));
+    if(button.isConnected)button.dispatchEvent(new PointerEvent("pointerup",{...opts,buttons:0}));
+  }
+  function selectRow(row) {
+    if(!row.matches(rowSelector)||typeof reactProps(row).onClick!=="function")throw Error("NATIVE_ROW_HANDLER_UNAVAILABLE");
+    const point=center(row);
+    row.dispatchEvent(new MouseEvent("click",{...point,buttons:0,detail:1}));
+  }
+  async function requireFocusedDestination(own) {
+    const w=await c.windows.get(own);
+    if(w?.id!==own||w.type!=="normal"||w.incognito||w.focused!==true)throw Error("DESTINATION_NOT_FOCUSED");
+  }
   async function snapshot() {
     const workspaces=await catalog(), ids=new Set(workspaces.map(w=>w.id));
     const windows=(await c.windows.getAll({windowTypes:["normal"]})).filter(w=>w.type==="normal"&&!w.incognito);
@@ -73,44 +130,37 @@
     }
     return {workspaces,windows:states.map(w=>w.kind==="candidate-base"?{id:w.id,kind:evidence||!ids.size?"base":"unknown"}:w),canSelect:!!menuButton()};
   }
-  function activate(el) {
-    // Use the native UI event path, not internal preference writes.
-    // If a React pointer handler is present, dispatch one pointer sequence;
-    // otherwise use one DOM click. No retry/fallback after dispatch.
-    const propsKey=Object.keys(el).find(k=>k.startsWith("__reactProps$"));
-    if(propsKey && typeof el[propsKey]?.onPointerDown==="function"){
-      el.dispatchEvent(new PointerEvent("pointerdown",{bubbles:true,cancelable:true,pointerType:"mouse",button:0,buttons:1}));
-      el.dispatchEvent(new PointerEvent("pointerup",{bubbles:true,cancelable:true,pointerType:"mouse",button:0,buttons:0}));
-    }else el.click();
-  }
   async function select(id, own) {
+    const actionDeadline=Date.now()+12000;
     const s=await snapshot(), target=s.workspaces.find(w=>w.id===id);
     if(!target)throw Error("WORKSPACE_MISSING");
     if(s.windows.some(w=>w.kind==="unknown")||s.windows.some(w=>w.kind==="named"&&w.workspaceId===id))throw Error("STATE_CHANGED");
     if(s.windows.find(w=>w.id===own)?.kind!=="base")throw Error("DESTINATION_NOT_BASE");
     if(s.workspaces.filter(w=>w.name.trim()===target.name.trim()).length!==1)throw Error("AMBIGUOUS_NAME");
     const button=menuButton();
-    if(!button||entries().length)throw Error("NATIVE_MENU_UNAVAILABLE");
-    activate(button);
-    let row;
-    for(let i=0;i<25;i++){
-      const matches=entries().filter(e=>{
-        const title=e.getAttribute("title");
-        return (title?.trim()===target.name.trim() || e.textContent?.trim()===target.name.trim()) &&
-          !e.matches("[aria-disabled=true],:disabled") && typeof e.click==="function";
-      });
-      if(matches.length>1)throw Error("AMBIGUOUS_MENU_ITEM");
-      if(matches.length===1){row=matches[0];break;}
-      await wait(60);
+    if(!button||popup().length||entries().length)throw Error("NATIVE_MENU_UNAVAILABLE");
+    await requireFocusedDestination(own);
+    if(Date.now()>actionDeadline)throw Error("SELECTION_DEADLINE");
+    openMenu(button);
+    let resolved={code:"NATIVE_MENU_STRUCTURE"};
+    for(let i=0;i<40&&Date.now()<actionDeadline;i++){
+      resolved=resolveMenu(s.workspaces);
+      if(resolved.mapping)break;
+      await wait(75);
     }
-    if(!row)throw Error("NATIVE_ITEM_UNAVAILABLE");
-    // Revalidate identity and destination immediately before the single action.
+    if(!resolved.mapping)throw Error(resolved.code);
+    const row=resolved.mapping.get(id);
+    if(!row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED");
     const fresh=await snapshot();
-    if(!row.isConnected||!visible(row)||fresh.windows.some(w=>w.kind==="unknown"||w.kind==="named"&&w.workspaceId===id)||
+    await requireFocusedDestination(own);
+    if(Date.now()>actionDeadline)throw Error("SELECTION_DEADLINE");
+    if(fresh.windows.some(w=>w.kind==="unknown"||w.kind==="named"&&w.workspaceId===id)||
       fresh.windows.find(w=>w.id===own)?.kind!=="base"||
       fresh.workspaces.filter(w=>w.name.trim()===target.name.trim()).length!==1||
       !fresh.workspaces.some(w=>w.id===id&&w.name===target.name))throw Error("STATE_CHANGED");
-    activate(row);
+    const again=resolveMenu(fresh.workspaces);
+    if(!again.mapping||again.mapping.get(id)!==row)throw Error("NATIVE_ROW_IDENTITY_UNVERIFIED");
+    selectRow(row);
     const deadline=Date.now()+5000;
     while(Date.now()<deadline){
       await wait(200);

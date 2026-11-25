@@ -1,5 +1,5 @@
 export const VIVALDI_UI = "mpognobbkildjkofajifpdfhcoklimli";
-export const PROTOCOL = 2;
+export const PROTOCOL = 3;
 export const validWindow = n => Number.isSafeInteger(n) && n > 0;
 export const validWorkspace = n => (Number.isSafeInteger(n) && n >= 0) || (typeof n === "string" && n.length > 0 && n.length <= 128);
 
@@ -32,6 +32,22 @@ export function locateWorkspace(snapshot, id) {
   return { kind: "open" };
 }
 
+// Poll actual focus after the single focus request; never create on failure.
+export async function focusWindow(id, windowsApi=globalThis.chrome?.windows, wait=ms=>new Promise(r=>setTimeout(r,ms))) {
+  if(!validWindow(id))throw Error("INVALID_REQUEST");
+  const check=w=>{if(w?.id!==id||w.type!=="normal"||w.incognito)throw Error("WINDOW_NOT_NORMAL");return w;};
+  const initial=check(await windowsApi.get(id));
+  if(initial.focused===true&&initial.state!=="minimized")return;
+  if(initial.state==="minimized")check(await windowsApi.update(id,{state:"normal"}));
+  await windowsApi.update(id,{focused:true});
+  for(let i=0;i<20;i++){
+    const w=check(await windowsApi.get(id));
+    if(w.focused===true&&w.state!=="minimized")return;
+    await wait(100);
+  }
+  throw Error("FOCUS_UNVERIFIED");
+}
+
 export async function openNormalWindow(windowsApi = globalThis.chrome?.windows) {
   if (typeof windowsApi?.create !== "function") throw Error("WINDOW_API_UNAVAILABLE");
   const result = await windowsApi.create({type:"normal",focused:true});
@@ -47,7 +63,7 @@ export async function openExisting(id, source, io) {
   const plan = locateWorkspace(snap,id);
   if (plan.kind === "focus") {
     await io.focus(plan.windowId);
-    const after = locateWorkspace(await io.snapshot(source),id);
+    const after = locateWorkspace(await io.snapshot(plan.windowId),id);
     if (after.kind !== "focus" || after.windowId !== plan.windowId) throw Error("FOCUS_UNVERIFIED");
     return {kind:"focused",windowId:plan.windowId};
   }
@@ -63,7 +79,7 @@ export async function openExisting(id, source, io) {
     const next = locateWorkspace(current,id);
     if (next.kind === "focus") {
       await io.focus(next.windowId);
-      const after = locateWorkspace(await io.snapshot(destination),id);
+      const after = locateWorkspace(await io.snapshot(next.windowId),id);
       if (after.kind !== "focus" || after.windowId !== next.windowId) throw Error("FOCUS_UNVERIFIED");
       return {kind:"focused",windowId:next.windowId,extraWindow:destination !== next.windowId ? destination : null};
     }

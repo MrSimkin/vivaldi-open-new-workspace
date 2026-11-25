@@ -1,15 +1,9 @@
-import { openExisting, openNormalWindow, requestBridge, validWindow, validWorkspace } from "./workspace-adapter.js";
+import { openExisting, openNormalWindow, focusWindow, requestBridge, validWindow, validWorkspace } from "./workspace-adapter.js";
 const api = chrome;
 const delay = ms => new Promise(r => setTimeout(r,ms));
 let busy = false;
 const snapshot = id => requestBridge(id,"SNAPSHOT");
-async function focus(id) {
-  const w = await api.windows.get(id);
-  if (w.type !== "normal" || w.incognito) throw Error("WINDOW_NOT_NORMAL");
-  if (w.state === "minimized") await api.windows.update(id,{state:"normal"});
-  const focused = await api.windows.update(id,{focused:true});
-  if (focused?.id !== id || focused.focused !== true) throw Error("FOCUS_UNVERIFIED");
-}
+const focus = id => focusWindow(id,api.windows,delay);
 const io = {
   snapshot, focus,
   create: () => openNormalWindow(api.windows),

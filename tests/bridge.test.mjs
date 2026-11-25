@@ -12,7 +12,7 @@ async function fixture({list=[{id:1,name:"Test",emoji:"🎲"}],metadata={workspa
  vm.runInNewContext(code,ctx);await new Promise(r=>setImmediate(r));
  assert.equal(typeof listener,"function");
  const ask=(action,sender=client,target=window,extra={})=>new Promise(resolve=>{
-   const m={protocol:2,windowId:target,requestId:"test",action,...extra};
+   const m={protocol:3,windowId:target,requestId:"test",action,...extra};
    const accepted=listener(m,{id:sender},v=>resolve(JSON.parse(JSON.stringify(v))));
    if(!accepted)resolve(null);
  });
@@ -35,3 +35,5 @@ test("empty catalog is valid; malformed catalog is rejected",async()=>{
 test("bridge refuses selection when target is active",async()=>{
  const ask=await fixture();const r=await ask("SELECT",client,7,{workspaceId:1});assert.equal(r.ok,false);assert.equal(r.code,"STATE_CHANGED");
 });
+
+test("legacy protocol is rejected before mutation",async()=>{const ask=await fixture();assert.equal(await ask("SELECT",client,7,{workspaceId:1,protocol:2}),null);});
