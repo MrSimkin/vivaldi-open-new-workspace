@@ -73,6 +73,13 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - El código 0.1.2 y resultados de CI no cambian; se comprobó existencia de los archivos en GitHub. No se generó ni verificó un ZIP binario local nuevo; se ofrece el archivo fuente de GitHub, no un CRX ni release.
 - No se ha instalado en el PC del propietario, ni se ejecutó Vivaldi, ni se modificó DTC. Prueba en instalación Standalone antes de uso habitual; no reiniciar sesión habitual. Desinstalación y recuperación documentadas. No se repitieron tests por cambio documental.
 
+## Continuación y coexistencia (2026-11-25)
+
+- HEAD inicial df7fda8c5419e002f630cc41db84c00dd51aba7b recuperado por conexión GitHub; DTC sigue en a3b20600bdab4a0f58bade05f0175da5822e259a. Revisados ambos listeners y Repair-VivaldiBridge.ps1: IDs, protocolo y registro global independientes; DTC inserta en HTML existente, sin coordinación de escrituras. Coexistencia plausible, no demostrada.
+- Verificado de nuevo el job check del run 45632780858: check/test/build success; comparación a0f43b3...e08b4da y e08b4da...df7fda8 muestra únicamente cambios Markdown. ZIP fuente fijado a e08b4da corresponde al código probado, no contiene la guía posterior.
+- Guía y matriz C-01 a C-05 ampliadas; propuesta de utilidad asistida manual sin ejecución automática. No se ha generado instalador, ni ejecutado Vivaldi/Windows ni tocado DTC, PC, perfiles, permisos o código de producto. No se repiten pruebas de código por cambio exclusivamente documental.
+- Próxima acción: descargar fuente, cargar extensión en Standalone, identificar recursos y seguir guía; validar ONW y después coexistencia real autorizada. No confundir primera prueba aislada sin DTC con coexistencia.
+
 ## Bloqueos y siguiente acción
 
 1. CI de 0.1.2 aprobada; siguiente puerta de aceptación es prueba real del puente en Vivaldi. No avanzar a instalación habitual sin validar.
