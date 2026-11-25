@@ -5,7 +5,7 @@
 - `npm run check`: valida manifiesto, referencias locales del popup, permisos iniciales, versión y sintaxis JavaScript.
 - `npm test`: pruebas con Node de la frontera de integración y de los contratos estáticos iniciales. No inicia un navegador.
 - `npm run build`: valida y copia los archivos de la extensión a `dist/extension/`.
-- GitHub Actions: workflow configurado para ejecutar estas comprobaciones en `windows-latest`; aún sin resultado remoto verificado.
+- GitHub Actions: workflow configurado para ejecutar estas comprobaciones en `windows-latest`; CI de 0.1.2 verificada (véase sección posterior).
 
 ## Manuales, todas pendientes al inicializar
 
@@ -46,3 +46,15 @@ Pruebas automáticas: 7/7 (manifest, ausencia de permisos, menú, apertura norma
 | A-12 | Seleccionar Workspace activo en la propia ventana | Comportamiento provisional: mantener/enfocar esa ventana; confirmar si se requiere otra semántica. |
 
 Validar en Windows/Vivaldi real. No usar pruebas unitarias como sustituto de estas verificaciones.
+
+## Coexistencia ONW/DTC (pendiente, 2026-11-25)
+
+| ID | Caso | Aceptación |
+|---|---|---|
+| C-01 | Línea base DTC y archivos antes de editar | Consulta/revisión DTC funciona; referencias y hashes registrados sin datos personales. |
+| C-02 | Instalación ONW | Único cambio HTML es referencia ONW; DTC intacto; una referencia ONW y bridge coincidente con fuente. |
+| C-03 | Ambas extensiones cargadas | ONW lista, enfoca y abre con casos A-05 a A-10; DTC reconoce Workspace activo antes/después, sin cierre de pestañas reales. |
+| C-04 | Reparación natural de DTC, si ocurre | Referencias ONW y DTC siguen presentes; ambas consultan correctamente. No forzar reparador ni simular resultado si no ocurre. |
+| C-05 | Reversión selectiva ONW | Solo se retira referencia/archivo ONW; DTC y otros mods permanecen intactos. Ejecutar en prueba aislada si ambos están presentes; no revertir habitual solo para QA. |
+
+No asumir aprobación por pruebas unitarias o por Standalone sin DTC. Priorizar C-01 a C-03 en la primera coexistencia autorizada; C-04 y C-05 quedan pendientes si no hay ocasión segura. Registrar OK/fallo/no ejecutado, versión y código de error sin URLs ni títulos.
