@@ -42,7 +42,7 @@
   const reactProps = el => el[Object.keys(el).find(k=>k.startsWith("__reactProps$"))] || {};
   const popup = () => [...document.querySelectorAll(".WorkspacePopup")].filter(visible);
   function menuButton() {
-    const found=[...document.querySelectorAll(buttonSelector)].filter(e=>visible(e)&&enabled(e)&&typeof reactProps(e).onPointerDown==="function");
+    const found=[...document.querySelectorAll(buttonSelector)].filter(e=>visible(e)&&enabled(e)&&typeof reactProps(e).onKeyDown==="function");
     return found.length===1?found[0]:null;
   }
   function entries() {return [...document.querySelectorAll(rowSelector)].filter(visible);}
@@ -81,10 +81,13 @@
   }
   function openMenu(button) {
     if(button!==menuButton()||popup().length)throw Error("NATIVE_MENU_UNAVAILABLE");
-    const point=center(button);
-    const opts={...point,pointerId:1,isPrimary:true,pointerType:"mouse"};
-    button.dispatchEvent(new PointerEvent("pointerdown",{...opts,buttons:1}));
-    if(button.isConnected)button.dispatchEvent(new PointerEvent("pointerup",{...opts,buttons:0}));
+    // Installed toolbar wrapper handles Enter directly, without its global
+    // pointer-up capture or context-menu timer. No pointer fallback or retry.
+    center(button);
+    const event=new KeyboardEvent("keydown",{key:"Enter",code:"Enter",keyCode:13,which:13,
+      bubbles:true,cancelable:true,repeat:false});
+    if(event.keyCode!==13)throw Error("NATIVE_KEY_EVENT_UNAVAILABLE");
+    button.dispatchEvent(event);
   }
   function selectRow(row) {
     if(!row.matches(rowSelector)||typeof reactProps(row).onClick!=="function")throw Error("NATIVE_ROW_HANDLER_UNAVAILABLE");
