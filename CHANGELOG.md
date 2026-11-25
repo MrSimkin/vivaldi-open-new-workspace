@@ -1,5 +1,10 @@
 # Changelog
 
+## Sin publicar | diagnóstico P3 (2026-11-25)
+
+- Investigación de windowPrivate, sessionsPrivate, comandos y referencias de modding; firma de creación activa aún desconocida.
+- Añadidas herramientas read-only en research/ y guía de ejecución; no incluidas en build ni validadas en Vivaldi/Windows.
+
 ## Sin publicar | viabilidad documental (2026-11-25)
 
 - Revisadas ambas ramas de Duplicate Tabs Closer; registrado precedente de puente de lectura, metadatos, restricciones y resiliencia.

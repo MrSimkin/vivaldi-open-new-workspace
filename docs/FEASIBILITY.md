@@ -35,6 +35,16 @@ Licencia de referencia GPL-3.0 (LICENSE). No se copió código, clave ni identid
 - [Arc to Vivaldi Migration](https://github.com/spapaseit/arc-to-vivaldi-migration): reporte independiente de que escribir directamente la lista puede crear registros "Restored Workspace" no inscritos correctamente. No reproducido en ONW, no demuestra inexistencia de toda API privada. Evitar escritura directa de preferencias.
 - [Vivaldi source](https://vivaldi.com/source/) y [open source](https://help.vivaldi.com/desktop/privacy/is-vivaldi-open-source/): el código público de Chromium modificado no incluye necesariamente la lógica completa de UI propietaria. Inspección local de capacidades disponibles y flujos nativos será necesaria; respetar licencia aplicable.
 
+## Investigación P3: referencias adicionales (2026-11-25)
+
+- [Modders API: windowPrivate](https://lonmcgregor.github.io/VivaldiModdersAPI/OfficialApi/windowPrivate.html): documenta create y getCurrentId, opciones vivExtData y windowKey. No documenta parámetro explícito de Workspace. No inferir semántica de vivExtData ni usar windowKey como Workspace ID.
+- [Modders API: sessionsPrivate](https://lonmcgregor.github.io/VivaldiModdersAPI/OfficialApi/sessionsPrivate.html): WorkspaceItem contiene id/name/icon/emoji, pero modifyContent/open operan sobre sesiones guardadas. No confundir restauración con gestión de Workspaces activos; descartar como ruta directa inicial.
+- [Preferencias de Modders API](https://lonmcgregor.github.io/VivaldiModdersAPI/OfficialApi/preferenceDefinitions.html): enumera COMMAND_WORKSPACE_SWITCH_1...10 y comandos relacionados. No demuestra método programático público ni acceso por extensión convencional.
+- [Vivaldi, comandos y botones](https://vivaldi.com/blog/how-to/pawel-shows-you-how-to-play-with-workspaces-and-custom-icons-in-vivaldi/): confirma cambio nativo mediante cadenas; [Quick Commands](https://help.vivaldi.com/desktop/shortcuts/quick-commands/) permite búsqueda de Workspace. [Vivaldi 6.8 changelog](https://vivaldi.com/changelog-vivaldi-browser-6-8/) registra comando de creación con pestañas seleccionadas; no demuestra creación vacía ni firma.
+- [VivaldiMods](https://github.com/jms830/VivaldiMods) documenta botones de cambio por mod; no se consiguió recuperar el archivo fuente específico y no se atribuye ninguna técnica concreta. No copiar código de terceros.
+
+No se encontró una firma invocable demostrada para crear un Workspace activo. La siguiente evidencia debe proceder de la versión instalada, no de nuevas búsquedas repetitivas. Se preparó research/Find-WorkspaceActions.ps1 (escaneo local de JS, solo lectura) y research/inspect-workspace-ui.js (inventario y esquema, solo lectura) con instrucciones en research/README.md. Ambos sin prueba real Windows/Vivaldi; no se ejecutan automáticamente ni se empaquetan. Primero preferir inspección estática, luego diagnóstico UI si es necesario. El informe estático solo contiene muestras de archivos instalados, no perfiles; revisar antes de compartir.
+
 ## Matriz de capacidades
 
 | Capacidad | Evidencia | Estado ONW |

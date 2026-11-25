@@ -46,10 +46,16 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Ruta preferente provisional: comprobar extensión normal, después evaluar puente propio con acciones nativas; alternativa comandos/UI. No copiar código GPL ni tocar DTC. Se documentó matriz y secuencia de prueba en FEASIBILITY.
 - ONW no ha ejecutado Vivaldi ni cambiado código, versión, permisos o instalación. No se repitieron tests/build del scaffold. No se verificó CI en esta intervención.
 
+## P3: investigación de acciones internas y herramientas (2026-11-25)
+
+- Identificadas referencias comunitarias de windowPrivate y sessionsPrivate, comandos nativos y catálogo de preferencias. Ninguna confirma una firma de creación activa invocable por ONW. No usar sesiones guardadas ni windowKey como sustituto.
+- Añadido research/ con escáner PowerShell de JS instalado, sonda de lectura del esquema/API en UI y guía. Son herramientas de investigación no empaquetadas; no se han ejecutado en Windows/Vivaldi ni se afirma validación de sintaxis PowerShell. No se modificaron código de extensión, versión, permisos ni DTC; no se reejecutó build/tests.
+- Criterio de parada documental alcanzado por ahora: siguiente evidencia requiere versión local y resultados de inspección. No reiniciar ni alterar el perfil habitual.
+
 ## Bloqueos y siguiente acción
 
-1. ONW-004/005: obtener versión exacta y disponibilidad de perfil de prueba separado; ejecutar P0-P2 de FEASIBILITY (sin interrumpir sesión habitual). Documentar diagnóstico mínimo de lectura y flujos nativos.
-2. ONW-005: identificar mecanismo de creación/selección nativa y validar P3-P4. El puente DTC no puede ejecutar estas operaciones.
+1. ONW-005: obtener versión exacta y salida del escáner estático (research/README.md, pasos 1-2). Si no basta, solicitar sonda P1 de solo lectura. No interrumpir sesión habitual.
+2. ONW-004/005: analizar candidatos, confirmar firma y contexto; preparar prueba mínima en perfil separado y verificar P2-P4. El puente DTC no puede ejecutar estas operaciones.
 3. ONW-006: elegir arquitectura con evidencia o registrar bloqueo; no reabrir requisitos aprobados.
 
 No se han tocado otros repositorios. No se han declarado permisos de navegador. No se ha asignado una licencia. Se conserva la visibilidad pública observada.

@@ -20,4 +20,6 @@
 | D-014 | 2026-11-25 | Priorizar verificación de APIs normales y luego puente ONW independiente con acciones nativas; alternativa comandos/UI; descartar escritura directa de prefs como primera ruta. | Agente: decisión preliminar de investigación, no arquitectura final ni autorización de mod. |
 | D-015 | 2026-11-25 | No copiar código GPL, reutilizar identidad DTC ni alterar su puente; evitar interrupción de sesión habitual; prueba aislada. | Agente: precauciones derivadas de fuente y reglas existentes. |
 
+| D-016 | 2026-11-25 | No tratar sessionsPrivate ni windowKey como APIs de Workspaces activos. Priorizar inspección estática local sin tocar sesión y después diagnóstico UI de lectura si hace falta. | Agente: investigación acotada; no autoriza cambios al navegador. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
