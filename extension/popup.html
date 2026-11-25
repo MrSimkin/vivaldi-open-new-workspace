@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open New Workspace</title><link rel="stylesheet" href="popup.css"><script type="module" src="popup.js"></script></head>
 <body><main>
-<header><h1>Open New Workspace</h1><select id="language" aria-label="Language / Idioma"><option value="es">ES</option><option value="en">EN</option></select></header>
+<header><div class="brand"><img src="icons/nw-32.png" width="28" height="28" alt=""><h1>Open New Workspace</h1></div><select id="language" aria-label="Language / Idioma"><option value="es">ES</option><option value="en">EN</option></select></header>
 <button id="new" disabled><span id="newLabel"></span><small id="newDetail"></small></button>
 <button id="base"><span id="baseLabel"></span><small id="baseDetail"></small></button>
-<button id="existing" aria-expanded="false" aria-controls="list"><span id="existingLabel"></span><small id="existingDetail"></small></button>
-<section id="list" hidden><p id="listStatus" role="status"></p><div id="items"></div><button id="refresh"></button></section>
-<p id="status" role="status"></p><small id="version">0.1.2 experimental</small>
+<p id="status" role="status"></p>
+<section id="list" aria-labelledby="existingLabel"><div id="existing"><div><h2 id="existingLabel"></h2><small id="existingDetail"></small></div><button id="refresh"></button></div><p id="listStatus" role="status"></p><div id="items"></div></section>
+<small id="version">0.1.3 experimental</small>
 </main></body></html>

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Open New Workspace",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Personal Vivaldi workspace integration (experimental).",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyI10KWcvoaVn8CpZdP0IpUPvM22G+5d+1WkiACA95MkxN+yKJxyJAI9c4OYt8tXJ7rFV8vuK6Dm6VHM++RHz6sMMCr6DVPWQyfCksxYVPOIeTx5ReQ7EmId4kmlBTRMVMv313fr/oBQ69N/k3/yshdDirvnLmaC+EAkUZEUreIf3vydOIsb9TPrnPUYMvJrdeXPVjW6+VyETATNmzGgKXvtmyZb6i/LOUyaL5X2Xi3r5sN2rgrZAUDM51tacks6zPKCHDrd/wq3c/7Q/3j3n/6fs/Xp8OuAnT+g3Yi+vqxm7xYUhYgzCvKc9PrZrJxT22nXnDOMMsIb7AagDUGPHZwIDAQAB",
   "permissions": [
@@ -13,6 +13,17 @@
   },
   "action": {
     "default_title": "Open New Workspace",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/nw-16.png",
+      "32": "icons/nw-32.png",
+      "48": "icons/nw-48.png"
+    }
+  },
+  "icons": {
+    "16": "icons/nw-16.png",
+    "32": "icons/nw-32.png",
+    "48": "icons/nw-48.png",
+    "128": "icons/nw-128.png"
   }
 }

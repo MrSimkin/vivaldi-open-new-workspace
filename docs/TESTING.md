@@ -58,3 +58,20 @@ Validar en Windows/Vivaldi real. No usar pruebas unitarias como sustituto de est
 | C-05 | Reversión selectiva ONW | Solo se retira referencia/archivo ONW; DTC y otros mods permanecen intactos. Ejecutar en prueba aislada si ambos están presentes; no revertir habitual solo para QA. |
 
 No asumir aprobación por pruebas unitarias o por Standalone sin DTC. Priorizar C-01 a C-03 en la primera coexistencia autorizada; C-04 y C-05 quedan pendientes si no hay ocasión segura. Registrar OK/fallo/no ejecutado, versión y código de error sin URLs ni títulos.
+
+## Resultados manuales 0.1.2 (reporte propietario, 2026-11-25)
+
+| Caso | Resultado |
+|---|---|
+| Interfaz | Parcial: estrecha, oscura, clic adicional |
+| A-06 catálogo | OK |
+| A-08 foco activo | Fallo |
+| A-07 apertura inactivo | Fallo: nueva ventana con selector nativo abierto |
+| A-05 base | OK |
+| A-10 idioma/persistencia | OK |
+| C-01/C-03 DTC | OK retirados; incidencia de no detección reportada, causa pendiente |
+| A-09 preservación | No confirmada explícitamente |
+
+DTC: usar Do nothing, dos pestañas de prueba con URL idéntica no excluida en mismo Workspace/ventana; comparar Active window y Active Vivaldi Workspace. Capturar Copy diagnostics si hay aviso. Aislar desactivando ONW y retirando únicamente su referencia UI con Vivaldi cerrado; comprobar DTC tras reiniciar voluntariamente. No cerrar duplicados ni volver a activar ONW en habitual hasta resolver incidencia. La diferencia entre scopes permite distinguir motor de duplicados y bridge sin alterar código DTC.
+
+0.1.3 UX: pruebas estáticas de lista visible y consulta inicial, tema claro, cabeceras/dimensiones PNG. Runtime pendiente; no confundir con corrección de foco/selección.

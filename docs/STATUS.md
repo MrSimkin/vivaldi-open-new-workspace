@@ -1,6 +1,6 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.2 experimental | etapa: integración candidata, QA pendiente (pre-MVP).
+Fecha: 2026-11-25 | versión: 0.1.3 candidata UX | etapa: bloqueada por incidencia de coexistencia y selección (pre-MVP).
 
 ## Implementado
 
@@ -85,11 +85,19 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - El propietario confirma extracción del ZIP, copia del bridge, respaldo de window.html, inserción de referencia ONW, carga descomprimida y reinicio de Vivaldi. No se ha inspeccionado localmente la instalación ni se conoce si es Standalone o habitual; no se afirma que el bridge responda ni que DTC coexista correctamente.
 - Siguiente acción: prueba manual agrupada de DTC inicial, interfaz, catálogo, foco de activo, apertura de inactivo, base, idioma y DTC final. Usar pestañas de prueba; detener ante pérdida de datos o fallo DTC, registrar errores sin reintentos ciegos. Aceptación y pruebas C siguen pendientes. ONW-013 queda como propuesta no bloqueante para esta instalación ya realizada.
 
+## QA 0.1.2 reportada y candidato UX 0.1.3 (2026-11-25)
+
+- Propietario reporta listado real OK, base OK, idioma/persistencia OK; interfaz parcial (estrecha, oscura, clic adicional); foco activo y apertura inactivo fallan. Apertura deja nueva ventana con selector nativo abierto. No se recibieron códigos exactos; pérdida de pestañas/origen no confirmados.
+- DTC inicial/final OK anulados por el propietario: no comprendió abreviatura; informa que Duplicate Tabs Closer dejó de detectar duplicados en todos los escenarios. Incidencia P0, causalidad no establecida. No declarar coexistencia ni usar ONW en habitual hasta diagnóstico. Probar DTC en Do nothing con dos pestañas de prueba idénticas, Active window y Active Vivaldi Workspace; recoger Copy diagnostics si aparece. Desactivar ONW y retirar solo su referencia en window.html con Vivaldi cerrado, conservar DTC y reiniciar voluntariamente. Repetir prueba DTC; no cerrar duplicados.
+- Inspección: SELECT abre botón nativo y puede fallar por coincidencia de fila, revalidación o evento/postcondición; sin código de error no se distingue. Foco puede fallar por clasificación del estado o verificación de windows.update; no se atribuye una causa sin evidencia. Reabrir popup para leer último resultado persistido por worker cuando sea seguro.
+- 0.1.3 candidato UX exclusivamente: popup 420px, claro, catálogo visible y consulta automática al abrir, botón actualizar, icono NW PNG local y versión coherente. No se cambia bridge, worker, permisos ni lógica de apertura/enfoque. No instalar candidato habitual hasta recuperar DTC. Tests estáticos añadidos; CI de esta revisión aún no verificada, no se afirma runtime.
+- Próximo: recuperar DTC mediante aislamiento, confirmar diagnóstico; después corregir lógica de foco/selección con evidencia y retestar. No se publica release ni se modifica repositorio DTC.
+
 ## Bloqueos y siguiente acción
 
-1. CI de 0.1.2 aprobada; siguiente puerta de aceptación es prueba real del puente en Vivaldi. No avanzar a instalación habitual sin validar.
-2. ONW-004/005/006/007/008: con autorización y disponibilidad, instalar y ejecutar prueba única en instalación separada (catálogo, foco activo, apertura inactivo, origen intacto), según docs/INSTALL_WINDOWS.md. Si no funciona, recoger código de error y esquema/selector mínimo, corregir sin repetir investigación.
-3. Base nativa pendiente de confirmación. Creación/personalización diferida ONW-011. No declarar MVP completo.
+1. P0: recuperar DTC y aislar causa; no reinstalar puente ONW en habitual hasta diagnóstico.
+2. Obtener código de fallo de foco y selección sin repetir operaciones inseguras; corregir con evidencia y validar en instalación separada.
+3. Base, listado e idioma aprobados por reporte 0.1.2; preservar comportamiento. UX 0.1.3 pendiente de validación. Creación diferida ONW-011; no declarar MVP completo.
 
 No se han tocado otros repositorios. La versión 0.1.2 declara solo storage; sin permisos de hosts. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
 

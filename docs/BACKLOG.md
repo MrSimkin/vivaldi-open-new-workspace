@@ -7,15 +7,15 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-001 | P0 | Hecho | Scaffold y documentación autosuficiente, check/test/build verificables. |
 | ONW-002 | P0 | Hecho | Repo creado por propietario, importación verificada en main: 26 archivos, permiso de escritura, commit `480da6f4c1640d58ebd31d1774af43a98aa61af7`. Ver STATUS. |
 | ONW-003 | P0 | Hecho | Alcance y preferencias confirmados; RF-01 a RF-12 en REQUIREMENTS, D-009 a D-011 en DECISIONS. |
-| ONW-004 | P0 | Pendiente | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
+| ONW-004 | P0 | Hecho por reporte | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
 | ONW-005 | P0 | En curso (runtime pendiente) | Revisión documental DTC y fuentes externas realizada; matriz y plan P0-P4 en FEASIBILITY. Referencias P3 revisadas; herramientas de diagnóstico en research/. Versión recibida; priorizar selección y apertura nativa de existentes y base. Ruta por menú nativo identificada y programada; verificar en Vivaldi 8.3. Creación diferible a ONW-011. |
 | ONW-006 | P0 | Candidata implementada | MV3 + worker + puente independiente, pendiente validar arquitectura en instalación de prueba. |
-| ONW-007 | P0 | Experimental | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; pendientes runtime, instalación de puente y confirmación de base. No equivale a aceptación. |
+| ONW-007 | P0 | Parcial; foco/apertura fallan | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; listado y base OK por reporte; foco y apertura fallan; obtener códigos y corregir. No equivale a aceptación. |
 | ONW-008 | P0 | Pendiente | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |
-| ONW-009 | P2 | Pendiente | Pulir icono propio de la extensión, presentación, accesibilidad y preferencias; idioma incluido en preview; iconos de creación quedan asociados a ONW-011. |
+| ONW-009 | P1 | Candidato 0.1.3 UX | 420px, claro, lista automática sin clic adicional, icono NW; pendiente CI y prueba real. |
 | ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
-| ONW-012 | P0 | Pendiente runtime | Coexistencia DTC: referencias y hashes preservados, pruebas C-01 a C-03; C-04/C-05 cuando sea seguro. Guía revisada, sin cambios DTC. |
+| ONW-012 | P0 | Bloqueado por incidencia | DTC reportado sin detección tras instalar ONW; OK inicial/final anulados. Aislar ONW y recuperar DTC; recoger diagnóstico; no cambiar DTC. |
 | ONW-013 | P1 | Propuesta | Evaluar utilidad PowerShell manual con diagnóstico read-only, vista previa, aplicar/revertir explícitamente; sin modificar DTC, sin tarea residente ni reinicio. Validar antes de uso habitual. |
 | ONW-011 | P2 | Diferible | Creación rápida y personalizada de Workspace nativo (RF-02 a RF-06), nombre/iconos/emoji si posible. No bloquea primera entrega. |
 

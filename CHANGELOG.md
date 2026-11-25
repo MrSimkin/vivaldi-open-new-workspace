@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 candidata UX (2026-11-25) | sin release
+
+- Popup más ancho (420px), fondo claro, listado automático visible, refresco manual e icono NW.
+- Se registran resultados reales de 0.1.2: catálogo, base e idioma OK; interfaz parcial; foco y apertura fallan. Incidencia DTC sin detección, coexistencia no aprobada.
+- Sin cambios a bridge, permisos, worker ni lógica de selección; no instalar en habitual hasta recuperar DTC. Tests estáticos añadidos, CI nueva pendiente de verificación.
+
 ## 0.1.2 experimental (2026-11-25) | sin release
 
 - Implementación candidata de listado, detección de ventana activa, foco y apertura de Workspace existente.
