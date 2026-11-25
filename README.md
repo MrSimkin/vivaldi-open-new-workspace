@@ -66,3 +66,9 @@ CI Windows Node 22, [45653569598](https://github.com/MrSimkin/vivaldi-open-new-w
 
 ## Entrega Windows simplificada (D-039)
 El código candidato 0.1.5 no cambia. Las próximas instalaciones se entregarán mediante ZIP nominal con instalador PowerShell y respaldo; ver [guía de entrega](docs/DELIVERY_WINDOWS.md). Si ya copiaste 0.1.5, no reinstales solo por este cambio; confirma carga real del candidato. PowerShell aún no validado en Windows por el agente.
+
+## Estado actual: 0.1.5 validada funcionalmente (2026-11-25)
+
+**QA-ONW-015: 19/19 OK** reportados por el propietario en su instalación habitual de Vivaldi Windows. Base y Existing (activo/inactivo), conservación de Workspaces/pestañas, UX y coexistencia inicial/final con DTC aprobados. Panel de lectura no reproducido. Código validado: [ab3a01a9](https://github.com/MrSimkin/vivaldi-open-new-workspace/tree/ab3a01a9d758ca0efd28d4db927f77bbba824566). Ver [matriz de QA](docs/TESTING.md).
+
+Es la baseline funcional de alcance parcial, no el MVP completo: New Workspace sigue deshabilitado. Sin release. No reinstalar ni reiniciar por el cierre documental. El instalador D-039 permanece pendiente de validación PowerShell Windows. Las instrucciones anteriores de QA pendiente son históricas.
