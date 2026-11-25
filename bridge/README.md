@@ -2,7 +2,7 @@
 
 El puente es un complemento local independiente de Duplicate Tabs Closer. NO es una extensión separada, no forma parte de dist/extension y no se instala automáticamente. Su código se ejecuta únicamente en el contexto interno window.html de Vivaldi. Las APIs y selectores no están validados en 8.3.4191.47.
 
-**No instalarlo todavía en el navegador habitual.** Primero probar en una instalación independiente de Vivaldi (no solo un perfil si ambos comparten archivos de aplicación); no interrumpir el navegador actual. El propietario debe autorizar cualquier cambio a archivos internos. No se necesita modificar DTC, usar su ID ni alterar seguridad. No se autoriza un instalador automático ni tarea residente en esta fase.
+**Entorno del propietario: una sola instalación habitual, sin Standalone (D-033).** Actualización candidata manual, explícita, reversible y controlada según INSTALL_WINDOWS. No asumir aislamiento por perfil; el riesgo residual permanece. Guardar prompt completo antes de cerrar/reiniciar y retomar QA en nuevo chat. No modificar DTC ni seguridad. No instalador automático ni tarea residente.
 
 ## Contrato
 
@@ -14,13 +14,13 @@ SELECT verifica que el espacio está inactivo, destino es base y enfocado, nombr
 
 ## Instalación manual disponible
 
-Consultar [guía de instalación Windows](../docs/INSTALL_WINDOWS.md) para descarga, copia, edición explícita del archivo UI, prueba aislada y reversión. No es un instalador automático ni autoriza cambios en la instalación habitual.
+Consultar [guía de instalación Windows](../docs/INSTALL_WINDOWS.md) para descarga, copia, edición explícita del archivo UI, prueba controlada en habitual y reversión. Solo cambios ONW autorizados.
 
 ## Validación futura mínima
 
-1. En instalación de prueba, cargar extension/ descomprimida y confirmar ID. Sin puente, Existing informa falta de integración; Base abre ventana normal.
-2. Con autorización, preparar integración del puente siguiendo el precedente de DTC pero con archivo y referencia propios; se necesita que window.html lo cargue en cada ventana, incluidas las nuevas. Antes de modificar archivos, revisar instalación, backup y rollback específicos. No tocar DTC ni reiniciar sesión habitual.
+1. En la instalación habitual autorizada, cargar extension/ descomprimida y confirmar ID. Sin puente, Existing informa falta de integración; Base abre ventana normal.
+2. Con autorización, preparar integración del puente siguiendo el precedente de DTC pero con archivo y referencia propios; se necesita que window.html lo cargue en cada ventana, incluidas las nuevas. Antes de modificar archivos, revisar instalación, backup y rollback específicos. No tocar DTC; reinicio manual habitual solo tras guardar prompt.
 3. Con dos Workspaces ficticios, comprobar catálogo; seleccionar el activo en otra ventana (no crear ventana); luego uno inactivo (una ventana nueva, selección correcta, origen intacto). Confirmar UI y pestañas. Si hay fallo, guardar código de error y estado de ventanas, no datos personales.
 4. Si solo se carga en ventana actual, puede funcionar lectura/enfoque, pero no selección en nuevas ventanas. No confundir hot-load con integración persistente.
 
-No usar esta preview experimental como instalación diaria hasta validar las tres funciones. No publicar release.
+No considerar la candidata estable hasta validar las tres funciones; no usar para operaciones reales mientras no esté aceptada. No publicar release.

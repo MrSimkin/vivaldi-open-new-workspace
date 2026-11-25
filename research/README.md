@@ -35,3 +35,7 @@ No reiniciar Vivaldi para ONW-MENU. Si un diagnóstico posterior realmente requi
 ## ONW-MENU-v2: segunda y última ronda de inspección dinámica dirigida
 
 V1 identificó catálogo/ventanas/botón pero no filas. En el mismo contexto window.html, ejecutar inspect-native-workspace-menu-v2.js y abrir manualmente el selector en la MISMA ventana inspeccionada al aviso. Mantener abierto 15 s sin seleccionar. Copiar solo JSON ONW-MENU-V2. El muestreo observa controles visibles nuevos y clases estructurales, coincidencias de nombres expresadas como ordinales, handlers y pulsaciones humanas sobre el botón, sin almacenar datos de navegación. También verifica referencia script y registro de listener de ambos puentes; no envía mensajes ni ejecuta DTC. El listener pasivo temporal se elimina en finally. No editar archivos ni reiniciar. Si no se detecta pulsación, revisar contexto; si se detecta pero no hay menú DOM, pasar a inspección estática/contexto alternativo, no repetir indefinidamente.
+
+## Restricción operativa vigente D-033
+
+Única instalación habitual, sin Standalone. Los diagnósticos de solo lectura se pueden ejecutar allí sin reinicio; las referencias a instalaciones de prueba separadas son históricas. V1/V2 completados, no repetir. Mutaciones solo bajo guía vigente INSTALL_WINDOWS, con prompt antes de reiniciar; QA en nuevo chat.

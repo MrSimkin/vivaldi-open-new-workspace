@@ -75,3 +75,7 @@ Sin permisos declarados, permisos de hosts, content scripts, almacenamiento, red
 2. API interna de Vivaldi accesible a extensiones normales: investigar; no asumir accesibilidad ni estabilidad.
 3. Mod de interfaz o componente externo en Windows: alternativas separadas, requieren aprobación, más mantenimiento y no necesariamente cumplen el requisito de extensión convencional.
 4. Si ninguna vía resulta viable, documentar el bloqueo y proponer alternativas sin presentarlas como equivalentes.
+
+## Restricción operativa vigente D-033
+
+No se dispone de Standalone ni segunda instalación. Validar en habitual mediante procedimiento manual controlado, backups y pestañas/Workspaces ficticios; el riesgo residual permanece. Separar entrega y QA por reinicio: antes instrucciones y prompt, después nuevo chat con pruebas. Las recomendaciones de aislamiento físico anteriores son históricas, no requisito de avance.

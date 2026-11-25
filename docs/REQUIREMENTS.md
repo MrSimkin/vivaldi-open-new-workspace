@@ -33,6 +33,8 @@
 - RNF-04: preservar los datos y pestañas existentes; errores explícitos, sin éxito simulado.
 - RNF-05: mínimo privilegio y mantenimiento razonable. Se admite evaluar soluciones específicas de Vivaldi para uso personal, sin autorizar por ello cambios invasivos, desactivar seguridad o instalar componentes externos automáticamente.
 
+- RNF-06: una única instalación habitual de Vivaldi, sin Standalone ni segunda instalación. Validación controlada allí, con respaldos, reversión selectiva y reinicio manual cuando corresponda. Flujo de dos chats temporales D-033; instrucciones/prompt antes, preguntas y QA después.
+
 ## Alcance excluido
 
 Administrador completo de Workspaces, edición o eliminación de espacios existentes, gestor propio de pestañas, sincronización adicional, compatibilidad multiplataforma, publicación en tienda. No sustituir Workspaces nativos por tab groups.

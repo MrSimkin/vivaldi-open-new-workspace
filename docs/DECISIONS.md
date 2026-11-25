@@ -47,4 +47,6 @@
 | D-031 | 2026-11-25 | V2 concluye inspección dinámica; corregir con selector acotado y prueba de identidad de todas las filas, no ordinal. Eventos centrados y foco verificado por lectura. Protocolo 3 para exigir actualización conjunta. | Agente: candidato técnico basado en reporte; hipótesis de etiquetas y eventos aún por verificar. |
 | D-032 | 2026-11-25 | DTC recuperado sin cambios/reinicio reportado; ambos listeners registrados, no intervenir. | Propietario: reporte; coexistencia tras operaciones sigue pendiente. |
 
+| D-033 | 2026-11-25 | Única instalación habitual de Vivaldi; no Standalone. Instalación manual controlada en habitual, con respaldos y reinicio cuando proceda. Entrega previa solo instrucciones y prompt autocontenido; formulario/QA únicamente tras retomar en otro chat temporal. | Propietario: restricción explícita, sustituye recomendaciones previas de aislamiento y formularios anticipados; agente: medidas compensatorias de seguridad. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

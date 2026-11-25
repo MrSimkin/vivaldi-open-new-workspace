@@ -22,6 +22,12 @@ Requisitos aceptados; código y documentación coherentes; tests apropiados pasa
 
 Manifest y package.json comparten versión SemVer. 0.x indica desarrollo. No etiquetar release ni publicar en tienda sin autorización. El build local no equivale a release. Mantener CHANGELOG y artefactos reproducibles desde fuente.
 
+## Entorno y entrega en dos chats (obligatorio)
+
+El propietario confirma una única instalación habitual de Vivaldi en Windows, sin Standalone ni segunda instalación. La validación se hará allí, mediante actualización manual explícita, respaldo y reversión selectiva, agrupando cambios para un solo cierre/reinicio cuando se requiera cargar el puente. No exigir ni sugerir Standalone como condición de avance, ni asumir que un perfil adicional aísla los archivos de aplicación. El riesgo residual de probar en el navegador habitual existe; preservar sesión, pestañas y DTC; no automatizar cierre ni modificar DTC. En la respuesta previa al reinicio entregar instrucciones de descarga/instalación y prompt completo descargable/copiable; NO pedir responder formularios ni realizar QA posreinicio en ese chat. El usuario instala, reinicia y pega el prompt en un chat temporal nuevo. Solo allí confirmar instalación y presentar formulario de pruebas con comentarios adicionales. Si surge bloqueo antes de reiniciar, detenerse y reportarlo; si se requiere otro reinicio, nuevo prompt actualizado.
+
+**Chat A (previo al reinicio):** CI verificada, paquete fijo, instrucciones completas con rutas verificables, backups, reversión, checkpoint y prompt. Terminar sin formulario de resultados posteriores. **Chat B (posterior al reinicio):** leer prompt y HEAD, verificar versión/puente y estado DTC; proporcionar pruebas agrupadas, resultados con comentarios. No pedir otro reinicio salvo necesidad demostrada y nuevo traspaso.
+
 ## Puerta de continuidad antes de cierre/reinicio
 
 1. Confirmar necesidad de reinicio y reducirlos al mínimo; distinguir reinicio de recarga de extensión.

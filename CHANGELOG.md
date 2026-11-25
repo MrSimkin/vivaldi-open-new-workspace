@@ -1,10 +1,14 @@
 # Changelog
 
+## Operación y continuidad (2026-11-25, D-033)
+
+- Confirmada única instalación habitual; sustituida recomendación Standalone por instalación manual controlada y reversible. Flujo de dos chats: instrucciones y prompt antes del reinicio, QA después. Cambio documental, sin modificación del candidato 0.1.4.
+
 ## 0.1.4 candidata funcional (2026-11-25) | sin release
 
 - V2 identifica menú real y eventos de filas. DTC recuperado sin cambios según reporte; coexistencia tras operaciones aún no confirmada.
 - Candidato 0.1.4: protocolo 3 obligatorio en extensión/puente (incompatible con 2, evita mutaciones con puente antiguo); selector acotado al menú real y botón de barra confirmado, activación de botón con coordenadas de centro verificadas y fila mediante un único click dirigido con onClick comprobado. Identificación de todas las filas mediante catálogo, texto/título/aria y descendientes, nombres con emoji y sufijo numérico acotado como hipótesis, exige biyección y revalidación; nunca ordinal/subcadena arbitraria. Si no resuelve, error explícito sin elegir otra fila. Verifica ventana destino enfocada antes de mutar; deadline previo; lectura posterior. Foco estándar con consulta posterior acotada y snapshot desde destino, no se crea ventana ante fallo de foco. No modificar preferencias, DTC, cierre de panel o pestañas. UX 0.1.3 conservada. Pruebas con dobles añadidas, runtime pendiente.
-- CI Windows 45645828628 aprobada (check/test/build); QA real pendiente. No instalar habitual.
+- CI Windows 45645828628 aprobada (check/test/build); QA real pendiente en habitual según D-033; no considerar estable.
 
 ## 0.1.3 candidata UX (2026-11-25) | sin release
 

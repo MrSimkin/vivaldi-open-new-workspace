@@ -2,7 +2,7 @@
 
 Extensión de escritorio para **Vivaldi en Windows**. Repositorio: `MrSimkin/vivaldi-open-new-workspace`.
 
-**Estado: 0.1.4 candidata funcional, pre-MVP; no instalar en uso habitual.** V2 real confirma estructura del menú, eventos y ambos puentes registrados; DTC recuperado por reporte. Candidato corrige selección y foco con protocolo 3, conserva UX 0.1.3 y requiere CI y QA real aislada. El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La versión experimental implementa catálogo nativo, decisión de enfoque/apertura y selección candidata mediante un puente ONW independiente. Requiere el puente cargado en Vivaldi; sin él, Existing falla explícitamente. Validación real parcial de 0.1.2; base aprobada por reporte; New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
+**Estado: 0.1.4 candidata funcional, pre-MVP; prueba controlada en única instalación habitual según D-033.** V2 real confirma estructura del menú, eventos y ambos puentes registrados; DTC recuperado por reporte. Candidato corrige selección y foco con protocolo 3, conserva UX 0.1.3 y CI aprobada; QA real pendiente. El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La versión experimental implementa catálogo nativo, decisión de enfoque/apertura y selección candidata mediante un puente ONW independiente. Requiere el puente cargado en Vivaldi; sin él, Existing falla explícitamente. Validación real parcial de 0.1.2; base aprobada por reporte; New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
 
 ## Inicio rápido
 
@@ -16,7 +16,9 @@ npm run build
 
 No hay dependencias npm externas. `npm run build` copia el contenido de `extension/` a `dist/extension/`; no transpila ni descarga código.
 
-### Instalación personal (0.1.2 experimental)
+### Instalación personal (0.1.4 candidata)
+
+El propietario no dispone de Standalone: usar la única instalación habitual con respaldos y reinicio manual según D-033. Antes de reiniciar, guardar el prompt completo; retomar en nuevo chat temporal para recibir las pruebas, no responderlas en el anterior.
 
 [Guía paso a paso para Windows, descarga y reversión](docs/INSTALL_WINDOWS.md). La carpeta `extension/` se carga directamente, sin Node.js. Para Workspaces existentes se requiere también el puente local independiente y su prueba en Vivaldi.
 
@@ -26,7 +28,7 @@ No hay dependencias npm externas. `npm run build` copia el contenido de `extensi
 2. Abrir `vivaldi://extensions` en Vivaldi; si no redirige correctamente, abrir el gestor de extensiones desde el menú Herramientas.
 3. Activar el modo desarrollador y usar **Cargar descomprimida / Load unpacked**.
 4. Seleccionar `dist/extension` (o `extension` durante desarrollo).
-5. Abrir el icono de Open New Workspace. Debe aparecer el menú de tres opciones con idioma ES/EN. Base abre ventana normal (semántica base por verificar); Existing consulta el puente. New deshabilitado. Consultar [bridge/README.md](bridge/README.md) antes de cualquier prueba de integración. No modificar el navegador habitual.
+5. Abrir el icono de Open New Workspace. Debe aparecer el menú de tres opciones con idioma ES/EN. Base abre ventana normal (semántica base por verificar); Existing consulta el puente. New deshabilitado. Consultar [bridge/README.md](bridge/README.md) antes de cualquier prueba de integración. Usar guía D-033 para cambios autorizados; no modificar DTC.
 6. Después de cambiar el código, reconstruir si se usa `dist/extension` y recargar la extensión.
 
 ## Documentación y continuidad
