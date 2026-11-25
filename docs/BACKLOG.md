@@ -2,6 +2,29 @@
 
 P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de producto sin validar alcance.
 
+## Estado operativo vigente
+
+## Cierre QA-ONW-015 (vigente, 2026-11-25)
+
+- Cerrados para 0.1.5: apertura inactiva de una ventana, identidad nativa sin duplicar, aparición inesperada del panel (no reproducida en QA), mejoras de ancho/altura/temas/idiomas y conservación de comportamiento. 19/19 OK por reporte del propietario, DTC inicial/final OK.
+- Pendiente funcional original: creación nativa New Workspace (rápida y personalizada), diferida y deshabilitada; no confundir aceptación de deshabilitación con funcionalidad entregada.
+- Pendiente técnico de entrega: validar ejecución PowerShell Windows D-039 en una futura actualización necesaria, no pedir reinstalación para ello. Mantener riesgos de compatibilidad de UI interna ante cambios de Vivaldi.
+- No repetir QA, inspecciones estáticas ni tocar DTC; congelar baseline validada, siguiente alcance a decidir con propietario.
+
+| ID | Estado vigente | Alcance |
+|---|---|---|
+| ONW-001 a ONW-004 | Cerrados | Scaffold, repo, requisitos y carga inicial. |
+| ONW-005 a ONW-008 | Cerrados para Base/Existing 0.1.5 | Viabilidad, integración, defectos y QA real; no implica creación nativa. |
+| ONW-009 | Cerrado para UX 0.1.5 | Aceptación por propietario; ancho exacto no medido. |
+| ONW-010 | Pendiente/no bloqueante | Licencia, distribución, versión mínima, política de releases. |
+| ONW-011 | Diferido | Creación nativa rápida/personalizada; siguiente etapa propuesta. |
+| ONW-012 | Cerrado para QA-ONW-015 | DTC inicial/final OK; causalidad histórica desconocida. |
+| ONW-013 | Implementado; validación Windows pendiente | Instalador D-039; validar en siguiente instalación necesaria. |
+
+## Historial de backlog (no operativo)
+
+Tabla y registros anteriores preservados como evidencia; no son órdenes vigentes.
+
 | ID | Prioridad | Estado | Tarea y aceptación |
 |---|---|---|---|
 | ONW-001 | P0 | Hecho | Scaffold y documentación autosuficiente, check/test/build verificables. |
@@ -48,10 +71,3 @@ Checkpoint 0.1.5: identidad y ruta de eventos candidatas implementadas, CI 42/42
 ## Actualización de entrega (2026-11-25)
 - D-039: código de empaquetado, instalador y tests estáticos implementados; validación de PowerShell Windows pendiente. No reinstalar solo para validar el instalador.
 - QA-ONW-015: propietario reporta descarga y muestra extension, bridge y onw-mods poblados; falta confirmar carga efectiva 0.1.5 y reinicio posterior a la copia. No modificar lógica candidata ni solicitar otro reinicio mientras no haya evidencia de necesidad. Una ronda QA agrupada tras confirmar.
-
-## Cierre QA-ONW-015 (vigente, 2026-11-25)
-
-- Cerrados para 0.1.5: apertura inactiva de una ventana, identidad nativa sin duplicar, aparición inesperada del panel (no reproducida en QA), mejoras de ancho/altura/temas/idiomas y conservación de comportamiento. 19/19 OK por reporte del propietario, DTC inicial/final OK.
-- Pendiente funcional original: creación nativa New Workspace (rápida y personalizada), diferida y deshabilitada; no confundir aceptación de deshabilitación con funcionalidad entregada.
-- Pendiente técnico de entrega: validar ejecución PowerShell Windows D-039 en una futura actualización necesaria, no pedir reinstalación para ello. Mantener riesgos de compatibilidad de UI interna ante cambios de Vivaldi.
-- No repetir QA, inspecciones estáticas ni tocar DTC; congelar baseline validada, siguiente alcance a decidir con propietario.
