@@ -49,4 +49,6 @@
 
 | D-033 | 2026-11-25 | Única instalación habitual de Vivaldi; no Standalone. Instalación manual controlada en habitual, con respaldos y reinicio cuando proceda. Entrega previa solo instrucciones y prompt autocontenido; formulario/QA únicamente tras retomar en otro chat temporal. | Propietario: restricción explícita, sustituye recomendaciones previas de aislamiento y formularios anticipados; agente: medidas compensatorias de seguridad. |
 
+| D-034 | 2026-11-25 | Cada entrega futura se prepara y conserva en subcarpetas de E:\Vivaldi_OpenNewWorkspace\, con rutas activas estables; excepción única 0.1.4 en E:\ONW_0.1.4_STAGE\. | Propietario: orden y excepción explícitos; agente: convención versions y backups. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

@@ -132,6 +132,11 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Candidato 0.1.4 eb4c60f2f911b88292fb1f61791006076988c404, CI 45645828628 aprobada. No instalado por reporte. El último informe V2 muestra ambos scripts y listeners cargados, DTC recuperado; estado del disco y de la extensión actual no verificado. No exigir repetir diagnósticos. Mantener ruta E:\Vivaldi_OpenNewWorkspace\extension y bridge fuente E:\Vivaldi_OpenNewWorkspace\bridge; preparar ZIP en carpeta temporal independiente, respaldar y sustituir solo ONW. La guía vigente reemplaza indicaciones previas de Standalone y de QA en el mismo chat.
 - Siguiente entrega: instrucciones de instalación en habitual, prompt descargable completo, reinicio manual único; no formulario en este chat. Próximo chat: confirmar versión/carga, validar DTC, foco/apertura/base/UX y preservar datos. No se ha intervenido PC ni cambiado código.
 
+## Organización local D-034 (2026-11-25)
+
+- D-034: todas las futuras entregas de ONW deben mantener ZIP, extracción y respaldos de cada versión dentro de una subcarpeta de E:\Vivaldi_OpenNewWorkspace\. Convención propuesta: versions\<versión>\ (ZIP y extracción) y backups\<versión>_<fecha-hora>\ (respaldo). No pedir carpetas de preparación fuera de la raíz. Mantener extension\ y bridge\ de la raíz como rutas activas estables; copiar desde la subcarpeta de versión, sin mezclar versiones ni borrar archivos históricos. El puente ejecutable sigue en los recursos de Vivaldi. Excepción expresamente autorizada: para la prueba 0.1.4 ya instruida, conservar E:\ONW_0.1.4_STAGE\; no mover ni repetir preparación. La regla se aplica a entregas posteriores. No implica cambiar de instalación Vivaldi.
+- Cambio únicamente documental; 0.1.4 sigue pendiente de instalación y QA, mismo ZIP/CI, mismo flujo D-033. No repetir instrucciones ni solicitar traslado de preparación actual.
+
 ## Bloqueos y siguiente acción
 
 1. P0: CI 0.1.4 aprobada; prueba funcional controlada en única instalación habitual pendiente de foco/apertura. DTC recuperado por reporte; comprobar coexistencia después de operaciones, no intervenir DTC.

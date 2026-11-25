@@ -6,6 +6,10 @@ El propietario dispone de una sola instalación de Vivaldi, la habitual. No tien
 
 Chat anterior al reinicio: entregar instrucciones completas, ZIP fijo, checkpoint y prompt completo descargable/copiable. NO entregar formulario QA ni pedir resultados posreinicio en ese chat. Usuario guarda el prompt fuera del navegador, instala, reinicia y lo pega en nuevo chat temporal. Nuevo chat: confirmar instalación y efectuar QA. Ver AGENTS, WORKFLOW, RESUME_PROMPT y D-033.
 
+## Organización local de versiones (D-034)
+
+D-034: todas las futuras entregas de ONW deben mantener ZIP, extracción y respaldos de cada versión dentro de una subcarpeta de E:\Vivaldi_OpenNewWorkspace\. Convención propuesta: versions\<versión>\ (ZIP y extracción) y backups\<versión>_<fecha-hora>\ (respaldo). No pedir carpetas de preparación fuera de la raíz. Mantener extension\ y bridge\ de la raíz como rutas activas estables; copiar desde la subcarpeta de versión, sin mezclar versiones ni borrar archivos históricos. El puente ejecutable sigue en los recursos de Vivaldi. Excepción expresamente autorizada: para la prueba 0.1.4 ya instruida, conservar E:\ONW_0.1.4_STAGE\; no mover ni repetir preparación. La regla se aplica a entregas posteriores. No implica cambiar de instalación Vivaldi.
+
 ## Paquete actual
 
 Vivaldi objetivo 8.3.4191.47 x64, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974 (reporte 2026-11-25). Código 0.1.4 eb4c60f2f911b88292fb1f61791006076988c404. CI Windows 45645828628 aprobada: check/test/build. No runtime 0.1.4 ni release; creación diferida.
@@ -16,14 +20,14 @@ La versión 0.1.4 exige extensión y puente protocolo 3; no mezclar con 0.1.2/0.
 
 ## A. Antes de cerrar Vivaldi
 
-1. Guardar prompt íntegro actualizado en disco y descargar ZIP. Extraer en carpeta de preparación distinta de E:\Vivaldi_OpenNewWorkspace (ej. E:\ONW_0.1.4_STAGE). Localizar raíz extraída con extension/manifest.json versión 0.1.4 y bridge/onw-workspace-bridge.js con PROTOCOL = 3. No copiar el ZIP como extensión.
+1. Guardar prompt íntegro actualizado en disco y descargar ZIP. Para esta prueba 0.1.4 mantener excepcionalmente E:\ONW_0.1.4_STAGE\ según instrucciones ya entregadas; en futuras entregas guardar ZIP y extraer en E:\Vivaldi_OpenNewWorkspace\versions\<versión>\. Localizar raíz extraída con extension/manifest.json versión 0.1.4 y bridge/onw-workspace-bridge.js con PROTOCOL = 3. No copiar el ZIP como extensión.
 2. Abrir vivaldi://about, identificar ruta del ejecutable y versión activa; localizar Application\<versión>\resources\vivaldi con window.html. No asumir %LOCALAPPDATA% ni tocar otras versiones, User Data o perfil.
 3. Guardar trabajo y usar mecanismos habituales de restauración de sesión; no cerrar pestañas de trabajo ni borrar datos. DTC actualmente funciona por reporte; si deja de funcionar antes de actualizar, detenerse sin modificar ONW. Desactivar ONW (solo ONW) en vivaldi://extensions si está habilitado. No quitarlo ni cambiar su ruta/ID. Guardar prompt antes de cerrar.
 4. Cerrar voluntariamente Vivaldi completo. Confirmar que no queden procesos vivaldi.exe en Administrador de tareas; si quedan, esperar salida normal, no forzar ni matar procesos. Si no se puede cerrar normalmente, detenerse.
 
 ## B. Con Vivaldi cerrado
 
-1. Crear carpeta de respaldo con fecha/hora fuera de las carpetas activas. Copiar allí E:\Vivaldi_OpenNewWorkspace\extension y bridge completos, window.html de recursos activos y onw-mods\onw-workspace-bridge.js si existe. No sobrescribir respaldos anteriores. Registrar SHA256 del HTML y archivo DTC (si existe) con Get-FileHash -Algorithm SHA256 -LiteralPath. No copiar/restaurar DTC. Registrar referencias DTC actuales; si faltan o son inesperadas, detenerse y diagnosticar sin repararlas.
+1. Crear carpeta de respaldo con fecha/hora fuera de las carpetas activas, preferentemente E:\Vivaldi_OpenNewWorkspace\backups\<versión>_<fecha-hora>\; respetar respaldos ya preparados para 0.1.4. Copiar allí E:\Vivaldi_OpenNewWorkspace\extension y bridge completos, window.html de recursos activos y onw-mods\onw-workspace-bridge.js si existe. No sobrescribir respaldos anteriores. Registrar SHA256 del HTML y archivo DTC (si existe) con Get-FileHash -Algorithm SHA256 -LiteralPath. No copiar/restaurar DTC. Registrar referencias DTC actuales; si faltan o son inesperadas, detenerse y diagnosticar sin repararlas.
 2. Sustituir solo carpetas ONW extension y bridge en E:\Vivaldi_OpenNewWorkspace por las del ZIP preparado. No mezclar archivos viejos; conservar respaldo y ruta original exacta. Verificar manifest 0.1.4. No eliminar el resto de la carpeta raíz.
 3. Copiar nuevo bridge/onw-workspace-bridge.js a resources\vivaldi\onw-mods\onw-workspace-bridge.js de versión activa (crear onw-mods si falta).
 4. Inspeccionar window.html. Si ya contiene exactamente una referencia ONW válida, NO editar HTML. Si falta, comprobar cierre body único y agregar solo esta línea antes de él, preservando codificación y todo el resto:

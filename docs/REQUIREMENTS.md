@@ -35,6 +35,8 @@
 
 - RNF-06: una única instalación habitual de Vivaldi, sin Standalone ni segunda instalación. Validación controlada allí, con respaldos, reversión selectiva y reinicio manual cuando corresponda. Flujo de dos chats temporales D-033; instrucciones/prompt antes, preguntas y QA después.
 
+- RNF-07: organizar todas las futuras entregas, ZIP, extracciones y respaldos en subcarpetas de la raíz de trabajo ONW, conservando rutas activas estables (D-034); excepción 0.1.4 ya instruida.
+
 ## Alcance excluido
 
 Administrador completo de Workspaces, edición o eliminación de espacios existentes, gestor propio de pestañas, sincronización adicional, compatibilidad multiplataforma, publicación en tienda. No sustituir Workspaces nativos por tab groups.

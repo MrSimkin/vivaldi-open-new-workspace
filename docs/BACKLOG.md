@@ -23,4 +23,6 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 
 | ONW-015 | P0 | Regla operativa activa | D-033: no Standalone; actualizar en ruta permanente y única instalación con backups, reinicio manual y traspaso obligatorio. No exigir otra instalación ni preguntar QA posreinicio en chat anterior. |
 
+| ONW-016 | P0 | Regla operativa activa | D-034: preparación de cada futura versión y respaldos dentro de raíz de trabajo ONW, rutas activas estables, excepción única 0.1.4. |
+
 Actualizar estados sin eliminar tareas históricas. Añadir evidencia, commit o referencia de prueba al cerrar tareas relevantes.
