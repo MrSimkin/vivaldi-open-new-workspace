@@ -1,5 +1,11 @@
 # Changelog
 
+## Sin publicar | viabilidad documental (2026-11-25)
+
+- Revisadas ambas ramas de Duplicate Tabs Closer; registrado precedente de puente de lectura, metadatos, restricciones y resiliencia.
+- Contrastado comportamiento nativo con documentación oficial y reporte externo de riesgo de escritura directa de preferencias.
+- Definidos candidatos, matriz de capacidades y secuencia P0-P4 de pruebas. Sin cambios a código, versión ni permisos.
+
 ## Sin publicar | requisitos confirmados (2026-11-25)
 
 - Registrado alcance de uso personal y tres acciones: nuevo, base, existente.

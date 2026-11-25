@@ -8,7 +8,7 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-002 | P0 | Hecho | Repo creado por propietario, importación verificada en main: 26 archivos, permiso de escritura, commit `480da6f4c1640d58ebd31d1774af43a98aa61af7`. Ver STATUS. |
 | ONW-003 | P0 | Hecho | Alcance y preferencias confirmados; RF-01 a RF-12 en REQUIREMENTS, D-009 a D-011 en DECISIONS. |
 | ONW-004 | P0 | Pendiente | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
-| ONW-005 | P0 | Siguiente | Investigar listado nativo, asociación ventana/Workspace, apertura base, creación con nombre/icono, apertura existente y enfoque; prueba reproducible o bloqueo por capacidad. |
+| ONW-005 | P0 | En curso | Revisión documental DTC y fuentes externas realizada; matriz y plan P0-P4 en FEASIBILITY. Pendiente diagnóstico actual y mecanismo nativo de creación/selección, prueba reproducible o bloqueo. |
 | ONW-006 | P1 | Bloqueado | Seleccionar arquitectura de integración con base en ONW-004/005 y registrar decisión. |
 | ONW-007 | P1 | Bloqueado | Implementar RF-01 a RF-12, con errores explícitos y pruebas unitarias; incluye selector de idioma e iconos soportados. |
 | ONW-008 | P1 | Bloqueado | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |

@@ -45,6 +45,10 @@ Los nombres, firma y arquitectura definitiva del adaptador dependerán de la pru
 
 Separar interfaz, lógica de dominio e integración con el navegador. El adaptador deberá detectar capacidad real y devolver un resultado explícito; no asumir que la API estándar de pestañas de Chromium es una API de Workspaces. Antes de implementar, confirmar contexto, permisos, comportamiento y errores; introducir pruebas con dobles controlados sin confundirlas con evidencia de Vivaldi real.
 
+## Arquitectura candidata tras revisión DTC (no definitiva)
+
+MV3 + adaptador ONW + puente independiente en UI de Vivaldi, si se demuestra que se necesita y es viable. Lectura del catálogo y estado activo a través de APIs internas verificadas; usar acciones nativas para mutaciones y API estándar de ventanas cuando corresponda. Verificar estado antes/después; no abrir ventana innecesaria si ya está activo, no confundir pertenencia de una pestaña con espacio activo. Crear solo en ventana destino. Si la acción no existe, fallar sin simular éxito y sin eliminar pestañas como compensación. Protocolo cerrado con remitente propio, versión, correlación, timeout y acciones permitidas; ningún ejecutor genérico de código ni puente compartido con DTC. Detectar falta de puente tras actualizaciones. No instalar ni modificar Vivaldi habitual sin autorización; no reiniciar para esta investigación. Véase FEASIBILITY.
+
 ## Datos y seguridad
 
 Sin permisos declarados, permisos de hosts, content scripts, almacenamiento, red o telemetría en la base. Preferir mínimo privilegio. No gestionar páginas internas mediante trucos no verificados ni sustituir un Workspace con un grupo de pestañas. Si solo existe una vía no documentada, evaluar estabilidad, distribución y consentimiento antes de adoptarla.

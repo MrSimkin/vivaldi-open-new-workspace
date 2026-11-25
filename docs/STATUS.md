@@ -1,6 +1,6 @@
 # Estado actual / checkpoint
 
-Fecha: 2026-11-25 | versión: 0.1.0 | etapa: requisitos aprobados; investigación de viabilidad pendiente (pre-MVP).
+Fecha: 2026-11-25 | versión: 0.1.0 | etapa: investigación de viabilidad iniciada (pre-MVP).
 
 ## Implementado
 
@@ -39,11 +39,18 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - No se modificó código, manifiesto, build ni permisos en este checkpoint. Los resultados de pruebas y build anteriores corresponden al scaffold sin cambios; no se volvieron a ejecutar.
 - No se ha verificado todavía la capacidad de integración nativa. No se realizó investigación nueva en este checkpoint.
 
+## Investigación de viabilidad: revisión documental (2026-11-25)
+
+- Revisadas ramas master y feature/vivaldi-workspace-scope de DTC, a petición del propietario; referencia fijada a a3b20600bdab4a0f58bade05f0175da5822e259a. Código, handoff, checkpoint y resiliencia consultados.
+- Evidencia previa: puente de solo lectura funcional en DTC; APIs internas de lectura, no de creación. Vivaldi documenta enfoque de ventana existente y creación con nombre/icono. Riesgo de escritura directa de prefs reportado por tercero.
+- Ruta preferente provisional: comprobar extensión normal, después evaluar puente propio con acciones nativas; alternativa comandos/UI. No copiar código GPL ni tocar DTC. Se documentó matriz y secuencia de prueba en FEASIBILITY.
+- ONW no ha ejecutado Vivaldi ni cambiado código, versión, permisos o instalación. No se repitieron tests/build del scaffold. No se verificó CI en esta intervención.
+
 ## Bloqueos y siguiente acción
 
-1. ONW-005: investigar rutas de integración para listar Workspaces, identificar ventanas, abrir base, crear/personalizar, abrir existente y enfocar; contrastar con documentación y ejemplos y diseñar prueba mínima reproducible.
-2. ONW-004: cargar scaffold en Vivaldi/Windows; registrar versión y resultados. Validar la ruta elegida en perfil de prueba antes de implementar el MVP.
-3. ONW-006: seleccionar arquitectura con evidencia; consultar CI cuando esté disponible. No reabrir requisitos ya aprobados.
+1. ONW-004/005: obtener versión exacta y disponibilidad de perfil de prueba separado; ejecutar P0-P2 de FEASIBILITY (sin interrumpir sesión habitual). Documentar diagnóstico mínimo de lectura y flujos nativos.
+2. ONW-005: identificar mecanismo de creación/selección nativa y validar P3-P4. El puente DTC no puede ejecutar estas operaciones.
+3. ONW-006: elegir arquitectura con evidencia o registrar bloqueo; no reabrir requisitos aprobados.
 
 No se han tocado otros repositorios. No se han declarado permisos de navegador. No se ha asignado una licencia. Se conserva la visibilidad pública observada.
 

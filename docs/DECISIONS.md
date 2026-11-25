@@ -16,4 +16,8 @@
 | D-011 | 2026-11-25 | Iconos nativos y emojis si es posible; interfaz configurable español/inglés. | Propietario, confirmado; capacidad real de iconos pendiente. |
 | D-012 | 2026-11-25 | Investigar viabilidad antes de implementar; propuesta de idioma inicial según navegador y selección persistente local. | Agente: orden de trabajo y propuesta reversible, no decisión del propietario. |
 
+| D-013 | 2026-11-25 | Estudiar DTC como referencia de integración Workspace. | Propietario, confirmado; rama feature/vivaldi-workspace-scope inspeccionada sin modificarla. |
+| D-014 | 2026-11-25 | Priorizar verificación de APIs normales y luego puente ONW independiente con acciones nativas; alternativa comandos/UI; descartar escritura directa de prefs como primera ruta. | Agente: decisión preliminar de investigación, no arquitectura final ni autorización de mod. |
+| D-015 | 2026-11-25 | No copiar código GPL, reutilizar identidad DTC ni alterar su puente; evitar interrupción de sesión habitual; prueba aislada. | Agente: precauciones derivadas de fuente y reglas existentes. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
