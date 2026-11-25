@@ -86,3 +86,9 @@ Informe recibido y analizado, bundle SHA256 E3DA95063D8EA97E85DD955D8C87F38DBCF3
 ### 0.1.5 — Entrega Windows versionada (sin cambio de versión de producto)
 - Incorporados Install-ONW.ps1 (Verify/Install explícito), scripts/New-ONWPackage.ps1 y tres tests estáticos. Nombre ONW_0.1.5_windows.zip. No cambios en extensión, bridge, protocolo, permisos, ID ni DTC.
 - Check/test 45/45/build Linux aprobados; ejecución PowerShell/CI Windows de esta revisión pendiente de verificación. QA real 0.1.5 pendiente.
+
+### 0.1.5 — QA funcional aprobada (2026-11-25)
+
+- QA-ONW-015: 19/19 OK por reporte directo del propietario; 0 fallos o parciales. Apertura inactiva, identidad, panel no reproducido y UX aceptados; DTC inicial/final OK.
+- Baseline funcional validada de Base/Existing/UX: ab3a01a9. New Workspace sigue deshabilitado, MVP completo pendiente.
+- Cierre exclusivamente documental; sin release, cambios de código, instalación adicional ni nuevas pruebas. PowerShell D-039 Windows pendiente.
