@@ -62,3 +62,6 @@ Las tres operaciones deben actuar sobre el sistema nativo de Vivaldi, mantener a
 
 - RF-14: ancho efectivo objetivo 420 px, reducir altura y compactar mensajes con código desplegable, conservando advertencia de ventana adicional y funciones aprobadas.
 - RF-15: Existing no debe abrir panel Lista de vistas de lectura inesperadamente; corregir causa, no ocultar panel automáticamente.
+
+## RNF-08 — Entregas futuras (D-039)
+Cada actualización a instalar debe entregarse como ZIP con nombre específico de versión y script PowerShell mantenido en el repositorio, con instrucciones mínimas, respaldo, verificación y reversión selectiva según D-033/D-034. No exigir al propietario Node/npm. No sobrescribir entregas históricas ni modificar DTC.
