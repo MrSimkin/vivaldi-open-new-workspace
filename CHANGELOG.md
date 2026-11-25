@@ -4,7 +4,8 @@
 
 - Registrada QA real 0.1.4: 13 OK, 2 parciales, 2 fallos y 1 no comprobable.
 - Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
-- Identidad y panel pendientes de evidencia estática; no cambios de producto en este commit documental.
+- UX integrada: ES predeterminado, cuarto tema, ancho intrínseco, filas compactas y código de error desplegable; nuevas pruebas de contrato y de render con dobles. Sin incremento de versión ni release.
+- Identidad y panel pendientes de evidencia estática; herramienta y propuesta diagnóstica conservadas en research, no aplicadas al puente.
 
 ## Operación y continuidad (2026-11-25, D-033)
 

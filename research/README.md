@@ -39,3 +39,7 @@ V1 identificó catálogo/ventanas/botón pero no filas. En el mismo contexto win
 ## Restricción operativa vigente D-033
 
 Única instalación habitual, sin Standalone. Los diagnósticos de solo lectura se pueden ejecutar allí sin reinicio; las referencias a instalaciones de prueba separadas son históricas. V1/V2 completados, no repetir. Mutaciones solo bajo guía vigente INSTALL_WINDOWS, con prompt antes de reiniciar; QA en nuevo chat.
+
+## 0.1.5: inspección estática focalizada pendiente (no reiniciar)
+
+Tras QA-ONW-014, el código de identidad genérico puede surgir de fila sin coincidencia, ambigüedad, ID duplicado o revalidación; ninguna hipótesis está confirmada. `Find-ONW-RowIdentity.ps1` es la herramienta recibida del traspaso: lee únicamente JS instalado bajo resources/vivaldi, excluye ONW/DTC y emite contexto acotado de cuatro clases. No ejecuta Vivaldi, no genera eventos, no modifica archivos, no requiere cierre. Ejecutar solo con UiRoot real que contiene window.html, localizado mediante vivaldi://about; no cambiar políticas PowerShell. Compartir informe ONW-ROW-STATIC-1 revisado de datos personales, no el bundle completo ni subirlo al repo público. PowerShell Windows aún no verificado por agente. `proposed-identity-errors.mjs` conserva la transformación diagnóstica del traspaso como función inerte, no aplicada al puente ni ejecutada por producto. La prueba previa del fixture (8/8) no demuestra funcionamiento real. No integrar hasta contar con evidencia estática y revisar contratos. No repetir V1/V2 ni operación fallida.
