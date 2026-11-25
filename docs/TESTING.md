@@ -1,5 +1,37 @@
 # Pruebas y control de calidad
 
+## QA-ONW-015 — aceptación funcional real (2026-11-25)
+
+Fuente: reporte directo del propietario después de copiar el candidato 0.1.5 (ab3a01a9d758ca0efd28d4db927f77bbba824566), reiniciar Vivaldi y confirmar versión habilitada. Entorno objetivo previamente reportado: Vivaldi 8.3.4191.47 x64 Windows, sin nueva comprobación independiente de build ni hashes. 19 OK, 0 parciales, 0 fallos, 0 pendientes; comentarios: Sin comentarios.
+
+| Nº | Caso | Resultado del propietario |
+|---:|---|---|
+| 1 | Versión 0.1.5 habilitada | OK |
+| 2 | DTC funciona inicialmente | OK |
+| 3 | Listado automático de Workspaces | OK |
+| 4 | Workspace activo: enfoca su ventana existente | OK |
+| 5 | Workspace inactivo: abre exactamente una ventana | OK |
+| 6 | Identidad correcta, sin duplicar Workspace | OK |
+| 7 | No aparece el panel Lista de vistas de lectura | OK |
+| 8 | Conserva pestañas del Workspace destino | OK |
+| 9 | Conserva ventana y pestañas de origen | OK |
+| 10 | Base: abre ventana normal | OK |
+| 11 | Mayor ancho efectivo | OK |
+| 12 | Menor altura de la extensión | OK |
+| 13 | Nuevo tema Dark Blue | OK |
+| 14 | Otros tres temas funcionan | OK |
+| 15 | Persistencia del tema | OK |
+| 16 | Español e inglés funcionan y persisten | OK |
+| 17 | Mensajes de error compactos (si aparecen) | OK |
+| 18 | New Workspace permanece deshabilitado | OK |
+| 19 | DTC funciona al finalizar | OK |
+
+Cierre: defectos de apertura inactiva, identidad y panel de QA-ONW-014 no reproducidos en QA-ONW-015; UX aceptada. No se demuestra causalidad original del panel ni garantía universal de coexistencia. Caso 17 condicional: no consta que apareciera un error concreto; tampoco consta medida exacta de 420 px, prueba limpia de ES inicial, ID o hashes locales. No solicitar pruebas adicionales solo para cerrar esos detalles. New Workspace deshabilitado es comportamiento esperado en 0.1.5, no prueba de creación nativa. Instalador D-039 no ejecutado por propietario en esta instalación; PowerShell Windows y nueva CI de entrega siguen sin verificar. No se repiten pruebas automatizadas ni QA en este cierre documental. Sin cambios de producto, DTC o release.
+
+## Historial y matrices de pruebas (no operativo)
+
+Los bloques siguientes conservan evidencia y planes anteriores, no tareas vigentes. D-033 sustituye cualquier sugerencia histórica de Standalone/perfil adicional. No repetir QA cerradas sin evidencia nueva.
+
 ## Automáticas
 
 - `npm run check`: valida manifiesto, referencias locales del popup, permisos iniciales, versión y sintaxis JavaScript.
@@ -146,31 +178,3 @@ QA real posterior según INSTALL_WINDOWS/RESUME_PROMPT, una ronda controlada; no
 
 ## Entrega versionada y pruebas nuevas (2026-11-25)
 Sobre el mismo código candidato ab3a01a9, añadido Install-ONW.ps1, scripts/New-ONWPackage.ps1 y tests/installer.test.mjs. Linux Node 22.16.0: npm run check, npm test 45/45 (0 fallos, 0 omitidos), npm run build aprobados. Tres tests estáticos nuevos: Verify por defecto y cierre requerido, no escritura explícita HTML/DTC ni cierre automático, rutas y nombre de paquete. ZIP ONW_0.1.5_windows.zip creado con Python zipfile y comprobado archivo a archivo contra las fuentes; SHA256 2e0b868ad29de23661b49da514c4a961a89344f96a5b340bf4d9431658a7225b. GitHub confirma blobs idénticos de los tres archivos nuevos. No hay PowerShell ni Vivaldi en el entorno Linux; no se ejecutó el instalador ni su generador PS, ni se confirma nueva CI Windows. No repetir QA-ONW-014 ni inspecciones anteriores. QA-ONW-015 pendiente; capturas solo muestran archivos presentes.
-
-## QA-ONW-015 — aceptación funcional real (2026-11-25)
-
-Fuente: reporte directo del propietario después de copiar el candidato 0.1.5 (ab3a01a9d758ca0efd28d4db927f77bbba824566), reiniciar Vivaldi y confirmar versión habilitada. Entorno objetivo previamente reportado: Vivaldi 8.3.4191.47 x64 Windows, sin nueva comprobación independiente de build ni hashes. 19 OK, 0 parciales, 0 fallos, 0 pendientes; comentarios: Sin comentarios.
-
-| Nº | Caso | Resultado del propietario |
-|---:|---|---|
-| 1 | Versión 0.1.5 habilitada | OK |
-| 2 | DTC funciona inicialmente | OK |
-| 3 | Listado automático de Workspaces | OK |
-| 4 | Workspace activo: enfoca su ventana existente | OK |
-| 5 | Workspace inactivo: abre exactamente una ventana | OK |
-| 6 | Identidad correcta, sin duplicar Workspace | OK |
-| 7 | No aparece el panel Lista de vistas de lectura | OK |
-| 8 | Conserva pestañas del Workspace destino | OK |
-| 9 | Conserva ventana y pestañas de origen | OK |
-| 10 | Base: abre ventana normal | OK |
-| 11 | Mayor ancho efectivo | OK |
-| 12 | Menor altura de la extensión | OK |
-| 13 | Nuevo tema Dark Blue | OK |
-| 14 | Otros tres temas funcionan | OK |
-| 15 | Persistencia del tema | OK |
-| 16 | Español e inglés funcionan y persisten | OK |
-| 17 | Mensajes de error compactos (si aparecen) | OK |
-| 18 | New Workspace permanece deshabilitado | OK |
-| 19 | DTC funciona al finalizar | OK |
-
-Cierre: defectos de apertura inactiva, identidad y panel de QA-ONW-014 no reproducidos en QA-ONW-015; UX aceptada. No se demuestra causalidad original del panel ni garantía universal de coexistencia. Caso 17 condicional: no consta que apareciera un error concreto; tampoco consta medida exacta de 420 px, prueba limpia de ES inicial, ID o hashes locales. No solicitar pruebas adicionales solo para cerrar esos detalles. New Workspace deshabilitado es comportamiento esperado en 0.1.5, no prueba de creación nativa. Instalador D-039 no ejecutado por propietario en esta instalación; PowerShell Windows y nueva CI de entrega siguen sin verificar. No se repiten pruebas automatizadas ni QA en este cierre documental. Sin cambios de producto, DTC o release.
