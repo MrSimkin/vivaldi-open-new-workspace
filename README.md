@@ -1,12 +1,23 @@
 # Open New Workspace
 
-Extensión de escritorio para **Vivaldi en Windows**. Repositorio: `MrSimkin/vivaldi-open-new-workspace`.
+Extensión de escritorio para **Vivaldi en Windows**, de uso personal.
 
-**Estado: 0.1.5 en desarrollo, no instalar; 0.1.4 probada parcialmente (QA-ONW-014), pre-MVP.** V2 real confirma estructura del menú, eventos y ambos puentes registrados; DTC recuperado por reporte. Candidato corrige selección y foco con protocolo 3, conserva UX 0.1.3 y CI aprobada; QA real parcial registrada en TESTING; apertura inactiva y panel lateral siguen bloqueados. El alcance funcional está aprobado: un botón siempre ofrece crear un Workspace nativo (rápido o con nombre/icono), abrir el espacio base o abrir uno existente. Si este último ya está abierto, se enfoca su ventana. La ventana original permanece abierta. Español e inglés configurables; uso personal. La versión experimental implementa catálogo nativo, decisión de enfoque/apertura y selección candidata mediante un puente ONW independiente. Requiere el puente cargado en Vivaldi; sin él, Existing falla explícitamente. Validación real parcial de 0.1.2; base aprobada por reporte; New Workspace queda deshabilitado. La primera versión útil debe priorizar base y existentes; la creación puede diferirse por autorización del propietario.
+**Estado vigente (2026-11-25): 0.1.5 funcional validada, QA-ONW-015 19/19 OK por reporte del propietario.** Base/Existing y UX aceptados; DTC inicial/final OK; panel de lectura no reproducido. New Workspace sigue diferido; MVP completo pendiente. Código validado: `ab3a01a9d758ca0efd28d4db927f77bbba824566`. No release ni reinstalación. D-033/D-034/D-039 vigentes. Instalador PowerShell todavía no validado en Windows.
 
-## Inicio rápido
+## Funciones y alcance
 
-Requisitos para desarrollo: Git, Node.js 22 LTS (o una versión posterior compatible), npm y Vivaldi Desktop para Windows. La extensión en ejecución no requiere Node.js.
+- Base: abre una ventana normal sin Workspace nombrado.
+- Existing: lista Workspaces nativos, enfoca una ventana existente o abre un Workspace inactivo en exactamente una nueva ventana; conserva origen y pestañas.
+- New Workspace: visible pero deshabilitado; creación rápida y personalizada pendiente.
+- ES por defecto si no existe preferencia válida; conservar EN explícito. Cuatro temas persistentes, icono NW gris, ancho objetivo 420 px, menor altura y error compacto con detalle desplegable.
+
+## Instalación y desarrollo
+
+No reinstalar la versión actual ni repetir QA por este cierre documental. Para una futura actualización necesaria, usar [entrega nominal D-039](docs/DELIVERY_WINDOWS.md) y [guía manual de respaldo](docs/INSTALL_WINDOWS.md), con D-033/D-034. La extensión no requiere Node.js en ejecución. El puente ONW independiente es obligatorio para Existing; no modificar DTC.
+
+Código de producto fijado: [ZIP fuente 0.1.5](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/ab3a01a9d758ca0efd28d4db927f77bbba824566.zip). El ZIP nominal entregado al propietario contiene además el instalador; no confundir ambos ni usar main flotante como paquete histórico.
+
+Para desarrollo: Git, Node.js 22 LTS, npm; sin dependencias npm externas.
 
 ```powershell
 npm run check
@@ -14,22 +25,7 @@ npm test
 npm run build
 ```
 
-No hay dependencias npm externas. `npm run build` copia el contenido de `extension/` a `dist/extension/`; no transpila ni descarga código.
-
-### Instalación personal (0.1.4 candidata)
-
-El propietario no dispone de Standalone: usar la única instalación habitual con respaldos y reinicio manual según D-033. Antes de reiniciar, guardar el prompt completo; retomar en nuevo chat temporal para recibir las pruebas, no responderlas en el anterior.
-
-[Guía paso a paso para Windows, descarga y reversión](docs/INSTALL_WINDOWS.md). La carpeta `extension/` se carga directamente, sin Node.js. Para Workspaces existentes se requiere también el puente local independiente y su prueba en Vivaldi.
-
-### Instalación para desarrollo (prueba manual pendiente)
-
-1. Ejecutar los comandos anteriores.
-2. Abrir `vivaldi://extensions` en Vivaldi; si no redirige correctamente, abrir el gestor de extensiones desde el menú Herramientas.
-3. Activar el modo desarrollador y usar **Cargar descomprimida / Load unpacked**.
-4. Seleccionar `dist/extension` (o `extension` durante desarrollo).
-5. Abrir el icono de Open New Workspace. Debe aparecer el menú de tres opciones con idioma ES/EN. Base abre ventana normal (semántica base por verificar); Existing consulta el puente. New deshabilitado. Consultar [bridge/README.md](bridge/README.md) antes de cualquier prueba de integración. Usar guía D-033 para cambios autorizados; no modificar DTC.
-6. Después de cambiar el código, reconstruir si se usa `dist/extension` y recargar la extensión.
+Build copia extension/ a dist/extension/. CI Windows histórica [42/42](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45653569598), pruebas de entrega Linux 45/45. QA real [19/19](docs/TESTING.md#qa-onw-015--aceptación-funcional-real-2026-11-25). PowerShell Windows y CI posterior de entrega no verificados.
 
 ## Documentación y continuidad
 
@@ -48,27 +44,8 @@ El propietario no dispone de Standalone: usar la única instalación habitual co
 
 No hay licencia pública seleccionada. No distribuir ni publicar en tiendas hasta que el propietario lo autorice. El repositorio es público; no confundir visibilidad del código con autorización para redistribuirlo.
 
-## Estado vigente 0.1.5
+## Continuidad
 
-Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.
+Leer primero [STATUS](docs/STATUS.md), [BACKLOG](docs/BACKLOG.md) y [RESUME_PROMPT](docs/RESUME_PROMPT.md). La siguiente etapa propuesta es creación nativa New Workspace; decidir alcance antes de cambios. No repetir diagnósticos ni QA cerradas sin nueva evidencia.
 
-0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.
-
-CI de desarrollo 0.1.5: [36/36, check/test/build Windows aprobados](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45651890632), sin prueba Vivaldi. main conserva versión declarada 0.1.4 mientras se resuelven bloqueos, NO instalar. Próxima acción: [inspección estática focalizada](research/README.md), no reiniciar.
-
-Actualización: selector exacto de nombre nativo integrado, CI Windows [40/40](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45652805888). Inspección ONW-ROW-STATIC-1 completada; falta ruta de eventos/panel, no instalar ni reiniciar.
-
-## Candidata experimental 0.1.5 (vigente)
-
-CI Windows Node 22, [45653569598](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45653569598), commit ab3a01a9d758ca0efd28d4db927f77bbba824566: check/test 42/42 (0 fallos, 0 omitidos)/build aprobados. Prueba adicional local Chromium 144.0.7559.96 Linux: evento KeyboardEvent keydown Enter con keyCode/which 13 recibido por listener delegado con destino exacto, isTrusted=false; no Vivaldi ni Chromium 156. Candidata experimental 0.1.5 para QA, no release ni MVP estable. Panel: mitigación de ruta de puntero, causa no demostrada.
-
-[ZIP fijo de código](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/ab3a01a9d758ca0efd28d4db927f77bbba824566.zip). Usar guía INSTALL_WINDOWS y prompt RESUME_PROMPT, no descargar main flotante. No repetir diagnósticos. Sustituye indicaciones históricas de no instalar durante desarrollo; instalación controlada únicamente siguiendo D-033/D-034.
-
-## Entrega Windows simplificada (D-039)
-El código candidato 0.1.5 no cambia. Las próximas instalaciones se entregarán mediante ZIP nominal con instalador PowerShell y respaldo; ver [guía de entrega](docs/DELIVERY_WINDOWS.md). Si ya copiaste 0.1.5, no reinstales solo por este cambio; confirma carga real del candidato. PowerShell aún no validado en Windows por el agente.
-
-## Estado actual: 0.1.5 validada funcionalmente (2026-11-25)
-
-**QA-ONW-015: 19/19 OK** reportados por el propietario en su instalación habitual de Vivaldi Windows. Base y Existing (activo/inactivo), conservación de Workspaces/pestañas, UX y coexistencia inicial/final con DTC aprobados. Panel de lectura no reproducido. Código validado: [ab3a01a9](https://github.com/MrSimkin/vivaldi-open-new-workspace/tree/ab3a01a9d758ca0efd28d4db927f77bbba824566). Ver [matriz de QA](docs/TESTING.md).
-
-Es la baseline funcional de alcance parcial, no el MVP completo: New Workspace sigue deshabilitado. Sin release. No reinstalar ni reiniciar por el cierre documental. El instalador D-039 permanece pendiente de validación PowerShell Windows. Las instrucciones anteriores de QA pendiente son históricas.
+[README histórico previo a consolidación](https://github.com/MrSimkin/vivaldi-open-new-workspace/blob/c0c541ee66241030d5fe27e71e9f3d2a5bb87e1e/README.md).
