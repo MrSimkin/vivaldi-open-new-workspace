@@ -1,6 +1,8 @@
 # Viabilidad técnica: Workspaces nativos
 
-Fecha: 2026-11-25. Investigación documental iniciada, pruebas de ONW en Windows/Vivaldi pendientes. RF-01 a RF-12 aprobados. No modificar instalación ni perfil habitual durante esta fase.
+**Estado vigente (2026-11-25): 0.1.5 funcional validada, QA-ONW-015 19/19 OK por reporte del propietario.** Base/Existing y UX aceptados; DTC inicial/final OK; panel de lectura no reproducido. New Workspace sigue diferido; MVP completo pendiente. Código validado: `ab3a01a9d758ca0efd28d4db927f77bbba824566`. No release ni reinstalación. D-033/D-034/D-039 vigentes. Instalador PowerShell todavía no validado en Windows.
+
+Investigación de Base/Existing cerrada para esta versión. La viabilidad de creación nativa RF-02 a RF-06 permanece abierta; las fuentes y limitaciones históricas siguientes sirven de insumo, no son tareas activas. No repetir inspecciones cerradas ni modificar instalación/DTC para esta consolidación.
 
 ## Fuentes de primera mano del proyecto de referencia
 
