@@ -54,3 +54,6 @@ Confirmar versión y catálogo; DTC inicial en modo no destructivo con pestañas
 
 
 CI Windows Node 22, [45653569598](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45653569598), commit ab3a01a9d758ca0efd28d4db927f77bbba824566: check/test 42/42 (0 fallos, 0 omitidos)/build aprobados. Prueba adicional local Chromium 144.0.7559.96 Linux: evento KeyboardEvent keydown Enter con keyCode/which 13 recibido por listener delegado con destino exacto, isTrusted=false; no Vivaldi ni Chromium 156. Candidata experimental 0.1.5 para QA, no release ni MVP estable. Panel: mitigación de ruta de puntero, causa no demostrada.
+
+## Actualización D-039
+La guía manual anterior sigue como respaldo, pero para futuras actualizaciones usar ZIP nominal y script según [DELIVERY_WINDOWS.md](DELIVERY_WINDOWS.md). No instalar nuevamente si los archivos candidatos ya fueron copiados. Verify es solo lectura; Install no edita window.html ni DTC y requiere referencias ya correctas, Vivaldi cerrado manualmente y prompt guardado. Si falta referencia, detener y revisar manualmente según guía anterior; no forzar. PowerShell aún pendiente de validación real.
