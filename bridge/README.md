@@ -1,4 +1,4 @@
-# Puente ONW 0.1.2 experimental
+# Puente ONW 0.1.4 candidato
 
 El puente es un complemento local independiente de Duplicate Tabs Closer. NO es una extensión separada, no forma parte de dist/extension y no se instala automáticamente. Su código se ejecuta únicamente en el contexto interno window.html de Vivaldi. Las APIs y selectores no están validados en 8.3.4191.47.
 
@@ -6,11 +6,11 @@ El puente es un complemento local independiente de Duplicate Tabs Closer. NO es 
 
 ## Contrato
 
-ID de desarrollo ONW: poebajclpmcacjgkdbkjfjbngmagakbe, derivado de clave pública del manifiesto; no hay clave privada guardada. Este identificador restringe remitentes ordinarios, no constituye una credencial secreta contra otro software local capaz de suplantar una extensión descomprimida. Protocolo 2; mensajes PING, SNAPSHOT y SELECT solamente; cada uno dirigido al ID de ventana del contexto UI, correlación estricta. No aceptar mensajes de web, ejecución arbitraria, URL ni modificación directa de preferencias.
+ID de desarrollo ONW: poebajclpmcacjgkdbkjfjbngmagakbe, derivado de clave pública del manifiesto; no hay clave privada guardada. Este identificador restringe remitentes ordinarios, no constituye una credencial secreta contra otro software local capaz de suplantar una extensión descomprimida. Protocolo 3 (requiere extensión 0.1.4; protocolo 2 rechazado); mensajes PING, SNAPSHOT y SELECT solamente; cada uno dirigido al ID de ventana del contexto UI, correlación estricta. No aceptar mensajes de web, ejecución arbitraria, URL ni modificación directa de preferencias.
 
 SNAPSHOT lee catálogo real e identifica Workspace activo a partir de pestaña activa y vivExtData en cada ventana normal no privada. Si no hay evidencia suficiente, devuelve unknown. Nombre y emoji son texto, no se renderiza HTML/SVG de terceros. Los iconos nativos sin emoji quedan pendientes de representación.
 
-SELECT verifica que el espacio está inactivo, destino es base, nombres no ambiguos y menú nativo único. Intenta una sola selección usando el botón y fila nativos; comprueba postcondición con metadatos. Si falla, no reintentar mutación, no cerrar ninguna ventana ni mover pestañas como compensación. Selectores y eventos inspirados en la evidencia del proyecto comunitario, implementación propia. No se afirma que sea invocable en 8.3 hasta prueba real.
+SELECT verifica que el espacio está inactivo, destino es base y enfocado, nombres no ambiguos y menú nativo único; resuelve todas las filas por nombre y decoraciones numéricas/emoji acotadas sin ordinales. Revalida identidad y geometría, un click dirigido. Etiquetas decoradas son hipótesis, no garantía. Intenta una sola selección usando el botón y fila nativos; comprueba postcondición con metadatos. Si falla, no reintentar mutación, no cerrar ninguna ventana ni mover pestañas como compensación. Selectores y eventos inspirados en la evidencia del proyecto comunitario, implementación propia. No se afirma que sea invocable en 8.3 hasta prueba real.
 
 ## Instalación manual disponible
 

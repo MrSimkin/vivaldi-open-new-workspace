@@ -1,6 +1,10 @@
-# Instalación personal Windows | 0.1.2 experimental
+# Instalación personal Windows | histórico 0.1.2 y candidato 0.1.4
 
 Versión objetivo: Vivaldi 8.3.4191.47 x64 / Chromium 156.0.8078.110. Check/test/build aprobados en Windows mediante GitHub Actions, run 45632780858. No se ha ejecutado Vivaldi real con ONW. No es un release estable ni se garantiza compatibilidad de APIs privadas. New Workspace queda en construcción.
+
+## Actualización candidata 0.1.4 (no instalada)
+
+Requiere ambos componentes 0.1.4 y protocolo 3; no mezclar con bridge 0.1.2/0.1.3. Obtener ZIP de commit candidato con CI aprobada, verificar manifest y bridge, seguir instalación separada de aplicación y perfil. No sobrescribir carpeta de instalación habitual E:\\Vivaldi_OpenNewWorkspace. Si existe ONW en Standalone, respaldar bridge ONW y carpeta extension, sustituir solo ONW y conservar referencia única si ya existe. No tocar DTC. Antes de cualquier cierre/reinicio entregar prompt actualizado según AGENTS. Tras arranque verificar foco/apertura y panel de lectura, origen, base/listado y temas. Ante error no repetir y reportar código. La sección siguiente conserva instrucciones y ZIP históricos 0.1.2, no usar ese ZIP para 0.1.4.
 
 ## Descargar
 

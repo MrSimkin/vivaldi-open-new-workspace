@@ -44,4 +44,7 @@
 
 | D-030 | 2026-11-25 | Antes de cada solicitud de cierre/reinicio de Vivaldi, entregar prompt de continuidad completo y actualizado en chat y repo; formularios con comentarios adicionales. | Propietario: obligatorio por uso de chat temporal; agente: archivo docs/RESUME_PROMPT.md y puerta en AGENTS/WORKFLOW. |
 
+| D-031 | 2026-11-25 | V2 concluye inspección dinámica; corregir con selector acotado y prueba de identidad de todas las filas, no ordinal. Eventos centrados y foco verificado por lectura. Protocolo 3 para exigir actualización conjunta. | Agente: candidato técnico basado en reporte; hipótesis de etiquetas y eventos aún por verificar. |
+| D-032 | 2026-11-25 | DTC recuperado sin cambios/reinicio reportado; ambos listeners registrados, no intervenir. | Propietario: reporte; coexistencia tras operaciones sigue pendiente. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
