@@ -57,3 +57,9 @@ Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida
 CI de desarrollo 0.1.5: [36/36, check/test/build Windows aprobados](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45651890632), sin prueba Vivaldi. main conserva versión declarada 0.1.4 mientras se resuelven bloqueos, NO instalar. Próxima acción: [inspección estática focalizada](research/README.md), no reiniciar.
 
 Actualización: selector exacto de nombre nativo integrado, CI Windows [40/40](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45652805888). Inspección ONW-ROW-STATIC-1 completada; falta ruta de eventos/panel, no instalar ni reiniciar.
+
+## Candidata experimental 0.1.5 (vigente)
+
+CI Windows Node 22, [45653569598](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45653569598), commit ab3a01a9d758ca0efd28d4db927f77bbba824566: check/test 42/42 (0 fallos, 0 omitidos)/build aprobados. Prueba adicional local Chromium 144.0.7559.96 Linux: evento KeyboardEvent keydown Enter con keyCode/which 13 recibido por listener delegado con destino exacto, isTrusted=false; no Vivaldi ni Chromium 156. Candidata experimental 0.1.5 para QA, no release ni MVP estable. Panel: mitigación de ruta de puntero, causa no demostrada.
+
+[ZIP fijo de código](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/ab3a01a9d758ca0efd28d4db927f77bbba824566.zip). Usar guía INSTALL_WINDOWS y prompt RESUME_PROMPT, no descargar main flotante. No repetir diagnósticos. Sustituye indicaciones históricas de no instalar durante desarrollo; instalación controlada únicamente siguiendo D-033/D-034.

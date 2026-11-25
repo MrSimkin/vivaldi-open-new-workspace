@@ -1,4 +1,4 @@
-# Instalación y actualización manual en Windows | 0.1.4 candidata
+# Instalación y actualización manual en Windows | 0.1.5 candidata
 
 ## Entorno obligatorio D-033
 
@@ -8,27 +8,27 @@ Chat anterior al reinicio: entregar instrucciones completas, ZIP fijo, checkpoin
 
 ## Organización local de versiones (D-034)
 
-D-034: todas las futuras entregas de ONW deben mantener ZIP, extracción y respaldos de cada versión dentro de una subcarpeta de E:\Vivaldi_OpenNewWorkspace\. Convención propuesta: versions\<versión>\ (ZIP y extracción) y backups\<versión>_<fecha-hora>\ (respaldo). No pedir carpetas de preparación fuera de la raíz. Mantener extension\ y bridge\ de la raíz como rutas activas estables; copiar desde la subcarpeta de versión, sin mezclar versiones ni borrar archivos históricos. El puente ejecutable sigue en los recursos de Vivaldi. Excepción expresamente autorizada: para la prueba 0.1.4 ya instruida, conservar E:\ONW_0.1.4_STAGE\; no mover ni repetir preparación. La regla se aplica a entregas posteriores. No implica cambiar de instalación Vivaldi.
+D-034: todas las futuras entregas de ONW deben mantener ZIP, extracción y respaldos de cada versión dentro de una subcarpeta de E:\Vivaldi_OpenNewWorkspace\. Convención propuesta: versions\<versión>\ (ZIP y extracción) y backups\<versión>_<fecha-hora>\ (respaldo). No pedir carpetas de preparación fuera de la raíz. Mantener extension\ y bridge\ de la raíz como rutas activas estables; copiar desde la subcarpeta de versión, sin mezclar versiones ni borrar archivos históricos. El puente ejecutable sigue en los recursos de Vivaldi. Excepción histórica única 0.1.4: conservar E:\ONW_0.1.4_STAGE\; no mover ni borrar. La regla se aplica a entregas posteriores. No implica cambiar de instalación Vivaldi.
 
 ## Paquete actual
 
-Vivaldi objetivo 8.3.4191.47 x64, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974 (reporte 2026-11-25). Código 0.1.4 eb4c60f2f911b88292fb1f61791006076988c404. CI Windows 45645828628 aprobada: check/test/build. No runtime 0.1.4 ni release; creación diferida.
+Vivaldi objetivo 8.3.4191.47 x64, Chromium 156.0.8078.110, Windows 11 26H2 build 26300.9974 (reporte 2026-11-25). Código 0.1.5 ab3a01a9d758ca0efd28d4db927f77bbba824566. CI Windows 45653569598 aprobada: check/test/build. No runtime 0.1.5 ni release; creación diferida. 42/42 pruebas. El panel sigue pendiente de validación.
 
-ZIP fijo: https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/eb4c60f2f911b88292fb1f61791006076988c404.zip
+ZIP fijo: https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/ab3a01a9d758ca0efd28d4db927f77bbba824566.zip
 
-La versión 0.1.4 exige extensión y puente protocolo 3; no mezclar con 0.1.2/0.1.3 (protocolo 2). No requiere Node, npm, compilación ni CRX. Conservar ID poebajclpmcacjgkdbkjfjbngmagakbe y ruta de carga E:\Vivaldi_OpenNewWorkspace\extension para mantener preferencias.
+La versión 0.1.5 exige extensión y puente protocolo 3; no mezclar con 0.1.2/0.1.3 (protocolo 2). No requiere Node, npm, compilación ni CRX. Conservar ID poebajclpmcacjgkdbkjfjbngmagakbe y ruta de carga E:\Vivaldi_OpenNewWorkspace\extension para mantener preferencias.
 
 ## A. Antes de cerrar Vivaldi
 
-1. Guardar prompt íntegro actualizado en disco y descargar ZIP. Para esta prueba 0.1.4 mantener excepcionalmente E:\ONW_0.1.4_STAGE\ según instrucciones ya entregadas; en futuras entregas guardar ZIP y extraer en E:\Vivaldi_OpenNewWorkspace\versions\<versión>\. Localizar raíz extraída con extension/manifest.json versión 0.1.4 y bridge/onw-workspace-bridge.js con PROTOCOL = 3. No copiar el ZIP como extensión.
+1. Guardar prompt íntegro actualizado en disco y descargar ZIP. Guardar ZIP y extraer en E:\Vivaldi_OpenNewWorkspace\versions\0.1.5\. No reutilizar E:\ONW_0.1.4_STAGE\. Localizar raíz extraída con extension/manifest.json versión 0.1.5 y bridge/onw-workspace-bridge.js con PROTOCOL = 3. No copiar el ZIP como extensión.
 2. Abrir vivaldi://about, identificar ruta del ejecutable y versión activa; localizar Application\<versión>\resources\vivaldi con window.html. No asumir %LOCALAPPDATA% ni tocar otras versiones, User Data o perfil.
 3. Guardar trabajo y usar mecanismos habituales de restauración de sesión; no cerrar pestañas de trabajo ni borrar datos. DTC actualmente funciona por reporte; si deja de funcionar antes de actualizar, detenerse sin modificar ONW. Desactivar ONW (solo ONW) en vivaldi://extensions si está habilitado. No quitarlo ni cambiar su ruta/ID. Guardar prompt antes de cerrar.
 4. Cerrar voluntariamente Vivaldi completo. Confirmar que no queden procesos vivaldi.exe en Administrador de tareas; si quedan, esperar salida normal, no forzar ni matar procesos. Si no se puede cerrar normalmente, detenerse.
 
 ## B. Con Vivaldi cerrado
 
-1. Crear carpeta de respaldo con fecha/hora fuera de las carpetas activas, preferentemente E:\Vivaldi_OpenNewWorkspace\backups\<versión>_<fecha-hora>\; respetar respaldos ya preparados para 0.1.4. Copiar allí E:\Vivaldi_OpenNewWorkspace\extension y bridge completos, window.html de recursos activos y onw-mods\onw-workspace-bridge.js si existe. No sobrescribir respaldos anteriores. Registrar SHA256 del HTML y archivo DTC (si existe) con Get-FileHash -Algorithm SHA256 -LiteralPath. No copiar/restaurar DTC. Registrar referencias DTC actuales; si faltan o son inesperadas, detenerse y diagnosticar sin repararlas.
-2. Sustituir solo carpetas ONW extension y bridge en E:\Vivaldi_OpenNewWorkspace por las del ZIP preparado. No mezclar archivos viejos; conservar respaldo y ruta original exacta. Verificar manifest 0.1.4. No eliminar el resto de la carpeta raíz.
+1. Crear carpeta de respaldo con fecha/hora fuera de las carpetas activas, preferentemente E:\Vivaldi_OpenNewWorkspace\backups\<versión>_<fecha-hora>\; respetar respaldos ya preparados para 0.1.5. Copiar allí E:\Vivaldi_OpenNewWorkspace\extension y bridge completos, window.html de recursos activos y onw-mods\onw-workspace-bridge.js si existe. No sobrescribir respaldos anteriores. Registrar SHA256 del HTML y archivo DTC (si existe) con Get-FileHash -Algorithm SHA256 -LiteralPath. No copiar/restaurar DTC. Registrar referencias DTC actuales; si faltan o son inesperadas, detenerse y diagnosticar sin repararlas.
+2. Sustituir solo carpetas ONW extension y bridge en E:\Vivaldi_OpenNewWorkspace por las del ZIP preparado. No mezclar archivos viejos; conservar respaldo y ruta original exacta. Verificar manifest 0.1.5. No eliminar el resto de la carpeta raíz.
 3. Copiar nuevo bridge/onw-workspace-bridge.js a resources\vivaldi\onw-mods\onw-workspace-bridge.js de versión activa (crear onw-mods si falta).
 4. Inspeccionar window.html. Si ya contiene exactamente una referencia ONW válida, NO editar HTML. Si falta, comprobar cierre body único y agregar solo esta línea antes de él, preservando codificación y todo el resto:
 
@@ -40,7 +40,7 @@ Si hay duplicados, referencias no esperadas o permisos insuficientes, detenerse 
 
 ## C. Reinicio y continuación
 
-Abrir Vivaldi habitual normalmente, abrir vivaldi://extensions, habilitar/recargar ONW existente desde misma ruta. Confirmar visualmente 0.1.4 y ID; si no está instalada, Cargar descomprimida seleccionando E:\Vivaldi_OpenNewWorkspace\extension. No usar botones ONW todavía. No modificar DTC.
+Abrir Vivaldi habitual normalmente, abrir vivaldi://extensions, habilitar/recargar ONW existente desde misma ruta. Confirmar visualmente 0.1.5 y ID; si no está instalada, Cargar descomprimida seleccionando E:\Vivaldi_OpenNewWorkspace\extension. No usar botones ONW todavía. No modificar DTC.
 
 Abrir nuevo chat temporal con GitHub conectado y pegar prompt completo, informando si completó la instalación/reinicio o cualquier bloqueo. El agente entonces proporciona QA agrupada y formulario con comentarios adicionales. No reiniciar otra vez sin nuevo prompt. Ante sesión inesperada, DTC roto o error de carga, no seleccionar Workspaces con ONW; informar.
 
@@ -50,6 +50,7 @@ Si se detecta incidencia: desactivar ONW desde gestor (sin tocar DTC), conservar
 
 ## E. Pruebas después del reinicio (agente del nuevo chat)
 
-Confirmar versión y catálogo; DTC inicial en modo no destructivo con pestañas ficticias; foco activo; apertura inactivo; ausencia panel lectura; preservación de origen/pestañas; base; temas/icono/idioma y persistencia; DTC final. Si DTC inicial falla, no ejecutar mutaciones ONW; si falla foco/apertura, registrar último código al reabrir popup y detener esa ruta, no repetir ciegamente. No cerrar ventanas extra automáticamente. No declarar coexistencia ni versión estable sin pruebas. No repetir ONW-MENU V1/V2. Si identidad no resuelve, inspección estática focalizada.
+Confirmar versión y catálogo; DTC inicial en modo no destructivo con pestañas ficticias; foco activo; apertura inactivo; ausencia panel lectura; preservación de origen/pestañas; base; temas/icono/idioma y persistencia; DTC final. Si DTC inicial falla, no ejecutar mutaciones ONW; si falla foco/apertura, registrar último código al reabrir popup y detener esa ruta, no repetir ciegamente. No cerrar ventanas extra automáticamente. No declarar coexistencia ni versión estable sin pruebas. No repetir ONW-MENU V1/V2, ONW-ROW-STATIC-1 ni ONW-EVENT-STATIC-2. Si identidad o panel falla, registrar una vez y reevaluar sin encadenar diagnósticos.
 
-Histórico: ZIP 0.1.2 https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/e08b4da26206a64ca9f986a2e5eb723e515ad459.zip (no usar para 0.1.4); versiones y pruebas en STATUS. DTC reparador fue inspeccionado y no coordina escrituras concurrentes; scripts independientes, no modificarlo. Recomendaciones históricas Standalone quedan reemplazadas por D-033.
+
+CI Windows Node 22, [45653569598](https://github.com/MrSimkin/vivaldi-open-new-workspace/actions/runs/45653569598), commit ab3a01a9d758ca0efd28d4db927f77bbba824566: check/test 42/42 (0 fallos, 0 omitidos)/build aprobados. Prueba adicional local Chromium 144.0.7559.96 Linux: evento KeyboardEvent keydown Enter con keyCode/which 13 recibido por listener delegado con destino exacto, isTrusted=false; no Vivaldi ni Chromium 156. Candidata experimental 0.1.5 para QA, no release ni MVP estable. Panel: mitigación de ruta de puntero, causa no demostrada.
