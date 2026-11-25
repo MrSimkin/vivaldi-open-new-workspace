@@ -31,4 +31,7 @@
 
 | D-022 | 2026-11-25 | Entregar 0.1.2 como instalación manual desde ZIP fuente fijo, sin Node para usuario y con puente separado, copia de seguridad y reversión. | Agente: elección de entrega solicitada; no automatizar modificación ni afirmar validación real. |
 
+| D-023 | 2026-11-25 | Coexistencia mediante puentes separados: verificar referencias y hashes, no sobrescribir modificaciones concurrentes, revertir únicamente ONW. Mantener DTC y su reparador intocados. | Propietario: restricciones explícitas; agente: controles técnicos y pruebas C-01 a C-05. |
+| D-024 | 2026-11-25 | Recomendar utilidad asistida manual PowerShell con modo diagnóstico por defecto y escritura/reversión explícitas, frente a edición manual repetitiva o tarea residente. | Agente: propuesta, no implementada ni autorización de ejecución. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
