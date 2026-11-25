@@ -106,6 +106,8 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - Usuario solicita temas elegibles y menor luminosidad, dado su tema de navegador gris oscuro. 0.1.3 candidata incluye Configuración con gris oscuro inicial, gris claro y claro azulado atenuados, persistencia local separada del idioma y accesibilidad de foco/contraste; icono NW gris conservado en cuatro tamaños. No nuevos permisos. No se alteró bridge, worker ni lógica de apertura. Tests de validación y persistencia añadidos.
 - CI revisión gris 921cdc9 aprobada (run 45641339207); nueva revisión de temas pendiente CI. No se ejecutó Vivaldi ni se instaló. No release. No utilizar selección existente en navegador habitual hasta corregir y verificar.
 
+- Preparado research/inspect-native-workspace-menu.js y guía: captura de estructura/handlers/coincidencia exacta por ordinal y estado activo, sin nombres/IDs ni eventos; puede ejecutarse sin ONW instalado. No ejecutado en runtime. Si selector se cierra al inspeccionar, registrar bloqueo. No se requieren nuevos intentos de apertura automática.
+
 ## Bloqueos y siguiente acción
 
 1. P0: corregir selección existente y enfoque mediante evidencia UI real de solo lectura en prueba separada; DTC tiene fallo independiente reproducible sin ONW, recuperar su línea base antes de aceptar coexistencia. No reinstalar puente en habitual hasta validar.

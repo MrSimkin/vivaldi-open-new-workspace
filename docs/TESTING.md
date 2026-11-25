@@ -97,3 +97,5 @@ Sin código ONW ni diagnóstico DTC. No repetir pruebas de aislamiento; no afirm
 ### A-13 Temas
 
 Configuración -> elegir gris oscuro, gris claro o claro azulado, comprobar cambio inmediato, cerrar/reabrir popup y verificar persistencia; cambiar idioma sin perder tema. Icono NW visible en barra con tema oscuro. Pruebas unitarias de preferencia válida/inválida, almacenamiento no disponible y persistencia; estáticas de opciones y CSS. Runtime pendiente.
+
+Diagnóstico dirigido: research/inspect-native-workspace-menu.js, instrucciones en research/README.md; inspección manual de menú sin selección, sin ONW instalado. El JSON permite contrastar selectores, handlers y clasificación de ventanas. No equivale a prueba de apertura ni se ha ejecutado en Vivaldi.
