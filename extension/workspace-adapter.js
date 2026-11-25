@@ -3,8 +3,8 @@ export const PROTOCOL = 3;
 export const validWindow = n => Number.isSafeInteger(n) && n > 0;
 export const validWorkspace = n => (Number.isSafeInteger(n) && n >= 0) || (typeof n === "string" && n.length > 0 && n.length <= 128);
 
-export function getLanguage(saved, browserLanguage = "en") {
-  return saved === "es" || saved === "en" ? saved : /^es(?:-|$)/i.test(browserLanguage) ? "es" : "en";
+export function getLanguage(saved) {
+  return saved === "es" || saved === "en" ? saved : "es";
 }
 
 export function validateSnapshot(data) {

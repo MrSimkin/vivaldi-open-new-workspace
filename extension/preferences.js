@@ -1,4 +1,4 @@
-export const THEMES = Object.freeze(["dark-gray","light-gray","light-blue"]);
+export const THEMES = Object.freeze(["dark-gray","light-gray","light-blue","dark-blue"]);
 export const DEFAULT_THEME = "dark-gray";
 export function getTheme(value) {
   return THEMES.includes(value) ? value : DEFAULT_THEME;

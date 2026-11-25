@@ -2,10 +2,11 @@
 <html lang="es" data-theme="dark-gray"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open New Workspace</title><link rel="stylesheet" href="popup.css"><script type="module" src="popup.js"></script></head>
 <body><main>
 <header><div class="brand"><img src="icons/nw-32.png" width="28" height="28" alt=""><h1>Open New Workspace</h1></div><select id="language" aria-label="Language / Idioma"><option value="es">ES</option><option value="en">EN</option></select></header>
-<details id="settings"><summary id="settingsLabel">Configuración</summary><div class="setting"><label for="theme" id="themeLabel">Tema</label><select id="theme"><option value="dark-gray">Gris oscuro</option><option value="light-gray">Gris claro</option><option value="light-blue">Claro azulado</option></select></div></details>
+<details id="settings"><summary id="settingsLabel">Configuración</summary><div class="setting"><label for="theme" id="themeLabel">Tema</label><select id="theme"><option value="dark-gray">Gris oscuro</option><option value="light-gray">Gris claro</option><option value="light-blue">Claro azulado</option><option value="dark-blue">Azul oscuro</option></select></div></details>
 <button id="new" disabled><span id="newLabel"></span><small id="newDetail"></small></button>
 <button id="base"><span id="baseLabel"></span><small id="baseDetail"></small></button>
 <p id="status" role="status"></p>
+<details id="errorDetails" hidden><summary id="errorSummary">Detalles del error</summary><code id="errorCode"></code></details>
 <section id="list" aria-labelledby="existingLabel"><div id="existing"><div><h2 id="existingLabel"></h2><small id="existingDetail"></small></div><button id="refresh"></button></div><p id="listStatus" role="status"></p><div id="items"></div></section>
 <small id="version">0.1.4 experimental</small>
 </main></body></html>
