@@ -2,7 +2,7 @@
 
 ## 0.1.5 en desarrollo (no release, no instalar)
 
-- Identidad de fila corregida según estructura nativa estática; códigos de fallo diferenciados. Panel lateral y QA runtime pendientes.
+- Identidad de fila corregida según estructura nativa estática; códigos de fallo diferenciados. CI Windows 40/40; check/test/build aprobados. Panel lateral y QA runtime pendientes.
 
 - Registrada QA real 0.1.4: 13 OK, 2 parciales, 2 fallos y 1 no comprobable.
 - Requisitos nuevos confirmados: ES por defecto solo si no hay preferencia válida previa; conservar EN explícito. Cuatro temas persistentes: gris oscuro predeterminado, gris claro, claro azulado y Dark Blue (azul oscuro atenuado). Objetivo ancho efectivo 420 px y menor altura, sin perder tres acciones/listado/icono NW; error compacto con código desplegable y advertencia de ventana adicional visible.

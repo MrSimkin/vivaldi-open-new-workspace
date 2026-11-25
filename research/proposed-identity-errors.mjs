@@ -1,5 +1,5 @@
-// Proposed diagnostic classification; not used by the product or build.
-// Apply only after native component evidence and contract review; not a fix for identity.
+// HISTORICAL proposal for 0.1.4; superseded by native-name fix and integrated error codes. Not used by the product or build.
+// DO NOT apply to current main; anchors intentionally target historical 0.1.4.
 export function transform(source) {
   const edits=[
     ['if(candidates.length!==1||mapping.has(candidates[0].id))return {code:"NATIVE_ROW_IDENTITY_UNVERIFIED"};',
