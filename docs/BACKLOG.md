@@ -12,7 +12,7 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-006 | P0 | Candidata implementada | MV3 + worker + puente independiente, pendiente validar arquitectura en única instalación habitual, con D-033. |
 | ONW-007 | P0 | Bloqueada parcialmente | QA-ONW-014: foco activo y catálogo OK; apertura inactiva falla, identidad parcial, panel lectura aparece. Evidencia estática pendiente; no repetir V1/V2. |
 | ONW-008 | P0 | Pendiente | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |
-| ONW-009 | P1 | En curso 0.1.5 | QA 0.1.4 ancho parcial; cuatro temas, ES inicial, compactar error y altura; verificar ancho efectivo 420px. |
+| ONW-009 | P1 | Implementación y CI OK; runtime pendiente | UX 0.1.5 integrada, 36/36 CI; verificar ancho efectivo 420px y menor altura en Vivaldi cuando exista candidato coherente. |
 | ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
 | ONW-012 | P0 | Recuperación reportada; coexistencia pendiente | DTC falla con y sin ONW/puente en ambos ámbitos según aislamiento reportado; causa no demostrada. V2 confirma ambos listeners registrados; DTC funciona normalmente sin cambios/reinicio según propietario; causa transitoria desconocida. Verificar coexistencia después de operaciones ONW; no modificar DTC. |
@@ -28,3 +28,5 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 Actualizar estados sin eliminar tareas históricas. Añadir evidencia, commit o referencia de prueba al cerrar tareas relevantes.
 
 0.1.5 en desarrollo, no instalar ni reiniciar; no release ni incremento de versión aún. Integrar UX y pruebas sobre fuente exacta, comprobar check/test/build y CI Windows. Identidad y panel requieren evidencia estática del componente nativo de Vivaldi 8.3.4191.47: no elegir por ordinal, subcadena ni relajar biyección; no cerrar panel ni ventanas automáticamente. D-033/D-034 vigentes; no modificar DTC. Si falta evidencia, solicitar exclusivamente fragmentos estáticos focalizados de resources/vivaldi, sin reinicio ni nueva QA.
+
+Próxima acción única ONW-007: informe estático ONW-ROW-STATIC-1; no repetir dinámica ni instalar. Clasificación diagnóstica preservada inerte en research.
