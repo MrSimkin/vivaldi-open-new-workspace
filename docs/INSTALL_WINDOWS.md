@@ -16,6 +16,8 @@ En el Vivaldi de prueba abrir vivaldi://extensions, activar Modo desarrollador, 
 
 ## 2. Instalar puente (manual, explícito y reversible)
 
+Antes de solicitar cerrar/reiniciar Vivaldi, cumplir puerta de continuidad de AGENTS.md y docs/WORKFLOW.md: actualizar checkpoint y docs/RESUME_PROMPT.md, entregar al propietario prompt íntegro copiable/descargable para guardar fuera del navegador. No continuar a cierre si falta ese traspaso.
+
 Antes de editar, identificar la instalación de prueba por vivaldi://about (Mostrar más, ruta del ejecutable). Cerrar únicamente esa instancia de prueba cuando no tenga trabajo que preservar. No cerrar ni reiniciar Vivaldi habitual. Localizar el subdirectorio Application\<versión>\resources\vivaldi que contiene window.html. Confirmar que es la versión activa de la instalación separada, no el perfil User Data, ni la instalación habitual.
 
 - Hacer copia de window.html con un nombre nuevo window.html.onw-backup; no sobrescribir copia previa. Si existe un backup ONW anterior, conservarlo y usar nombre con fecha. No reutilizar ni alterar backup DTC.

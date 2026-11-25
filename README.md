@@ -37,6 +37,7 @@ No hay dependencias npm externas. `npm run build` copia el contenido de `extensi
 - [Diseño](docs/DESIGN.md): arquitectura, UX, privacidad y alternativas.
 - [Viabilidad de Workspaces](docs/FEASIBILITY.md): investigación y criterio de parada.
 - [Estado](docs/STATUS.md): checkpoint de desarrollo, build y pruebas.
+- [Prompt de continuidad](docs/RESUME_PROMPT.md): contexto completo para otro chat temporal; actualizar y entregar antes de pedir cualquier cierre/reinicio de Vivaldi.
 - [Pendientes](docs/BACKLOG.md): tareas priorizadas y aceptación.
 - [Pruebas](docs/TESTING.md): automatización y matriz de pruebas Windows.
 - [Decisiones](docs/DECISIONS.md): registro de decisiones y su autoridad.

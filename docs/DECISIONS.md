@@ -42,4 +42,6 @@
 | D-028 | 2026-11-25 | Tres temas elegibles y persistentes, conservando icono NW; gris oscuro inicial y dos claros atenuados. | Propietario: selección de temas y sensibilidad a luminosidad; agente: valores concretos y valor inicial reversible. |
 | D-029 | 2026-11-25 | Separar diagnóstico DTC (falla con y sin ONW) y corrección Existing (panel lateral solo en esta ruta); no repetir aislamiento ni corregir ocultando panel. | Reporte propietario; agente: inferencia acotada, causalidad no probada. |
 
+| D-030 | 2026-11-25 | Antes de cada solicitud de cierre/reinicio de Vivaldi, entregar prompt de continuidad completo y actualizado en chat y repo; formularios con comentarios adicionales. | Propietario: obligatorio por uso de chat temporal; agente: archivo docs/RESUME_PROMPT.md y puerta en AGENTS/WORKFLOW. |
+
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.

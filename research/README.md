@@ -29,3 +29,5 @@ El repositorio público no debe contener informes con datos de usuario ni códig
 ## Diagnóstico dirigido ONW-MENU (solo lectura, 0.1.2)
 
 Con ONW desactivado y sin su puente, preferentemente en instalación de prueba, abrir DevTools de window.html como en Paso 3. Revisar inspect-native-workspace-menu.js. Ejecutar su contenido en esa consola; cuando aparezca el aviso, abrir manualmente el selector nativo de Workspaces y dejarlo visible ocho segundos, sin seleccionar un espacio. Volver a DevTools y copiar únicamente JSON ONW-MENU. Si DevTools impide mantener menú visible, informar bloqueo; no desactivar protecciones. El informe solo incluye estructura, handlers conocidos, coincidencias por ordinal, conteos y estado activo; no nombres/IDs/URL/títulos. No modifica DOM, no instala listeners, no ejecuta eventos ni toca DTC. Si rowsAfter vacío, no inferir ausencia del menú sin verificar que estaba abierto.
+
+No reiniciar Vivaldi para ONW-MENU. Si un diagnóstico posterior realmente requiere cierre/reinicio, cumplir primero la puerta de continuidad de AGENTS.md y docs/WORKFLOW.md.

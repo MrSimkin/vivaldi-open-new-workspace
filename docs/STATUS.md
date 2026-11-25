@@ -108,6 +108,12 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 
 - Preparado research/inspect-native-workspace-menu.js y guía: captura de estructura/handlers/coincidencia exacta por ordinal y estado activo, sin nombres/IDs ni eventos; puede ejecutarse sin ONW instalado. No ejecutado en runtime. Si selector se cierra al inspeccionar, registrar bloqueo. No se requieren nuevos intentos de apertura automática.
 
+## Continuidad y siguiente diagnóstico (2026-11-25)
+
+- CI de temas 799a17e aprobada en Windows (run 45642456686; check/test/build). Revisión visual en Vivaldi pendiente. HEAD anterior a esta documentación: 2cf9243ae0b184222c2f7abe9d26a7c48bc8bdaa.
+- Propietario trabaja en chat temporal: antes de pedir cerrar/reiniciar Vivaldi, obligatorio actualizar checkpoint y docs/RESUME_PROMPT.md y entregar prompt completo copiable/descargable en chat. Formularios con comentarios adicionales. Regla incorporada a AGENTS y WORKFLOW.
+- Diagnóstico inmediato ONW-MENU de solo lectura, sin reinicio ni reinstalación. Último estado local según aislamiento: ONW desactivado y sin referencia de puente; no consta reinstalación. No repetir prueba DTC ni usar Existing automático. Solicitar JSON o bloqueo y comentarios; analizar después. No se ha ejecutado Vivaldi desde agente ni se cambió código, DTC o instalación.
+
 ## Bloqueos y siguiente acción
 
 1. P0: corregir selección existente y enfoque mediante evidencia UI real de solo lectura en prueba separada; DTC tiene fallo independiente reproducible sin ONW, recuperar su línea base antes de aceptar coexistencia. No reinstalar puente en habitual hasta validar.

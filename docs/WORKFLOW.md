@@ -21,3 +21,11 @@ Requisitos aceptados; código y documentación coherentes; tests apropiados pasa
 ## Versionado y releases
 
 Manifest y package.json comparten versión SemVer. 0.x indica desarrollo. No etiquetar release ni publicar en tienda sin autorización. El build local no equivale a release. Mantener CHANGELOG y artefactos reproducibles desde fuente.
+
+## Puerta de continuidad antes de cierre/reinicio
+
+1. Confirmar necesidad de reinicio y reducirlos al mínimo; distinguir reinicio de recarga de extensión.
+2. Antes de solicitarlo, actualizar STATUS, decisiones/backlog si aplica y docs/RESUME_PROMPT.md con contexto completo y checkpoint actual. Indicar HEAD verificado, código y CI, estado local reportado, QA, pendientes, pasos antes/después y reversión.
+3. Entregar el prompt completo en el chat, copiable o descargable, no solo un enlace. Permitir guardarlo fuera de Vivaldi antes del cierre. No asumir memoria o acceso al chat temporal tras reinicio.
+4. No cerrar/reiniciar por cuenta propia. Al retomar, leer prompt y HEAD, revisar delta y seguir desde evidencia pendiente; no repetir pruebas.
+5. Todo formulario de preguntas/QA incluye campo de comentarios adicionales y acepta respuestas parciales.
