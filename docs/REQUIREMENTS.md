@@ -65,3 +65,7 @@ Las tres operaciones deben actuar sobre el sistema nativo de Vivaldi, mantener a
 
 ## RNF-08 — Entregas futuras (D-039)
 Cada actualización a instalar debe entregarse como ZIP con nombre específico de versión y script PowerShell mantenido en el repositorio, con instrucciones mínimas, respaldo, verificación y reversión selectiva según D-033/D-034. No exigir al propietario Node/npm. No sobrescribir entregas históricas ni modificar DTC.
+
+## Estado de aceptación 0.1.5 (2026-11-25)
+
+QA-ONW-015 acepta las operaciones Base/Existing, preservación de ventana y pestañas, UX, temas e idioma en entorno del propietario. RF-15: panel no reproducido, causa raíz no demostrada. No consta medición exacta de ancho ni prueba limpia del idioma inicial. New Workspace deshabilitado conforme al alcance parcial de 0.1.5; creación rápida/personalizada sigue pendiente. No se satisface aún la aceptación original de las tres operaciones del MVP completo.
