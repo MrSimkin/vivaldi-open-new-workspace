@@ -93,6 +93,12 @@ Entorno de verificación: Linux, Node.js v22.16.0, 2026-11-25 (entorno de ejecuc
 - 0.1.3 candidato UX exclusivamente: popup 420px, claro, catálogo visible y consulta automática al abrir, botón actualizar, icono NW PNG local y versión coherente. No se cambia bridge, worker, permisos ni lógica de apertura/enfoque. No instalar candidato habitual hasta recuperar DTC. Tests estáticos añadidos; CI de esta revisión aún no verificada, no se afirma runtime.
 - Próximo: recuperar DTC mediante aislamiento, confirmar diagnóstico; después corregir lógica de foco/selección con evidencia y retestar. No se publica release ni se modifica repositorio DTC.
 
+## Observación adicional y ajuste visual (2026-11-25)
+
+- Propietario solicita paleta gris; candidato 0.1.3 mantiene 420px, modo claro, lista automática y NW, ahora en escala de grises. CI de candidato anterior 3d429ec aprobada (run 45640892074, check/test/build); la revisión gris requiere CI propia.
+- El propietario observa apertura del panel lateral nativo «Lista de vistas de lectura» al abrir una nueva ventana mediante ONW. No consta si sucede con Base, Existing o ambos, ni si una ventana nativa también restaura el panel. No atribuir todavía a ONW ni a DTC. ONW no invoca explícitamente lista de lectura.
+- Comparación de bridge con mod comunitario workspaceButtons.js: ONW despacha eventos pointerdown/up sobre elemento DOM o click; referencia invoca directamente el handler React onPointerDown con pointerup posterior. Diferencia plausible en interacción, no causa demostrada. No ampliar selectores ni ocultar panel como compensación. Obtener evidencia mínima de apertura nativa vs base vs existente cuando sea seguro; priorizar recuperar DTC y no repetir mutaciones fallidas. Sin cambios de bridge, worker, permisos ni lógica en este ajuste.
+
 ## Bloqueos y siguiente acción
 
 1. P0: recuperar DTC y aislar causa; no reinstalar puente ONW en habitual hasta diagnóstico.

@@ -18,7 +18,7 @@ Popup ES/EN + service worker MV3 + adaptador + puente ONW por ventana. El worker
 
 ## 0.1.3 candidato UX
 
-Popup claro de 420px, listado existente visible desde el inicio y consulta automática sin clic extra. Mantiene botón de actualizar, etiquetas de acción, idioma, creación deshabilitada y mensaje de resultado antes de la lista. Icono NW PNG local en cuatro tamaños. Sin cambios a bridge, protocolo, worker ni lógica de dominio; la incidencia DTC y los fallos de foco/selección siguen abiertos.
+Popup claro de 420px en escala de grises (preferencia del propietario), listado existente visible desde el inicio y consulta automática sin clic extra. Mantiene botón de actualizar, etiquetas de acción, idioma, creación deshabilitada y mensaje de resultado antes de la lista. Icono NW PNG gris local en cuatro tamaños. Sin cambios a bridge, protocolo, worker ni lógica de dominio; la incidencia DTC y los fallos de foco/selección siguen abiertos.
 
 ## Preview 0.1.1 (histórico)
 

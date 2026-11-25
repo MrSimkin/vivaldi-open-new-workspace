@@ -2,8 +2,9 @@
 
 ## 0.1.3 candidata UX (2026-11-25) | sin release
 
-- Popup más ancho (420px), fondo claro, listado automático visible, refresco manual e icono NW.
+- Popup más ancho (420px), fondo gris claro, listado automático visible, refresco manual e icono NW gris.
 - Se registran resultados reales de 0.1.2: catálogo, base e idioma OK; interfaz parcial; foco y apertura fallan. Incidencia DTC sin detección, coexistencia no aprobada.
+- Registrada apertura inesperada del panel lateral Lista de vistas de lectura; causa pendiente y comparación de eventos DOM/React documentada.
 - Sin cambios a bridge, permisos, worker ni lógica de selección; no instalar en habitual hasta recuperar DTC. Tests estáticos añadidos, CI nueva pendiente de verificación.
 
 ## 0.1.2 experimental (2026-11-25) | sin release

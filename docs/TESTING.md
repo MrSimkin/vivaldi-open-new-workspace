@@ -75,3 +75,7 @@ No asumir aprobación por pruebas unitarias o por Standalone sin DTC. Priorizar 
 DTC: usar Do nothing, dos pestañas de prueba con URL idéntica no excluida en mismo Workspace/ventana; comparar Active window y Active Vivaldi Workspace. Capturar Copy diagnostics si hay aviso. Aislar desactivando ONW y retirando únicamente su referencia UI con Vivaldi cerrado; comprobar DTC tras reiniciar voluntariamente. No cerrar duplicados ni volver a activar ONW en habitual hasta resolver incidencia. La diferencia entre scopes permite distinguir motor de duplicados y bridge sin alterar código DTC.
 
 0.1.3 UX: pruebas estáticas de lista visible y consulta inicial, tema claro, cabeceras/dimensiones PNG. Runtime pendiente; no confundir con corrección de foco/selección.
+
+### Incidencia adicional: panel lateral Lista de vistas de lectura
+
+Reporte de propietario: al abrir una nueva ventana con ONW aparece dicho panel. No se ha aislado la operación específica. Comparar, cuando sea seguro, Ctrl+N nativo y Workspace base con panel previamente cerrado; aprovechar observación existente de Workspace existente y código persistido, sin repetir mutaciones fallidas solo para QA. Registrar qué operación abre el panel, estado previo y si selector nativo también aparece. No modificar ni cerrar panel automáticamente. Priorizar recuperación DTC. La diferencia entre evento DOM de ONW y handler React de referencia es hipótesis, no resultado confirmado.

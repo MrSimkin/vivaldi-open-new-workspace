@@ -1,6 +1,6 @@
-:root { color-scheme: light; font: 14px/1.4 system-ui, sans-serif; color: #203049; background: #fff; }
+:root { color-scheme: light; font: 14px/1.4 system-ui, sans-serif; color: #303030; background: #f4f4f4; }
 * { box-sizing: border-box; }
-body { margin: 0; width: 420px; max-width: 100vw; background: #fff; color: #203049; }
+body { margin: 0; width: 420px; max-width: 100vw; background: #f4f4f4; color: #303030; }
 main { padding: 14px; }
 header, .brand, #existing { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 header { margin-bottom: 12px; }
@@ -9,19 +9,19 @@ header { margin-bottom: 12px; }
 h1 { font-size: 16px; margin: 0; }
 h2 { font-size: 14px; margin: 0; }
 select, button { font: inherit; color: inherit; }
-select { border: 1px solid #b8c6d6; background: #fff; border-radius: 6px; padding: 4px; }
-button { display: block; width: 100%; text-align: left; padding: 9px 11px; margin: 6px 0; border: 1px solid #ced9e5; border-radius: 8px; background: #fff; cursor: pointer; overflow-wrap: anywhere; }
+select { border: 1px solid #bdbdbd; background: #f4f4f4; border-radius: 6px; padding: 4px; }
+button { display: block; width: 100%; text-align: left; padding: 9px 11px; margin: 6px 0; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; cursor: pointer; overflow-wrap: anywhere; }
 button span { display: block; font-weight: 650; }
-small { display: block; font-size: 12px; color: #53647b; }
-button:disabled { background: #f4f6f9; color: #66758a; cursor: default; }
-button:not(:disabled):hover { background: #eaf4ff; border-color: #5594ca; }
-button:focus-visible, select:focus-visible { outline: 2px solid #1766a5; outline-offset: 2px; }
-#base:not(:disabled) { background: #edf5ff; border-color: #a9c6e7; }
-section { border-top: 1px solid #dce5ee; margin-top: 13px; padding-top: 11px; }
+small { display: block; font-size: 12px; color: #555555; }
+button:disabled { background: #e8e8e8; color: #666666; cursor: default; }
+button:not(:disabled):hover { background: #e1e1e1; border-color: #888888; }
+button:focus-visible, select:focus-visible { outline: 2px solid #555555; outline-offset: 2px; }
+#base:not(:disabled) { background: #e7e7e7; border-color: #b0b0b0; }
+section { border-top: 1px solid #d1d1d1; margin-top: 13px; padding-top: 11px; }
 #refresh { width: auto; margin: 0; padding: 5px 8px; font-size: 12px; flex: none; }
 #items { max-height: 330px; overflow-y: auto; padding: 0 3px 2px 2px; }
 #items button { margin: 5px 0; }
 p { margin: 8px 0; overflow-wrap: anywhere; }
 #listStatus:empty, #status:empty { display: none; }
-#status { background: #f1f5f9; padding: 8px; border-radius: 6px; font-size: 12px; }
-#version { color: #66758a; margin-top: 10px; font-size: 11px; }
+#status { background: #e9e9e9; padding: 8px; border-radius: 6px; font-size: 12px; }
+#version { color: #666666; margin-top: 10px; font-size: 11px; }

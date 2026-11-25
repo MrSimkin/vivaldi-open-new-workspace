@@ -10,9 +10,9 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-004 | P0 | Hecho por reporte | Cargar scaffold en Vivaldi Windows y documentar versión y resultado del smoke test. |
 | ONW-005 | P0 | En curso (runtime pendiente) | Revisión documental DTC y fuentes externas realizada; matriz y plan P0-P4 en FEASIBILITY. Referencias P3 revisadas; herramientas de diagnóstico en research/. Versión recibida; priorizar selección y apertura nativa de existentes y base. Ruta por menú nativo identificada y programada; verificar en Vivaldi 8.3. Creación diferible a ONW-011. |
 | ONW-006 | P0 | Candidata implementada | MV3 + worker + puente independiente, pendiente validar arquitectura en instalación de prueba. |
-| ONW-007 | P0 | Parcial; foco/apertura fallan | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; listado y base OK por reporte; foco y apertura fallan; obtener códigos y corregir. No equivale a aceptación. |
+| ONW-007 | P0 | Parcial; foco/apertura fallan | 0.1.2: código de listado, apertura y foco de existentes; CI Windows aprobada; listado y base OK por reporte; foco y apertura fallan; obtener códigos y corregir; investigar panel lateral de lista de lectura abierto inesperadamente. No equivale a aceptación. |
 | ONW-008 | P0 | Pendiente | Validar operación real en Windows, preservación de pestañas y casos de error aprobados. |
-| ONW-009 | P1 | Candidato 0.1.3 UX | 420px, claro, lista automática sin clic adicional, icono NW; pendiente CI y prueba real. |
+| ONW-009 | P1 | Candidato 0.1.3 UX | 420px, claro en grises, lista automática sin clic adicional, icono NW; pendiente CI y prueba real. |
 | ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
 | ONW-012 | P0 | Bloqueado por incidencia | DTC reportado sin detección tras instalar ONW; OK inicial/final anulados. Aislar ONW y recuperar DTC; recoger diagnóstico; no cambiar DTC. |

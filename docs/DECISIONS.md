@@ -34,7 +34,9 @@
 | D-023 | 2026-11-25 | Coexistencia mediante puentes separados: verificar referencias y hashes, no sobrescribir modificaciones concurrentes, revertir únicamente ONW. Mantener DTC y su reparador intocados. | Propietario: restricciones explícitas; agente: controles técnicos y pruebas C-01 a C-05. |
 | D-024 | 2026-11-25 | Recomendar utilidad asistida manual PowerShell con modo diagnóstico por defecto y escritura/reversión explícitas, frente a edición manual repetitiva o tarea residente. | Agente: propuesta, no implementada ni autorización de ejecución. |
 
-| D-025 | 2026-11-25 | UX: lista automática visible, popup más ancho, fondo claro, icono NW; creación sigue diferida. | Propietario: solicitado; agente: ancho 420px, estilo azul/blanco e iconos PNG. |
+| D-025 | 2026-11-25 | UX: lista automática visible, popup más ancho, fondo claro, icono NW; creación sigue diferida. | Propietario: solicitado; agente: ancho 420px, estilo azul/blanco inicial e iconos PNG. |
 | D-026 | 2026-11-25 | Incidencia DTC bloquea uso habitual; separar cambios UX de corrección del bridge; recuperar DTC y obtener diagnóstico antes de alterar lógica. | Agente: precaución técnica; no atribuir causalidad sin evidencia. |
+
+| D-027 | 2026-11-25 | Sustituir paleta azul por escala de grises clara, incluido icono NW; conservar ancho y lista automática. | Propietario: preferencia gris; agente: tonos concretos. |
 
 Añadir nuevas decisiones con contexto, alternativas, motivo, impacto y autoridad. No convertir propuestas en decisiones del propietario sin confirmación.
