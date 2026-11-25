@@ -20,6 +20,7 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-011 | Diferido | Creación nativa rápida/personalizada; siguiente etapa propuesta. |
 | ONW-012 | Cerrado para QA-ONW-015 | DTC inicial/final OK; causalidad histórica desconocida. |
 | ONW-013 | Implementado; validación Windows pendiente | Instalador D-039; validar en siguiente instalación necesaria. |
+| ONW-014 a ONW-016 | Reglas operativas activas | Continuidad, D-033 y D-034; D-039 complementaria. |
 
 ## Historial de backlog (no operativo)
 
