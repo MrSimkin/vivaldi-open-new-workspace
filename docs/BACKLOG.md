@@ -15,6 +15,8 @@ P0 = bloqueante; P1 = próximo MVP; P2 = posterior. No ejecutar tareas de produc
 | ONW-009 | P2 | Pendiente | Pulir icono propio de la extensión, presentación, accesibilidad y preferencias; idioma incluido en preview; iconos de creación quedan asociados a ONW-011. |
 | ONW-010 | P2 | Parcial (guía local lista) | Definir licencia, distribución, versión mínima y política de releases; no publicar sin permiso. |
 
+| ONW-012 | P0 | Pendiente runtime | Coexistencia DTC: referencias y hashes preservados, pruebas C-01 a C-03; C-04/C-05 cuando sea seguro. Guía revisada, sin cambios DTC. |
+| ONW-013 | P1 | Propuesta | Evaluar utilidad PowerShell manual con diagnóstico read-only, vista previa, aplicar/revertir explícitamente; sin modificar DTC, sin tarea residente ni reinicio. Validar antes de uso habitual. |
 | ONW-011 | P2 | Diferible | Creación rápida y personalizada de Workspace nativo (RF-02 a RF-06), nombre/iconos/emoji si posible. No bloquea primera entrega. |
 
 Actualizar estados sin eliminar tareas históricas. Añadir evidencia, commit o referencia de prueba al cerrar tareas relevantes.
