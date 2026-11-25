@@ -4,7 +4,7 @@ Versión objetivo: Vivaldi 8.3.4191.47 x64 / Chromium 156.0.8078.110. Check/test
 
 ## Descargar
 
-[ZIP de fuentes 0.1.2, revisión fija](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/e08b4da26206a64ca9f986a2e5eb723e515ad459.zip). También se puede descargar Code > Download ZIP desde GitHub, verificando versión. Extraer a carpeta permanente (p. ej. C:\Tools\Open-New-Workspace). Conservar las carpetas extension y bridge. No se necesita Node.js, npm, CRX, tienda ni compilación: extension/ ya es cargable.
+[ZIP de fuentes 0.1.2, revisión fija](https://github.com/MrSimkin/vivaldi-open-new-workspace/archive/e08b4da26206a64ca9f986a2e5eb723e515ad459.zip). La revisión de fuentes precede a la guía de instalación: consultar este documento en main. El diff entre el commit de CI a0f43b3 y e08b4da solo contiene Markdown. También se puede descargar Code > Download ZIP desde GitHub, verificando versión. Extraer a carpeta permanente (p. ej. C:\Tools\Open-New-Workspace). Conservar las carpetas extension y bridge. No se necesita Node.js, npm, CRX, tienda ni compilación: extension/ ya es cargable.
 
 ## Primera prueba: Vivaldi independiente
 
@@ -35,6 +35,18 @@ Abrir Vivaldi de prueba desde su ejecutable. El bridge debe cargarse en cada ven
 Crear manualmente dos Workspaces ficticios, uno activo en una ventana distinta y otro inactivo. En ONW, seleccionar Workspace existente: debe mostrar nombres reales. Seleccionar el activo: debe enfocar su ventana sin crear otra. Seleccionar el inactivo: debe abrir una ventana y activar ese Workspace; confirmar pestañas del espacio y ventana original intactas. Probar Base: nueva ventana sin Workspace personalizado. Verificar que New permanece deshabilitado y que idioma ES/EN cambia. Ante cualquier error, no repetir ciegamente, no cerrar ventanas con datos: registrar código de error (sin nombres, URLs ni capturas personales) y cuál de las operaciones falló.
 
 Si las operaciones pasan, repetir la misma instalación manual en el navegador habitual solo cuando el propietario lo decida y con backup propio. No modificar DTC ni su script. No se necesita realizar QA extensa ahora; no declarar integración funcional sin estas pruebas. 
+
+## Coexistencia con Duplicate Tabs Closer (DTC)
+
+Revisión estática 2026-11-25: ONW df7fda8, DTC a3b20600bdab4a0f58bade05f0175da5822e259a. Los puentes tienen IDs, protocolos, variables de listener y carpetas diferentes. DTC Repair-VivaldiBridge.ps1 conserva el HTML leído e inserta su referencia si falta, pero no coordina escrituras concurrentes. No se ha inspeccionado el archivo instalado del propietario ni probado coexistencia real.
+
+Antes de intervenir en la instalación habitual, aprobar la prueba Standalone. Con autorización posterior, registrar funcionamiento inicial DTC (consulta/revisión de duplicados sin cerrar pestañas), versión activa, referencias script y hash SHA256 de window.html y del bridge DTC si presente. Si DTC está instalado pero falta su referencia o archivo, detenerse y diagnosticar; no repararlo desde ONW. No editar ni desactivar su reparador, tarea, backups ni puente.
+
+En cada edición ONW: conservar una copia nueva de window.html con fecha/hora; verificar hash justo antes de guardar, evitar una escritura si ha cambiado desde la lectura y comparar después el resultado con el original (único cambio autorizado: referencia ONW). Verificar exactamente una referencia ONW, referencias DTC intactas, hashes del bridge DTC y del nuevo bridge ONW frente a sus originales. Si hay cambio inesperado, detenerse, no restaurar automáticamente un HTML antiguo; revisar la versión actual. La comprobación de hash no elimina por completo una carrera con el reparador. No ejecutar deliberadamente reparaciones simultáneas. No modificar directorios de otras versiones.
+
+Tras arrancar voluntariamente, ejecutar casos C-01 a C-05 de TESTING.md con pestañas ficticias; comprobar DTC antes y después de cambiar Workspace mediante ONW. No activar cierre automático ni cerrar duplicados reales para la prueba. Una prueba Standalone sin DTC no valida coexistencia: para validarla allí se requiere una instalación de DTC independiente y autorizada, o una prueba posterior en habitual autorizada. Si falla DTC, detener operaciones ONW y revertir solo ONW.
+
+Se recomienda evaluar una utilidad PowerShell manual de diagnóstico (por defecto solo lectura), vista previa y aplicación/reversión explícita, sin elevación, reinicios, tareas residentes ni reparación de DTC. No está implementada ni validada; la guía manual sigue siendo la alternativa.
 
 ## Desinstalación / reversión
 
